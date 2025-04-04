@@ -1,0 +1,81 @@
+.sidebar {
+  min-width: 4.375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background-color: #28303F;
+  box-shadow: 6px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.custom-tooltip {
+  position: absolute;
+  top: 1.875rem;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 0.3125rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 100;
+}
+
+.svg-white {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+.custom-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  border: 0.4375rem solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.8);
+  transform: translateX(-20%);
+}
+
+.sidebar-icon {
+  @media screen and (max-width: 640px) {
+    height: 1.875rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 1.875rem;
+  }
+
+}
+
+.sidebar-icon img {
+  @media screen and (max-width: 640px) {
+    width: 0.875rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 0.875rem;
+  }
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  box-shadow: 0px 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  min-width: 12.5rem;
+  z-index: 1000;
+}
+
+.profile-dropdown-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.profile-dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.profile-dropdown-item.red {
+  color: red;
+}

@@ -1,0 +1,27 @@
+.custom-tabs .ant-tabs-nav {
+  border-bottom: 1px solid #e0e0e0; /* Light border for the tabs */
+}
+
+.custom-tabs .ant-tabs-tab {
+  padding: 8px 16px; /* Adjust padding for the tabs */
+  font-weight: 500;
+}
+
+.custom-tabs .ant-tabs-tab-active .tab-item {
+  color: #1890ff; /* Active tab color */
+  border-bottom: 2px solid #1890ff; /* Active tab underline */
+}
+
+.tab-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-count {
+  background-color: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}

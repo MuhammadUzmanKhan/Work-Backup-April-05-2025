@@ -1,0 +1,12 @@
+{
+  "actions": {
+    "added": "einen neuen Kernvorfallstyp {second_val} hinzugefügt",
+    "added_variant": "eine Variante {second_val} zu {incident_type_name} zu {name} hinzugefügt",
+    "changed_to": "geändert {first_val} zu {second_val} in {name}",
+    "updated_to": "geändert {first_val} zu {second_val} in {name}"
+  },
+  "labels": {
+    "name": "Name",
+    "translation": "Übersetzung"
+  }
+}

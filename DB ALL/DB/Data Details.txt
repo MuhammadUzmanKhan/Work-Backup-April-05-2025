@@ -1,0 +1,6 @@
+ // Details for DB
+1,2 Manual
+3  manual,Company.sql
+4 commands from manual,AJ copy
+5 
+

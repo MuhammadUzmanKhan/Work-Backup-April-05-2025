@@ -1,0 +1,53 @@
+.Workspace {
+  display: grid;
+  
+  @media screen and (max-width: 991px) {
+    grid-template-columns: 1fr; 
+  }
+}
+
+.workspace-form {
+   padding: 2px;
+  width: 100%;
+  max-width: 600px; 
+
+  .ant-form-item {
+    margin-bottom: 15px;
+  }
+
+  .ant-form-item-label {
+    width: 150px; 
+    text-align: left;
+    margin-right: 16px;
+    line-height: 40px;
+  }
+
+  .ant-input {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    font-size: 16px; 
+    height: 40px; 
+    line-height: 40px; 
+    text-align: left; 
+  }
+
+  .submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #1a4895;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 50px; 
+  }
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+     height: 125% !important;
+     min-height: 0; 
+  }
+}

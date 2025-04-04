@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: #212121;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+.page-title {
+  @apply bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text;
+}
+.grid-container-flip-coin {
+  @apply p-6 bg-white text-black rounded shadow;
+}
+.paragraph-tools-info {
+  @apply text-lg mb-4 text-left;
+}
+
+.line {
+  display: flex;
+}
+
+.line-number-container {
+  text-align: start;
+  padding-right: 1em;
+}
+
+.line-content {
+  white-space: inherit;
+}
+
+/* Add this to your global CSS file or a CSS module */
+.scrollable-code {
+  overflow-x: auto;
+  white-space: pre-wrap; /* Ensures long lines wrap in smaller screens */
+}

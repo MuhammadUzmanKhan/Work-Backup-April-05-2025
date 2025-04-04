@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  NestLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/lambdas.handler
+      Runtime: nodejs20.x
+      MemorySize: 128
+      Timeout: 30
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: GET
+      CodeUri: s3://first-aws-lamda/6ca8a4f7433de2ba6b11a7a6484be31b
+    Metadata:
+      SamResourceId: NestLambdaFunction

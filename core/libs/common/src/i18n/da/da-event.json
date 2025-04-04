@@ -1,0 +1,41 @@
+{
+  "actions": {
+    "complete_task": "Opdaterede status for hændelsesopgaven '{subTaskName}' som fuldført",
+    "created": "Oprettet begivenhed",
+    "created_subtask": "Oprettet en begivenhedsopgave '{value}'",
+    "delete_image": "Slettede en fil '{imageName}'",
+    "delete_subtask_image": "Slettede en fil '{imageName}' mod begivenhedsopgave '{subTaskName}'",
+    "demo": "Begivenheden er blevet markeret som demo",
+    "demo_remove": "Begivenheden er ikke længere markeret som demo",
+    "disabled": "{column_name} '{first_val}' er blevet deaktiveret",
+    "enabled": "{column_name} '{value}' er blevet aktiveret",
+    "event_cad": "Uploadede {column_name} '{second_val}' fil med version '{cadVersion}' mod '{cadName}'",
+    "current_version": "Den aktuelle version af '{cadName}' er indstillet til '{cadVersion}'",
+    "image": "Uploadede en fil '{imageName}'",
+    "incomplete_task": "Opdaterede status for hændelsesopgave '{subTaskName}' som afsluttet",
+    "set_to": "{column_name} er blevet indstillet til '{value}'",
+    "subtask_image": "Uploadede en fil '{imageName}' mod begivenhedsopgave '{subTaskName}'",
+    "updated_from": "{column_name} er blevet opdateret fra '{first_val}' til '{second_val}'",
+    "updated_from_subtask": "{column_name} er blevet opdateret fra '{first_val}' til '{second_val}' af en begivenhedsopgave '{subTaskName}'"
+  },
+  "labels": {
+    "about_event": "Om begivenheden",
+    "attachment": "Vedhæftet fil",
+    "deadline": "Deadline",
+    "demo_event": "Demo begivenhed",
+    "division_lock_service": "Division Lock Service",
+    "end_date": "Slutdato",
+    "event cad creation": "Event Cad oprettelse",
+    "event_access_lock": "Begivenhedsadgangslås",
+    "event_cad": "Event CAD",
+    "name": "Navn",
+    "public_end_date": "Offentlig slutdato",
+    "public_start_date": "Offentlig startdato",
+    "start_date": "Start dato",
+    "status": "Status",
+    "subtask": "Event Opgave",
+    "subtask_attachment": "Opgavevedhæftning",
+    "update event cad current version": "Opdater Event Cad nuværende version",
+    "current_version": "Nuværende version"
+  }
+}

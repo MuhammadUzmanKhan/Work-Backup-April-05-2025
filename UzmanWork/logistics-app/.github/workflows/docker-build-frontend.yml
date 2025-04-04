@@ -1,0 +1,69 @@
+name: Docker Build Frontend
+
+on:
+  push:
+    branches:
+      - main
+  merge_group:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Frontend Docker Images
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target:
+          - dev
+          - staging
+          - release
+          - prod
+
+    # Cancel any previously running jobs from this PR
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
+    # This adds the job in a 'concurrency' group. Only one job from each
+    # concurrency group can run at a time. We also cancel all the previously
+    # running or scheduled jobs from the group if it is a pull request
+    # (we do not want to kill jobs on the main branch).
+    # The group name combines
+    #   - repository name
+    #   - the platform name
+    #   - the workflow name (this filename)
+    #   - source branch (we use Run ID in case the brach is not defined e.g. merge queue)
+    concurrency:
+      group: ${{ github.repository }}-${{ matrix.os }}-${{ github.workflow }}-${{ github.head_ref || github.run_id }}-${{ matrix.target }}
+      cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: docker/setup-buildx-action@v2
+      - run: ln -s .${{ matrix.target }}.env .env
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build
+        uses: docker/bake-action@v2.3.0
+        with:
+          targets: frontend
+          files: docker-compose.frontend.yaml,docker-compose.build-frontend.yaml
+          set: |
+            *.cache-from=type=gha,scope=build-frontend-${{ matrix.target }}
+            *.cache-to=type=gha,scope=build-frontend-${{ matrix.target }},mode=max
+            *.tags=ghcr.io/orcamobility/orca.logistics-app.frontend:${{ matrix.target }}-${{ github.sha }}
+          push: ${{ github.event_name == 'push' || github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
+        env:
+          HOST_NAME: ci-machine
+          VERSION: ${{ github.sha }}
+
+  deploy_staging:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/deploy-staging.yml
+    secrets: inherit

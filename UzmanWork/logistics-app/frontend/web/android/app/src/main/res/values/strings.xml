@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Coram</string>
+    <string name="title_activity_main">Coram</string>
+    <string name="package_name">com.coramai.coram</string>
+    <string name="custom_url_scheme">com.coramai.coram</string>
+</resources>

@@ -1,0 +1,120 @@
+services:
+  backend:
+    stop_signal: SIGKILL
+    volumes:
+      - "./backend:/app/backend"
+      - "./scripts:/app/scripts"
+    build:
+      args:
+        - RUN_AS=development
+    depends_on:
+      - postgres-dev
+    environment:
+      PYTHONASYNCIODEBUG: 1
+      ENABLE_ALL_FEATURES: true
+      DISABLE_INSTRUMENTATION_MIDDLEWARE: true
+    deploy:
+      mode: replicated
+      replicas: ${BACKEND_APP_REPLICAS:?error}
+      resources:
+        limits:
+          cpus: "${BACKEND_APP_CPU_PER_REPLICA:?error}"
+
+  backend_edge:
+    stop_signal: SIGKILL
+    volumes:
+      - "./backend:/app/backend"
+      - "./scripts:/app/scripts"
+    build:
+      args:
+        - RUN_AS=development
+    depends_on:
+      - postgres-dev
+    environment:
+      PYTHONASYNCIODEBUG: 1
+      ENABLE_ALL_FEATURES: true
+      DISABLE_INSTRUMENTATION_MIDDLEWARE: true
+    deploy:
+      mode: replicated
+      replicas: ${BACKEND_EDGE_REPLICAS:?error}
+      resources:
+        limits:
+          cpus: "${BACKEND_EDGE_CPU_PER_REPLICA:?error}"
+
+  frontend:
+    stop_signal: SIGKILL
+    volumes:
+      # NOTE: we mount individual files and folders to avoid using anonymous volumes
+      # which are really slow and not cleared up automatically
+      - "./frontend/.eslintignore:/app/frontend/.eslintignore:ro"
+      - "./frontend/.eslintrc.js:/app/frontend/.eslintrc.js:ro"
+      - "./frontend/web/src:/app/frontend/web/src"
+      - "./frontend/web/public:/app/frontend/web/public"
+      - "./frontend/web/dist:/app/frontend/web/dist"
+      - "./frontend/web/.eslintignore:/app/frontend/web/.eslintignore:ro"
+      - "./frontend/web/.eslintrc.js:/app/frontend/web/.eslintrc.js:ro"
+      - "./frontend/web/index.html:/app/frontend/web/index.html:ro"
+      - "./frontend/web/vite.config.js:/app/frontend/web/vite.config.js:ro"
+      - "./frontend/web/tsconfig.json:/app/frontend/web/tsconfig.json:ro"
+    build:
+      args:
+        - RUN_AS=development
+
+  telegraf:
+    stop_signal: SIGKILL
+    volumes:
+      - "./telegraf:/app/telegraf"
+    environment:
+      - IS_PROD=false
+    deploy:
+      mode: replicated
+      # this is a workaround to disable telegraf in development
+      replicas: 1
+
+  message_queue:
+    stop_signal: SIGKILL
+
+  task_worker:
+    environment:
+      ENABLE_ALL_FEATURES: true
+      DISABLE_INSTRUMENTATION_MIDDLEWARE: true
+    stop_signal: SIGKILL
+    depends_on:
+      - postgres-dev
+    profiles:
+      - tasks
+
+  task_scheduler:
+    stop_signal: SIGKILL
+    profiles:
+      - tasks
+
+  task_monitor:
+    stop_signal: SIGKILL
+    profiles:
+      - tasks
+
+  postgres-dev:
+    image: postgres:13.7-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+
+  redis:
+    image: redis:7.0.12-bookworm
+    hostname: redis
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+    ports:
+      - 6379:6379
+    init: true
+    mem_limit: 1g
+    volumes:
+      - ./backend/value_store/redis.conf:/usr/local/etc/redis/redis.conf
+      - redis_data:/data
+
+  nginx:
+    stop_signal: SIGKILL
+
+volumes:
+  redis_data:

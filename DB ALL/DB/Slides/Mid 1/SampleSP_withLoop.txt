@@ -1,0 +1,28 @@
+
+
+create PROCEDURE sp_employee_salary
+    -- Add the parameters for the stored procedure here
+AS
+BEGIN
+    -- SET NOCOUNT ON added to prevent extra result sets from
+    -- interfering with SELECT statements.
+
+DECLARE @fname VARCHAR(500)
+DECLARE @lname VARCHAR(50)
+DECLARE @salary int
+DECLARE table_cursor CURSOR FOR
+SELECT e.fname, e.lname, e.salary
+FROM  employee e
+OPEN table_cursor;
+FETCH NEXT FROM table_cursor 
+INTO @fname, @lname, @salary
+WHILE @@FETCH_STATUS = 0
+    BEGIN               
+		print @fname 
+		FETCH NEXT FROM table_cursor INTO @fname, @lname,
+                @salary
+	END
+CLOSE table_cursor;
+DEALLOCATE table_cursor;
+
+END

@@ -1,0 +1,14 @@
+{
+    "syncMessages": {
+        "description": "Sync Message button is added in linkedin pages",
+        "switch": false
+    },
+
+    "settings": {
+        "autoClose": {
+            "value": true,
+            "description": "The left menu of extension closes when bid preview is clicked and bid preview closes when left menu is open if user sets the property autoClose to true"
+        }
+    }
+    
+}

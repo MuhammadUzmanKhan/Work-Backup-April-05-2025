@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Application</title>
+</head>
+<body>
+  <h1>Chat Application</h1>
+  <div id="messages"></div>
+  <input id="messageInput" placeholder="Type a message" />
+  <input id="recipientInput" placeholder="Recipient (e.g., UserB)" />
+  <button onclick="sendMessage()">Send</button>
+
+  <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+  <script>
+    const userId = prompt("Enter your user ID (e.g., UserA or UserB)");
+
+    const pusher = new Pusher('ece7e555c2f68fec390c', {
+      cluster: 'ap2',
+      authEndpoint: 'http://localhost:3000/chat/authenticate', 
+      auth: {
+        params: { userId: userId },
+        headers: { 'Content-Type': 'application/json' }
+      },
+    });
+
+    // Authenticate and subscribe to the presence channel
+    pusher.connection.bind('connected', function() {
+      const socketId = pusher.connection.socket_id; 
+      console.log('Socket ID:', socketId);
+
+      // Authenticate and subscribe to the presence channel
+      authenticateAndSubscribe(socketId);
+    });
+
+    function authenticateAndSubscribe(socketId) {
+      fetch('http://localhost:3000/chat/authenticate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          socket_id: socketId,
+          channel_name: 'presence-chat-room',
+          userId: userId
+        }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Authentication response:', data);
+
+        // Subscribe to the presence-chat-room channel
+        const channel = pusher.subscribe('presence-chat-room');
+
+        // Bind events to listen to incoming messages
+        channel.bind('pusher:subscription_succeeded', function(members) {
+          console.log('Successfully subscribed to presence channel. Members: ', members);
+        });
+
+        channel.bind('pusher:subscription_error', function(status) {
+          console.error('Subscription error:', status);
+        });
+
+        // Bind to the 'message' event to listen for new messages
+        channel.bind('message', function(data) {
+  // Check if the current user is a recipient
+  if (data.recipients.includes(userId)) {
+    const messageElement = document.createElement('div');
+    messageElement.textContent = `Message from ${data.sender}: ${data.text}`;
+    document.getElementById('messages').appendChild(messageElement);
+    console.log(`Received message: ${data.text}`);
+  }
+});
+
+      })
+      .catch(error => console.error('Error during authentication:', error));
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('messageInput');
+      const recipientInput = document.getElementById('recipientInput');
+      const message = input.value;
+      const recipient = recipientInput.value;
+
+      // Display the sent message in the sender's UI
+      const messageElement = document.createElement('div');
+      messageElement.textContent = `You to ${recipient}: ${message}`;
+      document.getElementById('messages').appendChild(messageElement);
+
+      // Send the message to the server
+      fetch('http://localhost:3000/chat/message-to-subscribers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          channel: 'presence-chat-room', 
+          recipients: [recipient], // Target the specific recipient
+          sender: userId, // Identify the sender
+          text: message // Include the message text
+        }),
+      });
+
+      input.value = '';
+    }
+
+    window.onbeforeunload = function() {
+      // Unsubscribe when the user leaves the page
+      fetch('http://localhost:3000/chat/unsubscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ channel: 'presence-chat-room', userId: userId }),
+      });
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "actions": {
+    "created": "作成されたイベント",
+    "set_to": "{column_name} は '{value}' に設定されました",
+    "updated_from": "{column_name} は '{first_val}' から '{second_val}' に更新されました"
+  },
+  "labels": {
+    "about": "について",
+    "contact_email": "主な連絡先メールアドレス",
+    "contact_name": "主な連絡先名",
+    "contact_phone": "主な連絡先電話番号",
+    "email": "セカンダリメール",
+    "location": "位置",
+    "name": "名前",
+    "number": "セカンダリ番号",
+    "regionName": "地域名",
+    "timezone": "タイムゾーン",
+    "url": "メールアドレス"
+  }
+}

@@ -1,0 +1,1 @@
+export const MAX_ARCHIVE_TITLE_LENGTH = 32;

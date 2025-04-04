@@ -1,0 +1,14 @@
+{
+  "name": "coram-common-utils",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "generate-client": "openapi --input ../../openapi_spec.json --output ./src/backend_client --client axios",
+    "lint": "yarn eslint --exit-on-fatal-error --max-warnings 0 src && yarn tsc && yarn prettier --config ../.prettierrc.json --check . "
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "openapi-typescript-codegen": "^0.23.0"
+  }
+}

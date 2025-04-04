@@ -1,0 +1,20 @@
+<div style='text-align: left;'>
+  {{#if hasAttachment}}
+    <p>A new attachment has been added to the Legal Group for Incident ID:
+      <b>{{incident_id}}</b></p>
+  {{else}}
+    <h4>Hi,</h4>
+    <p>A new message has been added to the Legal Group for Incident ID:
+      <b>{{incident_id}}</b></p>
+  {{/if}}
+
+  {{#if message}}
+    {{#if hasAttachment}}
+      <p>{{message}}</p>
+    {{else}}
+      <p><b>Message:</b> {{message}}</p>
+    {{/if}}
+  {{/if}}
+
+  <p>Best Regards,<br />OnTrack Team</p>
+</div>

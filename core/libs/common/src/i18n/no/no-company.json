@@ -1,0 +1,20 @@
+{
+  "actions": {
+    "created": "Opprettet arrangement",
+    "set_to": "{column_name} er satt til '{value}'",
+    "updated_from": "{column_name} har blitt oppdatert fra '{first_val}' til '{second_val}'"
+  },
+  "labels": {
+    "about": "Om",
+    "contact_email": "Primær kontakt e-post",
+    "contact_name": "Primært kontaktnavn",
+    "contact_phone": "Primær kontakttelefon",
+    "email": "Sekundær e-post",
+    "location": "Plassering",
+    "name": "Navn",
+    "number": "Sekundært nummer",
+    "regionName": "Regionnavn",
+    "timezone": "Tidssone",
+    "url": "URL"
+  }
+}

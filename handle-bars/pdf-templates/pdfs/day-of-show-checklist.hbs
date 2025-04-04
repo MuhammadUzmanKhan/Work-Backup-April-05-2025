@@ -1,0 +1,510 @@
+<html>
+
+<head>
+  <title>front</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #141414;
+      font-size: 12px;
+    }
+
+    .pdf-page {
+      overflow: hidden;
+      position: relative;
+      padding: 0 30px;
+      margin: auto;
+      min-height: 950px;
+    }
+
+    .bottom-bg,
+    .top-bg {
+      opacity: 0.2;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: -1;
+    }
+
+    .bottom-bg {
+      top: inherit;
+      bottom: 0;
+    }
+
+    .pdf-page-header {
+      padding: 10px 0;
+      border-bottom: 1px solid #E9ECF0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .h-text {
+      color: #434343;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .event-detail {
+      padding: 10px 0;
+      border-bottom: 1px solid #E9ECF0;
+    }
+
+    ul.detail-list {
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.detail-list li {
+      display: flex;
+      font-size: 12px;
+      font-weight: 300;
+      padding: 4px 0;
+    }
+
+    ul.detail-list li span {
+      display: flex;
+      min-width: 100px;
+    }
+
+    ul.detail-list li span:first-child {
+      font-weight: 500;
+      display: flex;
+      min-width: 140px;
+    }
+
+    .gray-panel {
+      border-radius: 10px;
+      background: #F4F5F7;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .gray-panel-header {
+      border-radius: 6px;
+      background: #E9ECF0;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 10px 18px;
+    }
+
+    .gray-panel-header span {
+      font-weight: 400;
+    }
+
+    .description {
+      padding: 8px 0;
+      margin: 8px 0;
+      border-bottom: 1px solid #E9ECF0;
+      border-top: 1px solid #E9ECF0;
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    .d-title {
+      font-weight: 500;
+      display: flex;
+      min-width: 140px;
+    }
+
+    .d-detail {
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    .reported {
+      display: flex;
+    }
+
+    .w-50 {
+      width: 50%;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .mt-0 {
+      margin-top: 0;
+    }
+
+    .reported .d-title {
+      min-width: 250px;
+    }
+
+    .detail-list.detail-list-1 li span:first-child {
+      min-width: 180px;
+    }
+
+    .id-detail,
+    ul.detail-list.bt-1 {
+      padding: 8px 0;
+      margin: 8px 0;
+      border-top: 1px solid #E9ECF0;
+    }
+
+    .id-detail {
+      display: flex;
+    }
+
+    .id-detail>div {
+      min-width: 90px;
+      padding-right: 30px;
+    }
+
+    .mb-1 {
+      margin-bottom: 10px;
+    }
+
+    .mt-2 {
+      margin-top: 20px;
+    }
+
+    .id-img {
+      width: 125px;
+      height: 125px;
+      border-radius: 8px;
+      border: 1px solid #D8D8D8;
+      margin-top: 15px;
+      overflow: hidden;
+    }
+
+    .signature {
+      margin-left: 15px;
+    }
+
+    .detail-list-half {
+      display: block;
+    }
+
+    ul.detail-list.detail-list-2 li span:first-child {
+      min-width: 100px;
+    }
+
+    .detail-list-half li {
+      width: 48%;
+      display: inline-flex !important;
+    }
+
+    .detail-list-third li {
+      width: 33%;
+      display: inline-flex !important;
+    }
+
+    ul.detail-list.detail-list-third li span:first-child {
+      min-width: 60px;
+    }
+
+    ul.detail-list li span.lable {
+      font-size: 11px;
+      border: 1px solid #000;
+      min-width: 65px;
+      text-align: center !important;
+      justify-content: center;
+      border-radius: 20px;
+      padding: 1px 10px;
+    }
+
+    .f12 {
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 17px;
+      margin: 0;
+    }
+
+    .f12 strong {
+      font-weight: 500;
+    }
+
+    .gray-panel-header-flex {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .incidient-table {
+      font-size: 11px;
+      color: #434343;
+      width: 100%;
+      font-weight: 300;
+    }
+
+    .incidient-table tr td {
+      border-bottom: 1px solid #E9ECF0;
+      padding: 5px;
+      vertical-align: top;
+    }
+
+    .incidient-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .incidient-table tr td strong {
+      font-weight: 500;
+    }
+
+    .checklist-table th,
+    .checklist-table td {
+      padding: 10px 18px;
+      font-size: 12px;
+      vertical-align: top;
+    }
+
+    .checklist-table td {
+      border-top: 1px solid #E9ECF0;
+    }
+
+    .checklist-table td p {
+      font-size: 10px;
+      margin: 1px 0;
+    }
+
+    .checkbox {
+      height: 10px;
+      width: 10px;
+      border-radius: 2px;
+      border: 1px solid #969696;
+      display: block;
+    }
+
+    .checklist-ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      width: 100%;
+    }
+
+    .checklist-ul li {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .doc-title {
+      border-bottom: 1px solid #E9ECF0;
+      padding: 15px 0;
+      font-size: 12px;
+    }
+
+    .checklist-ul p {
+      font-size: 10px;
+      margin: 1px 0;
+    }
+
+    .checkmark {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pdf-page">
+    <div class="doc-title">
+      <strong>DOS Checklist:</strong> Complete this list before “doors” to ensure your team and systems are ready.
+    </div>
+    <div class="gray-panel">
+      <div class="gray-panel-header gray-panel-header-flex">
+        <div>Devices</div>
+      </div>
+      <div style="padding: 10px 10px 10px 20px">
+        <ul class="checklist-ul">
+          <li>
+            <p>All devices (computers and cellphones) are connected to the strongest and most secure WiFi Network</p>
+            <div class="checkbox">
+              {{#if devices.all_devices}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+          <li>
+            <p>All Command Devices are running OnTrack on Google Chrome</p>
+            <div class="checkbox">
+              {{#if devices.all_command}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+          <li>
+            <p>All Web Users have refreshed their web browser and have logged out and back into the system</p>
+            <div class="checkbox">
+              {{#if devices.all_web_users}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+          <li>
+            <p>The OnTrack iOS App and iOS Software for all Field Devices are up to date</p>
+            <div class="checkbox">
+              {{#if devices.the_onTrack}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+          <li>
+            <p>Field Devices are using the correct version of the mobile app (App Store vs TestFlight)</p>
+            <div class="checkbox">
+              {{#if devices.field_devices}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+          <li>
+            <p>All Field Devices are fully charged</p>
+            <div class="checkbox">
+              {{#if devices.all_field}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="gray-panel">
+      <div class="gray-panel-header gray-panel-header-flex">
+        <div>Setup</div>
+      </div>
+      <div style="padding: 10px 10px 10px 20px">
+        <ul class="checklist-ul">
+          <li>
+            <p>Confirm "Staff Logins/Departments/Divisions" Setup</p>
+            <div class="checkbox">
+              {{#if setup.staff_logins}}
+              <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+          <li>
+            <p>Confirm "Incident Module Setup" Page Settings</p>
+            <div class="checkbox">
+              {{#if setup.incident_module_setup}}
+              <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+          <li>
+            <p>Confirm "Incident Zones" Setup</p>
+            <div class="checkbox">
+              {{#if setup.incident_zones}}
+              <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="gray-panel">
+      <div class="gray-panel-header gray-panel-header-flex">
+        <div>Dispatch Center</div>
+      </div>
+      <div style="padding: 10px 10px 10px 20px">
+        <ul class="checklist-ul">
+          <li>
+            <p>Create an incident from Dispatch Center</p>
+            <div class="checkbox">
+              {{#if dispatch_center.create_an_incident}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+          <li>
+            <p>Cycle incidents through all Incident Statuses</p>
+            <div class="checkbox">
+               {{#if dispatch_center.cycle_incidents}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+          <li>
+            <p>Test Dispatching (attaching units to incident) Confirm field devices are receiving notifications</p>
+            <div class="checkbox">
+               {{#if dispatch_center.test_dispatching}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+          <li>
+            <p>Check map view (From Dispatch Center) and Active Units in the field</p>
+            <div class="checkbox">
+               {{#if dispatch_center.check_map_view}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+          <li>
+            <p>Test messaging to devices from Dispatch Center</p>
+            <div class="checkbox">
+               {{#if dispatch_center.test_messaging}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="gray-panel">
+      <div class="gray-panel-header gray-panel-header-flex">
+        <div>Incidents Dashboard</div>
+      </div>
+      <div style="padding: 10px 10px 10px 20px">
+        <ul class="checklist-ul">
+          <li>
+            <p>Test GPS Tracking from Dashboard Page (Singular Device and All Devices)</p>
+            <div class="checkbox">
+               {{#if incidents_dashboard.test_gps}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+          <li>
+            <p>Tracked Field Staff display correctly on the map in the Dashboard Page</p>
+            <div class="checkbox">
+               {{#if incidents_dashboard.tracked_field}}
+                <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="gray-panel">
+      <div class="gray-panel-header gray-panel-header-flex">
+        <div>Other Modules (If Applicable)</div>
+      </div>
+      <div style="padding: 10px 10px 10px 20px">
+        <ul class="checklist-ul">
+          <li>
+            <p>Messaging Center is receiving messages and sending responses correctly</p>
+            <div class="checkbox">
+              {{#if other_modules.messaging_center}}
+              <img src='https://svgshare.com/i/10Ri.svg' title='check' />
+              {{/if}}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+{
+  "actions": {
+    "assigned": "{column_name} '{value}' har blitt tildelt",
+    "assigned_subtask": "{column_name} '{value}' har blitt tildelt deloppgave '{subTaskName}'",
+    "created": "{column_name} er opprettet",
+    "created_subtask": "Opprettet en {column_name} '{subTaskName}'",
+    "delete_image": "Slettet en fil '{imageName}'",
+    "delete_subtask_image": "Slettet en fil '{imageName}' mot underoppgave '{subTaskName}'",
+    "set": "{column_name} er angitt",
+    "subtask_image": "Lastet opp en fil '{imageName}' mot underoppgave '{subTaskName}'",
+    "subtask_set": "{column_name} av underoppgaven '{subTaskName}' er angitt",
+    "subtask_unset": "{column_name} av underoppgaven '{subTaskName}' er deaktivert",
+    "task_image": "Lastet opp en fil '{imageName}'",
+    "unassigned": "{column_name} '{value}' har blitt fjernet",
+    "unassigned_subtask": "{column_name} '{value}' har blitt opphevet tilordningen til underoppgaven '{subTaskName}'",
+    "unset": "{column_name} har blitt deaktivert",
+    "updated_from": "{column_name} oppdatert fra '{first_val}' til '{second_val}'",
+    "updated_from_subtask": "{column_name} har blitt oppdatert fra '{first_val}' til '{second_val}' av en deloppgave '{subTaskName}'",
+    "updated_to": "{column_name} oppdatert til '{value}'",
+    "set_to": "{column_name} er satt til '{value}'"
+  },
+  "labels": {
+    "category": "Kategori",
+    "company_id": "Selskap",
+    "deadline": "Frist",
+    "department_id": "Avdeling",
+    "description": "Beskrivelse",
+    "image": "Bilde",
+    "incident_division_id": "Hendelsesavdelingen",
+    "name": "Navn",
+    "priority": "Prioritet",
+    "status": "Status",
+    "subTask": "Underoppgave",
+    "task": "Oppgave",
+    "task_list_id": "Liste over gjøremål",
+    "user": "Bruker",
+    "start_date": "Startdato"
+  }
+}

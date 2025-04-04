@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: #212121;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+.page-title {
+  @apply bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text;
+}

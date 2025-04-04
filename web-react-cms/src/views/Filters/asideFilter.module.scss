@@ -1,0 +1,23 @@
+.datePicker {
+  width: 100%;
+  background: #F2F2F2;
+  border-radius: 24px;
+
+  & > div {
+    border: none !important;
+  }
+
+  div {
+    &:before, &:after {
+      display: none;
+    }
+  }
+
+  input {
+    padding: 10px 16px;
+  }
+
+  p {
+    display: none;
+  }
+}

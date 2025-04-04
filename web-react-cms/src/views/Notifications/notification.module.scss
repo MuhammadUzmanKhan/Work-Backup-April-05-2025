@@ -1,0 +1,12 @@
+.notificationContainer {
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 8px;
+
+  &.active {
+    border-color: #69B5B5;
+  }
+}

@@ -1,0 +1,14 @@
+.bottomContainer {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 16px rgba(40, 24, 58, 0.08), 0px -1px 8px rgba(40, 24, 58, 0.05);
+  border-radius: 20px 20px 0px 0px;
+  bottom: 0;
+  z-index: 10;
+
+  .background {
+    padding: 15px 14px 50px 18px;
+  }
+}

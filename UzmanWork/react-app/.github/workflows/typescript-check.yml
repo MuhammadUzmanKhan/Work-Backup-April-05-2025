@@ -1,0 +1,104 @@
+name: Typescript check
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  merge_group:
+
+jobs:
+  tsc:
+    name: Typescript check
+
+    # Cancel any previously running jobs from this PR
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
+    # This adds the job in a 'concurrency' group. Only one job from each
+    # concurrency group can run at a time. We also cancel all the previously
+    # running or scheduled jobs from the group if it is a pull request
+    # (we do not want to kill jobs on the main branch).
+    # The group name combines
+    #   - repository name
+    #   - the workflow name (this filename)
+    #   - source branch (we use Run ID in case the brach is not defined e.g. merge queue)
+    concurrency:
+      group: ${{ github.repository }}-${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+      cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: install node v12
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.12
+          cache: "yarn"
+          cache-dependency-path: "frontend/yarn.lock"
+          fetch-depth: 0
+
+      - name: Install Poetry
+        run: |
+          pipx install poetry==1.2.2
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+          cache: "poetry"
+
+      - name: Set Poetry environment
+        run: |
+          poetry env use 3.10
+
+      - name: Install Dependencies from lock
+        run: |
+          poetry install
+
+      - name: Generate openapi spec
+        run: poetry run python scripts/generate_backend_openapi_spec.py
+
+      - name: Install project dependencies
+        run: yarn install
+        working-directory: ./frontend
+
+      - name: Generate client
+        run: |
+          yarn workspace coram-common-utils generate-client
+        working-directory: ./frontend
+
+      # Check coram-common-utils package
+      - name: Run ESLint coram-common-utils
+        run: yarn workspace coram-common-utils eslint --exit-on-fatal-error --max-warnings 0 src
+        working-directory: ./frontend
+
+      - name: Run tsc coram-common-utils
+        run: yarn workspace coram-common-utils tsc
+        working-directory: ./frontend
+
+      - name: Run prettier coram-common-utils
+        run: yarn workspace coram-common-utils prettier --config ../.prettierrc.json --check .
+        working-directory: ./frontend
+
+      # Check web package
+      - name: Run ESLint web
+        run: yarn workspace web eslint --exit-on-fatal-error --max-warnings 0 src
+        working-directory: ./frontend
+
+      - name: Run tsc web
+        run: yarn workspace web tsc
+        working-directory: ./frontend
+
+      - name: Run prettier web
+        run: yarn workspace web prettier --config ../.prettierrc.json --check .
+        working-directory: ./frontend
+
+      # Check mobile package
+      - name: Run ESLint mobile
+        run: yarn workspace mobile eslint --exit-on-fatal-error --max-warnings 0 app features components
+        working-directory: ./frontend
+
+      - name: Run tsc web
+        run: yarn workspace mobile tsc
+        working-directory: ./frontend
+
+      - name: Run prettier mobile
+        run: yarn workspace mobile prettier --config ../.prettierrc.json --check .
+        working-directory: ./frontend

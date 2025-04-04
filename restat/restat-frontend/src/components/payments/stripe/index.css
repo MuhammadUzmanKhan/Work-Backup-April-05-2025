@@ -1,0 +1,118 @@
+.customerDetailForm {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.customerDetailArea {
+  margin-bottom: 20px;
+}
+
+.customerInput {
+  margin-bottom: 15px;
+}
+
+.customerInput input,
+.customerInput label,
+.customerInput .StripeElement {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 6px;
+}
+
+.customerInput input {
+  height: 40px;
+}
+
+.cardElement {
+  padding: 10px;
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 7px !important;
+}
+
+.foot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.foot label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.foot input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.foot span {
+  color: #555;
+}
+
+.foot .font-normal {
+  color: #0070f3;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.payBtn {
+  width: 100%;
+  padding: 10px;
+  background: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.payBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.back-button-stripe {
+  background-color: #1a4895;
+  color: #fff;
+  width: 5rem;
+  border: 1px solid #1a4895;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  bottom: 20px;
+  right: 20px;
+  transition: background-color 0.3s;
+}
+
+.back-button-stripe:hover {
+  background-color: #163d7f;
+}
+
+.address-element-container {
+  margin-bottom: 16px;
+  padding: 15px;
+  background-color: #ffffff;
+  /* border: 1px solid #e5e7eb; */
+  /* border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+}
+
+.address-element-container:hover {
+  border-color: #6366f1; /* Example hover color */
+}
+
+.address-element-container:focus-within {
+  border-color: #4f46e5; /* Example focus color */
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}

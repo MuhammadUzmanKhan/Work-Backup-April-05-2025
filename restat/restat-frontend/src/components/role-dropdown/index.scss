@@ -1,0 +1,37 @@
+.custom-select {
+  border: 0.0625rem solid var(--blue-border);
+    height: 3.125rem;
+    padding-left: 1.25rem;
+    padding-right: 1rem;
+    padding-top: 0.6rem;
+    border-radius: 0.625rem;
+    width: 100%;
+    font-size: 1.125rem;
+    line-height: 1.6875rem;
+    color: var(--blue);
+    position: relative;
+}
+
+.custom-select-options {
+  padding: 0.3rem;
+  background: #e6e3ea;
+  box-shadow: 0 0 5px #837676;
+  border-radius: 0.625rem;
+  width: 100%;
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  cursor: default;
+  z-index: 1;
+}
+
+.custom-select-option {
+  width: 100%;
+  padding: 0.1rem 0.3rem;
+}
+
+.custom-select-option:hover {
+  background-color: #51a2ff;
+  border: #51a2ff;
+  border-radius: 5px;
+}

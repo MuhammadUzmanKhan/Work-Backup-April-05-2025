@@ -1,0 +1,92 @@
+.custom-select-groupby {
+  border: 0.0625rem solid var(--blue-border);
+    height: 3.125rem;
+    padding-left: 1.25rem;
+    padding-right: 1rem;
+    padding-top: 0.6rem;
+    border-radius: 0.625rem;
+    min-width: 14.5rem;
+    font-size: 1rem;
+    line-height: 1.6875rem;
+    position: relative;
+}
+
+.custom-select-options-groupby {
+  padding: 0.3rem;
+  background: #e6e3ea;
+  box-shadow: 0 0 5px #837676;
+  border-radius: 0.625rem;
+  width: 100%;
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  cursor: default;
+  z-index: 1;
+}
+
+.custom-select-option-groupby {
+  width: 100%;
+  padding: 0.1rem 0.3rem;
+}
+
+.custom-select-option-groupby:hover {
+  background-color: #cbdaec;
+  border: #cbdaec;
+  border-radius: 5px;
+}
+
+.custom-select-profiles-groupby {
+  padding: 0.5rem;
+  background: #e6e3ea;
+  box-shadow: 0 0 5px #837676;
+  border-radius: 0.625rem;
+  width: 100%;
+  position: absolute;
+  right: -20%;
+  top: 43%;
+  max-height: 12.5rem;
+  overflow: scroll;
+  cursor: default;
+  z-index: 1;
+}
+
+.custom-select-profile-groupby {
+  width: 100%;
+  padding: 0.1rem 0.3rem;
+}
+
+.custom-select-profile-groupby:hover {
+  background-color: #cbdaec;
+  border: #cbdaec;
+  border-radius: 5px;
+}
+
+.custom-select-bidders-groupby {
+  padding: 0.5rem;
+  background: #e6e3ea;
+  box-shadow: 0 0 5px #837676;
+  border-radius: 0.625rem;
+  width: 100%;
+  position: absolute;
+  right: -20%;
+  top: 70%;
+  max-height: 12.5rem;
+  overflow: scroll;
+  cursor: default;
+  z-index: 1;
+}
+
+.custom-select-bidder-groupby {
+  width: 100%;
+  padding: 0.1rem 0.3rem;
+}
+
+.custom-select-bidder-groupby:hover {
+  background-color: #cbdaec;
+  border: #cbdaec;
+  border-radius: 5px;
+}
+
+.pointer {
+  cursor: pointer
+}

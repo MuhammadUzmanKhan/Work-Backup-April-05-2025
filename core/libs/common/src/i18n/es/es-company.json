@@ -1,0 +1,20 @@
+{
+  "actions": {
+    "created": "Evento creado",
+    "set_to": "{column_name} se ha establecido en '{value}'",
+    "updated_from": "{column_name} se ha actualizado de '{first_val}' a '{second_val}'"
+  },
+  "labels": {
+    "about": "Acerca de",
+    "contact_email": "Correo electrónico de contacto principal",
+    "contact_name": "Nombre del contacto principal",
+    "contact_phone": "Teléfono de contacto principal",
+    "email": "Correo electrónico secundario",
+    "location": "Ubicación",
+    "name": "Nombre",
+    "number": "Número secundario",
+    "regionName": "Nombre de la región",
+    "timezone": "Zona horaria",
+    "url": "URL"
+  }
+}

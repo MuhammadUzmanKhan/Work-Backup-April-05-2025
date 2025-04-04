@@ -1,0 +1,57 @@
+x-shared-backend-env: &shared-backend-env
+  ENVIRONMENT_NAME: ${ENVIRONMENT_NAME:?error}
+  MQ_ADDRESS: ${MQ_ADDRESS:?error}
+  DOMAIN: ${DOMAIN:?error}
+  BACKEND_EXPOSED_PORT: ${BACKEND_EXPOSED_PORT:?error}
+  ADDITIONAL_CORS_DOMAINS: ${ADDITIONAL_CORS_DOMAINS:-[]}
+  AUTH0_DOMAIN: ${AUTH0_DOMAIN:?error}
+  AUTH0_JWK_URL: ${AUTH0_JWK_URL:?error}
+  AUTH0_JWT_ORG_KEY: "coram_organization_ids"
+  AUTH0_JWT_UUID_KEY: "coram_uuid"
+  AUTH0_JWT_ROLE_KEY: "role_assignment"
+  AUTH0_JWT_ACCESS_RESTRICTIONS_KEY: "access_restrictions"
+  AUTH0_JWT_ISSUER: ${AUTH0_JWT_ISSUER:?error}
+  AUTH0_WEB_AUDIENCE: coram.ai
+  AUTH0_EDGE_AUDIENCE: coram.ai/edge
+  AUTH0_AUTH_API_AUDIENCE: ${AUTH0_AUTH_API_AUDIENCE:?error}
+  AUTH0_TOKEN_CACHE_PATH: /etc/config/auth_token.txt
+  ERROR_ALERT_SLACK_CHANNEL: ${ERROR_ALERT_SLACK_CHANNEL:?error}
+  WARNING_ALERT_SLACK_CHANNEL: ${WARNING_ALERT_SLACK_CHANNEL:-${ERROR_ALERT_SLACK_CHANNEL}}
+  INFO_ALERT_SLACK_CHANNEL: ${INFO_ALERT_SLACK_CHANNEL:-${ERROR_ALERT_SLACK_CHANNEL}}
+  WEB_APP_URL: ${WEB_APP_URL:?error}
+  DEBUG_DATABASE_SESSIONS_ENABLED: ${DEBUG_DATABASE_SESSIONS_ENABLED:-false}
+  SENTRY_API_DSN: ${SENTRY_API_DSN}
+  VERSION: ${VERSION:?error}
+  CELERY_BROKER_URL: "pyamqp://guest:guest@message_queue:5672"
+  CELERY_RESULT_BACKEND: "rpc://guest:guest@message_queue:5672"
+  FRONTEND_EXPOSED_PORT: 5173
+  REDIS_HOST: ${REDIS_HOST:?error}
+  REDIS_PORT: ${REDIS_PORT:?error}
+  GOOGLE_APPLICATION_CREDENTIALS: "/app/backend/google_credentials.json"
+  AWS_COGNITO_POOL_ID: ${AWS_COGNITO_POOL_ID:?error}
+  AWS_COGNITO_SCOPE: ${AWS_COGNITO_SCOPE:?error}
+  DEVICES_MANAGERS_EMAILS: ${DEVICES_MANAGERS_EMAILS:?error}
+
+services:
+  backend:
+    environment: *shared-backend-env
+    volumes:
+      - token_cache:/etc/config/
+  backend_edge:
+    environment: *shared-backend-env
+    volumes:
+      - token_cache:/etc/config/
+  task_worker:
+    environment: *shared-backend-env
+    volumes:
+      - token_cache:/etc/config/
+  task_scheduler:
+    environment: *shared-backend-env
+  task_monitor:
+    environment: *shared-backend-env
+  telegraf:
+    environment:
+      - IS_PROD=true
+      - HOST_NAME=${HOST_NAME:?error}
+volumes:
+  token_cache:

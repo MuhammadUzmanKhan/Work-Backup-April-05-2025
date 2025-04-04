@@ -1,0 +1,41 @@
+{
+  "actions": {
+    "complete_task": "Der Status der Ereignisaufgabe '{subTaskName}' wurde auf Abgeschlossen aktualisiert.",
+    "created": "Erstelltes Ereignis",
+    "created_subtask": "Es wurde eine Ereignisaufgabe '{value}' erstellt.",
+    "delete_image": "Eine Datei '{imageName}' wurde gelöscht",
+    "delete_subtask_image": "Eine Datei '{imageName}' wurde für die Ereignisaufgabe '{subTaskName}' gelöscht.",
+    "demo": "Die Veranstaltung wurde als Demo markiert",
+    "demo_remove": "Die Veranstaltung ist nicht mehr als Demo gekennzeichnet",
+    "disabled": "{column_name} '{first_val}' wurde deaktiviert",
+    "enabled": "{column_name} '{value}' wurde aktiviert",
+    "event_cad": "Hochgeladene {column_name} '{second_val}' Datei mit Version '{cadVersion}' gegen '{cadName}'",
+    "current_version": "Aktuelle Version von '{cadName}' auf '{cadVersion}' eingestellt",
+    "image": "Eine Datei '{imageName}' wurde hochgeladen.",
+    "incomplete_task": "Der Status der Ereignisaufgabe '{subTaskName}' wurde als „Unabgeschlossen“ aktualisiert.",
+    "set_to": "{column_name} wurde auf '{value}' gesetzt.",
+    "subtask_image": "Eine Datei '{imageName}' wurde für die Ereignisaufgabe '{subTaskName}' hochgeladen.",
+    "updated_from": "{column_name} wurde von '{first_val}' auf '{second_val}' aktualisiert.",
+    "updated_from_subtask": "{column_name} wurde von '{first_val}' auf '{second_val}' einer Ereignisaufgabe '{subTaskName}' aktualisiert."
+  },
+  "labels": {
+    "about_event": "Über die Veranstaltung",
+    "attachment": "Anhang",
+    "deadline": "Frist",
+    "demo_event": "Demo-Event",
+    "division_lock_service": "Abteilung Schlosserdienst",
+    "end_date": "Endtermin",
+    "event cad creation": "Event-CAD-Erstellung",
+    "event_access_lock": "Ereignis-Zugriffssperre",
+    "event_cad": "Veranstaltungs-CAD",
+    "name": "Name",
+    "public_end_date": "Öffentliches Enddatum",
+    "public_start_date": "Öffentliches Startdatum",
+    "start_date": "Startdatum",
+    "status": "Status",
+    "subtask": "Ereignisaufgabe",
+    "subtask_attachment": "Aufgabenanhang",
+    "update event cad current version": "Update Event CAD Aktuelle Version",
+    "current_version": "Aktuelle Version"
+  }
+}

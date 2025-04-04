@@ -1,0 +1,12 @@
+{
+  "actions": {
+    "added": "añadido un nuevo tipo de incidente central {second_val}",
+    "added_variant": "añadido una variante {second_val} a {incident_type_name} a {name}",
+    "changed_to": "cambiado {first_val} a {second_val} en {name}",
+    "updated_to": "cambiado {first_val} a {second_val} en {name}"
+  },
+  "labels": {
+    "name": "Nombre",
+    "translation": "Traducción"
+  }
+}

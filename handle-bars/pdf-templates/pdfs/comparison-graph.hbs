@@ -1,0 +1,512 @@
+<html>
+
+<head>
+  <title>front</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #141414;
+      font-size: 12px;
+    }
+
+    .pdf-page {
+      overflow: hidden;
+      position: relative;
+      padding: 0 30px;
+      margin: auto;
+      min-height: 950px;
+      page-break-before: always;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .line-chart {
+      margin: auto;
+      height: 500px;
+      width: 800;
+      /* -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg); */
+    }
+
+    .pie-chart {
+      margin: auto;
+      height: 500px;
+      width: 800;
+    }
+    
+    .bottom-bg,
+    .top-bg {
+        opacity: 0.2;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: -1;
+    }
+    .bottom-bg {
+        top: inherit;
+        bottom: 0;
+    }
+    .pdf-page-header {
+        padding: 10px 0;
+        border-bottom: 1px solid #E9ECF0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .h-text {
+        color: #434343;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .event-detail {
+        padding: 30px 0;
+        border-bottom: 1px solid #E9ECF0;
+    }
+    ul.detail-list {
+        padding: 0;
+        margin: 0;
+    }
+    ul.detail-list li {
+        display: flex;
+        font-size: 12px;
+        font-weight: 300;
+        padding: 4px 0;
+    }
+    ul.detail-list li span {
+        display: flex;
+        min-width: 100px;
+    }
+    ul.detail-list li span:first-child {
+        font-weight: 500;
+        display: flex;
+        min-width: 140px;
+    }
+    .gray-panel {
+        border-radius: 10px;
+        background: #F4F5F7;
+        padding: 10px;
+        margin: 10px 0;
+    }
+    .gray-panel-header {
+        border-radius: 6px;
+        background: #E9ECF0;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 10px 18px;
+    }
+    .gray-panel-header span {
+        font-weight: 400;
+    }
+    .description {
+        padding: 8px 0;
+        margin: 8px 0;
+        border-bottom: 1px solid #E9ECF0;
+        border-top: 1px solid #E9ECF0;
+        font-size: 12px;
+        font-weight: 300;
+    }
+    .d-title {
+        font-weight: 500;
+        display: flex;
+        min-width: 140px;
+    }
+    .d-detail {
+        margin-top: 10px;
+        font-size: 12px;
+        font-weight: 300;
+    }
+    .reported {
+        display: flex;
+    }
+    .w-50 {
+        width: 50%;
+    }
+    .flex {
+        display: flex;
+    }
+    .items-center {
+        align-items: center;
+    }
+    .mt-0 {
+        margin-top: 0;
+    }
+    .reported .d-title {
+        min-width: 250px;
+    }
+    .detail-list.detail-list-1 li span:first-child {
+        min-width: 180px;
+    }
+    .id-detail,
+    ul.detail-list.bt-1 {
+        padding: 8px 0;
+        margin: 8px 0;
+        border-top: 1px solid #E9ECF0;
+    }
+    .id-detail {
+        display: flex;
+    }
+    .id-detail>div {
+        min-width: 90px;
+        padding-right: 30px;
+    }
+    .mb-1 {
+        margin-bottom: 10px;
+    }
+    .mt-2 {
+        margin-top: 20px;
+    }
+    .id-img {
+        width: 125px;
+        height: 125px;
+        border-radius: 8px;
+        border: 1px solid #D8D8D8;
+        margin-top: 15px;
+        overflow: hidden;
+    }
+    .signature {
+        margin-left: 15px;
+    }
+    .detail-list-half {
+        display: block;
+    }
+    ul.detail-list.detail-list-2 li span:first-child {
+        min-width: 100px;
+    }
+    .detail-list-half li {
+        width: 48%;
+        display: inline-flex !important;
+    }
+    .detail-list-third li {
+        width: 33%;
+        display: inline-flex !important;
+    }
+    ul.detail-list.detail-list-third li span:first-child {
+        min-width: 60px;
+    }
+    ul.detail-list li span.lable {
+        font-size: 11px;
+        border: 1px solid #000;
+        min-width: 65px;
+        text-align: center !important;
+        justify-content: center;
+        border-radius: 20px;
+        padding: 1px 10px;
+    }
+    .f12 {
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 17px;
+        margin: 0;
+    }
+    .f12 strong {
+        font-weight: 500;
+    }
+    .gray-panel-header-flex {
+        display: flex;
+        justify-content: space-between;
+    }
+    .incidient-table {
+        font-size: 11px;
+        color: #434343;
+        width: 100%;
+        font-weight: 300;
+    }
+    .incidient-table tr td {
+        border-bottom: 1px solid #E9ECF0;
+        padding: 5px;
+        vertical-align: top;
+    }
+    .incidient-table tr:last-child td {
+        border-bottom: 0;
+    }
+    .incidient-table tr td strong {
+        font-weight: 500;
+    }
+      /* pdf-2 */
+    .sup-image-list {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+    .sup-image-list li {
+        margin-right: 15px;
+        font-size: 11px;
+    }
+    .sup-image-list li .inner-img {
+        width: 90px;
+        height: 90px;
+        background-color: #141414;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    .gray-panel-header span {
+        font-weight: 300;
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="pdf-page">
+    <div class="event-detail">
+      <ul class="detail-list detail-list-2 detail-list-third">
+        <li>
+          <span>Status: </span>
+          <span class="lable" style="border-color: #66B01B; color: #66B01B;">{{filters.status}}</span>
+        </li>
+        <li>
+          <span>Division: </span>
+          <span class="lable" style="border-color: #023217; color: #023217;">
+            {{filters.division}}
+          </span>
+        </li>
+        <li>
+          <span>Type: </span>
+          <span class="lable" style="border-color: #1D828B; color: #1D828B;">{{filters.incident_type}}</span>
+        </li>
+        <li>
+          <span>Priority: </span>
+          <span class="lable" style="border-color: #E82F2F; color: #E82F2F;">{{filters.priority}}</span>
+        </li>
+  
+        <li>
+          <span>Reporter: </span>
+          <span class="lable" style="border-color: #CAA520; color: #CAA520;">{{filters.reporter}}</span>
+        </li>
+      </ul>
+    </div>
+    <div style="display: flex; flex-direction:column; margin: auto; max-width: 100%;">
+      <p style="margin-bottom: 50px; font-size:14px;"><u>Line Chart</u></p>
+      <div style="display: flex; margin: auto; max-width:100%;">
+        <div class="line-chart" style="max-width:100%;">
+          <canvas id="lineChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="pdf-page">
+    <div style="display: flex; flex-direction:column; margin: auto;">
+      <p style="margin-bottom: 50px; font-size:14px;"><u>Pie Chart</u></p>
+      <div style="display: flex; margin: auto;">
+        <div class="pie-chart">
+          <canvas id="pieChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+
+  // Data for line chart
+  const chartDataSet ={{json chartDataSet }}
+  const labels={{json labels }}
+  {{!-- const selectedEventsData={{json selectedEventsData}} --}}
+  {{!-- const selectedEventsIds= selectedEventsData.map(({id})=>id) --}}
+  const chartLineColors = ['#0794EC', '#DA3B3C', '#88C748', '#FFA960']
+
+  // Helpers for line chart
+  {{!-- const getEventName = (eventId) => {
+    return selectedEventsData?.find(({ id }) => id == eventId)?.name || ''
+  }
+
+  const generateEventsLineChartLabels = (data, eventIds) => {
+    let labels = []
+    eventIds.forEach((id) => {
+      labels = [...labels, ...Object.keys(data[id] || [])]
+    })
+
+    return [...new Set(labels)].sort((a, b) => {
+      return a - b
+    })
+  }
+
+  const getEventsChartDataSet = (data, labels, eventId) => {
+    const values = []
+
+    for (let label of labels) {
+      values.push(data[eventId] && data[eventId][label] ? data[eventId][label].length : 0)
+    }
+
+    if(!values.length){
+      return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    }
+
+    return values
+  }
+ --}}
+
+  const lineChartId = document.querySelector('#lineChart')
+
+  // Line chart configuration
+  const lineChart = new Chart(lineChartId, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      plugins: {
+        legend: {
+          display: true,
+          labels: {
+            color: '#141414',
+            boxHeight: 15,
+            boxWidth: 37,
+          },
+        },
+      },
+      aspectRatio: 1.5,
+      scales: {
+        x: {
+          beginAtZero: true,
+        },
+        y: {
+          type: 'linear',
+          display: true,
+          position: 'left',
+          beginAtZero: false,
+          ticks: {
+            // stepSize: 1,
+            precision: 0
+
+          },
+        },
+      },
+    },
+  })
+
+  // Set the X-axis labels
+  {{!-- const labels = generateEventsLineChartLabels(data, selectedEventsIds) --}}
+  lineChart.data.labels = labels
+
+  const chartDataSets = []
+  chartDataSet.forEach((set, index) => {
+    chartDataSets.push({
+      label: set.label,
+      data: set.data,
+      borderWidth: 1,
+      borderColor: chartLineColors[index],
+      backgroundColor: chartLineColors[index],
+      pointBackgroundColor: chartLineColors[index],
+      pointBorderColor: chartLineColors[index],
+      pointBorderWidth: 2,
+      pointHoverBorderWidth: 4,
+      yAxisID: 'y',
+    })
+  })
+
+  lineChart.data.datasets = chartDataSets
+  lineChart.update()
+
+
+  // Data for pie chart
+  const polarAreaBackgroundColors= ['#88cabd', '#f0dea1', '#eccbb1', '#ecb2b2'];
+  const { low, normal, important, critical }  = {{json pieChartData }}
+
+  const pieChartId = document.querySelector('#pieChart')
+
+  const pieChart = new Chart(pieChartId, {
+      type: 'polarArea',
+      data: {
+        labels: [
+          'Low (0)',
+          'Medium (0)',
+          'High (0)',
+          'Critical (0)'
+        ],
+        datasets: [
+          {
+            label: 'Count',
+            data: [0, 0, 0, 0],
+            backgroundColor: polarAreaBackgroundColors
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          r: {
+            ticks: {
+              display: false
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: true,
+            position: 'left',
+            align: 'end',
+            labels: {
+              color: '#141414',
+              boxHeight: 16,
+              boxWidth: 35,
+            }
+          },
+          tooltip: {
+            titleMarginBottom: 0,
+            callbacks: {
+              label: function () {
+                return ''
+              }
+            }
+          }
+        },
+
+      },
+    });
+
+  pieChart.data.labels = [
+    `Low (${low})`,
+    `Medium (${normal})`,
+    `High (${important})`,
+    `Critical (${critical})`,
+  ]
+
+  pieChart.data.datasets = [
+    {
+      label: 'Count',
+      data: [low, normal, important, critical],
+      backgroundColor: polarAreaBackgroundColors
+    }
+  ]
+
+  pieChart.update();
+
+</script>
+
+</html>

@@ -1,0 +1,261 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track:horizontal {
+  background: transparent;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #75959e;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: #29454d;
+}
+
+
+::-webkit-scrollbar-track:vertical {
+  background: transparent;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-track:horizontal {
+  background: transparent;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background: #75959e;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover {
+  background: #29454d;
+}
+
+
+:root {
+  --restat-proposal: #EE3A23;
+  --restat-lead: #1A4895;
+  --restat-contract: #FACA2A;
+
+  --restat-linkedin: rgb(49 168 0);
+  --restat-linkedin-connect: #EE3A23;
+  --restat-linkedin-prospect: #1A4895;
+  --restat-linkedin-sync-messages: #f38c59;
+  --restat-template-select: rgb(103, 103, 103);
+  --restat-primary: #24c4b2;
+  --restat-darkgray: #3d3c3c;
+}
+
+.restat-upwork-sync-lead-button,
+.restat-upwork-select-bid-template-button,
+.restat-upwork-sync-proposal-button,
+.restat-upwork-sync-contract-button {
+  padding: 0.625rem 0.625rem;
+  font-size: 0.6em;
+  height: 2.875rem;
+  min-width: 8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: 0rem;
+  position: fixed;
+  bottom: 2.5rem;
+  right: 0.9375rem;
+  margin: 1.25rem;
+  transition: all 0.25s ease;
+  color: white;
+  overflow: hidden;
+  font-size: 0.875rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.restat-upwork-sync-proposal-button {
+  background: var(--restat-proposal);
+}
+
+.restat-upwork-sync-proposal-button:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.restat-upwork-sync-lead-button:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.restat-upwork-sync-contract-button:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.restat-upwork-sync-lead-button {
+  bottom: 6.25rem;
+  background: var(--restat-lead);
+}
+
+.restat-upwork-sync-contract-button {
+  bottom: 10rem;
+  background: var(--restat-contract);
+}
+
+.restat-upwork-select-bid-template-button {
+  background: var(--restat-template-select);
+  bottom: 0;
+  min-width: 13.75rem;
+  right: 0;
+}
+.restat-linkedin-sync-connect-button,
+.restat-linkedin-sync-prospect-button,
+.restat-linkedin-sync-messages-button {
+  padding: 1.2rem 1.1rem;
+  font-size: 1.2rem !important;
+  height: 4.2rem;
+  min-width: 11.75rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  border: 0rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  bottom: 4.5rem;
+  right: 0.9375rem;
+  margin: 1.25rem;
+  z-index: 100;
+  transition: all 0.25s ease;
+  color: white;
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+
+.restat-linkedin-sync-connect-button {
+  background: var(--restat-linkedin-connect);
+}
+.restat-linkedin-sync-prospect-button {
+  bottom: 9.75rem;
+  background: var(--restat-linkedin-prospect);
+}
+.restat-linkedin-sync-messages-button {
+  bottom: 15rem;
+  background: var(--restat-linkedin-sync-messages);
+}
+.restat-linkedin-sync-connect-button:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+.restat-linkedin-sync-prospect-button:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+.restat-linkedin-sync-messages-button:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.rs-load {
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+}
+
+.rs-load::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 0.1875rem solid white;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-left: 0.1875rem solid transparent;
+  border-bottom: 0.1875rem solid transparent;
+  animation: loading1 1s ease infinite;
+  z-index: 10;
+}
+
+.rs-load::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 0.1875rem dashed white;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-left: 0.1875rem solid transparent;
+  border-bottom: 0.1875rem solid transparent;
+  animation: loading1 2s linear infinite;
+  z-index: 5;
+}
+
+@keyframes loading1 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.restat-upwork-sync-proposal-button.active,
+.restat-upwork-sync-lead-button.active,
+.restat-upwork-sync-contract-button.active,
+.form-title.active {
+  transform: scale(0.85);
+}
+.restat-linkedin-sync-connect-button.active,
+.restat-linkedin-sync-prospect-button.active,
+.restat-linkedin-sync-messages-button.active,
+.form-title.active {
+  transform: scale(0.85);
+}
+
+.restat-upwork-sync-proposal-button.rs-activeLoading .rs-loading,
+.restat-upwork-sync-lead-button.rs-activeLoading .rs-loading,
+.restat-upwork-sync-contract-button.rs-activeLoading .rs-loading,
+.form-title.rs-activeLoading .rs-loading {
+  visibility: visible;
+  opacity: 1;
+}
+
+.restat-linkedin-sync-connect-button.rs-activeLoading .rs-loading,
+.restat-linkedin-sync-prospect-button.rs-activeLoading .rs-loading,
+.restat-linkedin-sync-messages-button.rs-activeLoading .rs-loading,
+.form-title.rs-activeLoading .rs-loading {
+  visibility: visible;
+  opacity: 1;
+}
+
+.restat-upwork-sync-proposal-button .rs-loading,
+.restat-upwork-sync-lead-button .rs-loading,
+.restat-upwork-sync-contract-button .rs-loading,
+.form-title .rs-loading {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.restat-linkedin-sync-connect-button .rs-loading,
+.restat-linkedin-sync-prospect-button .rs-loading,
+.restat-linkedin-sync-messages-button .rs-loading,
+.form-title .rs-loading {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+  }
+}

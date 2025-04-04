@@ -1,0 +1,39 @@
+{
+  "actions": {
+    "assigned": "{column_name} '{value}' has been assigned",
+    "assigned_subtask": "{column_name} '{value}' has been assigned to Subtask '{subTaskName}'",
+    "created": "Created a {column_name}",
+    "created_subtask": "Created a {column_name} '{subTaskName}'",
+    "delete_image": "Deleted a file '{imageName}'",
+    "delete_subtask_image": "Deleted a file '{imageName}' against Subtask '{subTaskName}'",
+    "set": "{column_name} has been set",
+    "subtask_image": "Uploaded a file '{imageName}' against Subtask '{subTaskName}'",
+    "subtask_set": "{column_name} of Subtask '{subTaskName}' has been set",
+    "subtask_unset": "{column_name} of Subtask '{subTaskName}' has been unset",
+    "task_image": "Uploaded a file '{imageName}'",
+    "unassigned": "{column_name} '{first_val}' has been unassigned",
+    "unassigned_subtask": "{column_name} '{first_val}' has been unassigned to Subtask '{subTaskName}'",
+    "unset": "{column_name} has been unset",
+    "updated_from": "{column_name} has been updated from '{first_val}' to '{second_val}'",
+    "updated_from_subtask": "{column_name} has been updated from '{first_val}' to '{second_val}' of a Subtask '{subTaskName}'",
+    "updated_to": "{column_name} has been updated to '{value}'",
+    "set_to": "{column_name} has been set to '{value}'"
+  },
+  "labels": {
+    "category": "Category",
+    "company_id": "Company",
+    "deadline": "Deadline",
+    "department_id": "Department",
+    "description": "Description",
+    "image": "Image",
+    "incident_division_id": "Incident Division",
+    "name": "Name",
+    "priority": "Priority",
+    "status": "Status",
+    "subTask": "Sub Task",
+    "task": "Task",
+    "task_list_id": "Task List",
+    "user": "User",
+    "start_date": "Start Date"
+  }
+}

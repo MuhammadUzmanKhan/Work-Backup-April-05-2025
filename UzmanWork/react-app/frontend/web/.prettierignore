@@ -1,0 +1,7 @@
+src/icons
+dist/
+dev-dist/
+src/index.tsx
+.storybook/public/mockServiceWorker.js
+ios/
+android/

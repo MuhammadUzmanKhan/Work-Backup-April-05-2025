@@ -1,0 +1,72 @@
+.container {
+  padding: 0 15px;
+
+  .title {
+    color: #fff;
+  }
+}
+
+.tabHeader {
+  padding: 10px 5px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .title {
+    color: #fff;
+  }
+
+  &.active {
+    background: #fff;
+  }
+}
+
+.banner {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  padding: 15px 20px;
+  box-sizing: border-box;
+
+  button {
+    margin-bottom: 0;
+  }
+
+  .infoItem {
+    background: #f2f2f2;
+    padding: 15px 10px;
+    border-radius: 20px;
+    margin-right: 5px;
+    width: 48%;
+
+    .infoTitle {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.progressBarWrap {
+  button {
+    // width: 100%;
+    text-transform: none;
+  }
+  .MuiTabs-scroller {
+    display: inline-flex !important;
+  }
+  .MuiTabs-indicator {
+    display: none;
+  }
+}
+@media (max-width: 599.95px) {
+  .progressBarWrap {
+    button {
+      width: 100%;
+      text-transform: none;
+    }
+    .MuiTabs-scroller {
+      display: inline-flex !important;
+    }
+  }
+}

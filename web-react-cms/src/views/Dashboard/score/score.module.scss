@@ -1,0 +1,18 @@
+.scoreContainer {
+  .scoreBoardContainer {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 20px;
+    width: 343px;
+    height: 164px;
+    overflow: hidden;
+  }
+}
+
+[dir="rtl"] {
+  .scoreBoardContainer {
+    svg {
+      transform: scale(-1, 1)
+    }
+  }
+}

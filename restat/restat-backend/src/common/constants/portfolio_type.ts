@@ -1,0 +1,7 @@
+export enum PORTFOLIO_TYPE {
+    TEMPLATE = 'TEMPLATE',
+    CASE_STUDY = 'CASE_STUDY',
+    PROJECT = 'PROJECT',
+    CODE_SNIPPET = 'CODE_SNIPPET',
+    LINK = 'LINK',
+}

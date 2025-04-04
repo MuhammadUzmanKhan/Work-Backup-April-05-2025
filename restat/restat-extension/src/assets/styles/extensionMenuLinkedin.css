@@ -1,0 +1,992 @@
+.rs-logo-container-linkedin {
+  position: fixed;
+  z-index: 1000;
+  bottom: 77.5%;
+  left: -1.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: left 0.3s ease;
+}
+
+.rs-bar-linkedin {
+  background: linear-gradient(45deg, #ef3a24, #1a4895, #faca2a);
+  width: 1.5rem;
+  height: 3rem;
+  margin-right: 0.2rem; /* Space between bar and logo */
+  /* margin-bottom: 0.5rem; */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.rs-bar-linkedin:hover {
+  width: 1.9rem; /* Increase size on hover */
+}
+
+.rs-logo-container-linkedin:hover {
+  left: 0rem;
+}
+
+.rs-logo-container-linkedin:hover .rs-bar-linkedin {
+  width: 1.9rem; /* Ensures bar stays visible on hover */
+}
+
+.rs-logo-linkedin {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.rs-extension-main-linkedin {
+  position: fixed;
+  border: 1rem solid transparent;
+  bottom: 1vh;
+  left: -7rem;
+  display: flex;
+  height: 100%;
+  z-index: 900;
+  /* max-height: calc(71rem - 1rem); */
+  max-height: 85vh;
+  overflow: hidden;
+  border-radius: 0.625rem;
+  transition: left 0.3s ease;
+}
+
+.rs-extension-bar-linkedin {
+  padding: 2.25rem 0.625rem 0.8rem 0.625rem;
+  border-radius: 1.2rem;
+  background: #28303f;
+  width: 5.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  position: relative;
+  z-index: 1;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.rs-extension-bar-linkedin ul {
+  list-style-type: none;
+  margin-top: 2rem;
+}
+
+.rslogo-linkedin {
+  border-bottom: 0.2rem solid #8a9bac;
+  padding-bottom: 2.25rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #28303f;
+}
+
+.rs-ext-menu {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rs-ext-bottom {
+  border-top: 0.125rem solid #8a9bac;
+  padding-top: 0.6rem;
+}
+
+.rs-li-icon-container-linkedin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  background-color: #48566f;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+}
+.rs-li-icon-container-linkedin:hover {
+  background-color: #5865f2 !important;
+  border-radius: 20% !important;
+}
+
+.rs-active-tab {
+  background-color: #5865f2 !important;
+  border-radius: 20% !important;
+}
+
+/* .rs-li-icon-container-linkedin svg {
+  position: absolute;
+  top: 0.9rem;
+  left: 1rem;
+}
+
+.rs-link-svg-linkedin {
+  position: absolute;
+  top: 0.75rem !important;
+  left: 0.7rem !important;
+}
+
+.rs-user-icon-linkedin {
+  position: absolute;
+  top: 0.5rem !important;
+  left: 0.5rem !important;
+} */
+
+.rs-user-name-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  background-color: #5865f2;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+}
+.rs-user-name-icon-container:hover {
+  background-color: #5865f2 !important;
+  border-radius: 20% !important;
+}
+
+.rs-user-name-linkedin {
+  /* position: absolute; */
+  /* top: 0.7rem !important; */
+  /* left: 1.4rem !important; */
+  /* text-decoration: none !important; */
+  color: white !important;
+  /* font-size: medium; */
+  /* cursor: pointer; */
+}
+
+.rs-user-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rs-user-name-icon-container1 {
+  display: flex;
+  align-items: center;
+  /* Center align items vertically */
+  justify-content: center;
+}
+
+.rs-bidder-style {
+  display: inline-block;
+}
+
+.rs-user-name1 {
+  position: relative;
+  /* Change from absolute to relative positioning */
+  margin-left: 0.5rem;
+  /* Adjust the margin as per your preference */
+  text-decoration: none !important;
+  color: white !important;
+  cursor: pointer;
+  background-color: #5865f2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+}
+
+.rs-login-badge {
+  position: absolute;
+  top: 75%;
+  /* Adjust the top position as needed */
+  /* right: -5px;  */
+  background-color: #5865f2;
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 4px;
+  border-radius: 20%;
+}
+
+.rs-exit-menu li a {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 1.25rem;
+  background: #6a7888;
+  display: flex;
+  align-items: center;
+  /* padding-right: 10px !important; */
+  justify-content: center;
+  margin: 0.7rem 0;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s linear;
+}
+
+.rs-ext-menu li:hover,
+.rs-ext-menu li.active a {
+  border-radius: 0.625rem;
+}
+
+.rs-extension-detail-block-linkedin {
+  background-color: #343e50;
+  border-radius: 0 2rem 2rem 0rem;
+  width: 44.5rem;
+  position: relative;
+  transition: 0.3s linear;
+  left: -1rem;
+  color: #fff !important;
+  font-size: 1.5rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rs-extension-detail-block-linkedin strong {
+  font-weight: 600;
+}
+
+.rs-extension-detail-head-linkedin {
+  border-radius: 0rem 2rem 0rem 0rem;
+  padding: 1.75rem 2rem 1.75rem 2.25rem;
+  background: #28303f;
+  align-items: center;
+  color: #fff;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rs-extension-detail-body-linkedin {
+  padding: 1.75rem 2rem 1.75rem 2.25rem;
+  flex: 1;
+  display: flex;
+  color: white !important;
+  flex-direction: column;
+}
+
+.rs-extension-detail-body-linkedin h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.rs-custom-field-div-linkedin {
+  margin: 1rem 0;
+}
+
+.rs-custom-field-input-linkedin {
+  border-radius: 1.25rem !important;
+  background: #28303f !important;
+  color: #fff !important;
+  width: 100%;
+  height: 4.375rem !important;
+  outline: none !important;
+  margin-bottom: 0.5rem;
+}
+
+.rs-custom-field-input-linkedin input {
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.rs-custom-field-div-linkedin .css-dev-only-do-not-override-19iuou {
+  background: #28303f !important;
+  color: white !important;
+}
+.rs-custom-field-div-linkedin .css-dev-only-do-not-override-19iuou::placeholder,
+.rs-custom-field-input-linkedin::placeholder {
+  color: #4c5c78 !important;
+  opacity: 1;
+}
+
+.rs-custom-field-div-linkedin .css-dev-only-do-not-override-19iuou::-ms-input-placeholder,
+.rs-custom-field-input-linkedin::-ms-input-placeholder { 
+  color: #4c5c78 !important;
+}
+
+.rs-sign-google,
+.rs-sign-in-linkedin {
+  border-radius: 1.25rem;
+  background: #5865f2;
+  border: 1px solid #5865f2;
+  color: #fff !important;
+  height: 4.6875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  position: relative;
+  margin: 0.75rem 0;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.rs-sign-google {
+  &::after {
+    content: "";
+    height: 1.875rem;
+    width: 1.875rem;
+    background: url("../images/googleIcon-sm.png") no-repeat;
+    background-size: 1.2rem;
+    background-position: center;
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    left: 1.25rem;
+    border-radius: 0.5rem;
+  }
+}
+
+.rs-errorMsg {
+  color: red;
+  font-size: 13px;
+}
+
+.custom-rs-search-div {
+  margin: 0.8rem 0;
+  position: relative;
+}
+
+.custom-rs-search-div .rs-custom-search-input {
+  border-radius: 10px;
+  border: 1px solid #28303f;
+  background: #28303f;
+  color: #fff;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  padding: 0 15px;
+  padding-right: 38px;
+}
+
+.custom-rs-search-div .rs-custom-search-input-portfolio {
+  border-radius: 10px;
+  border: 1px solid #5865f2;
+  background: #28303f;
+  color: #fff;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  padding: 0 15px;
+  padding-right: 38px;
+}
+
+.custom-rs-search-div .rs-search-icon {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: default;
+}
+
+.rs-search-icon-tags {
+  position: absolute;
+  right: 18px;
+  bottom: 10px;
+  cursor: default;
+}
+
+.rs-custom-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  border: 1px solid #28303f;
+  background: #28303f;
+  color: #fff;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.rs-custom-div-open {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #5865f2;
+  background: #5865f2;
+  color: #fff;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /* The following line sets the bottom-left and rs-bottom-right corners to have no radius (square) */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.rs-the-tags-container {
+  /* justify-content: space-between; */
+  border: 1px solid #2c354d;
+  background: #2c354d;
+  color: #fff;
+  width: 100%;
+  min-height: 100px;
+  max-height: 150px;
+  overflow: auto;
+  outline: none;
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  /* The following line sets the bottom-left and rs-bottom-right corners to have no radius (square) */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.rs-container-of-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.explore-rs-tags-container {
+  /* justify-content: space-between; */
+  border: 1px solid #2c354d;
+  background: #2c354d;
+  color: #fff;
+  width: 100%;
+  min-width: 100px;
+  max-height: 350px;
+  overflow: auto;
+  outline: none;
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.explore-rs-the-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rs-tags-tag {
+  padding: 4px 9px 4px 9px;
+  border-radius: 29px;
+  margin-right: 8px;
+  cursor: pointer;
+  margin-bottom: 7px;
+  font-size: 13px;
+  background: #28303f;
+  min-width: 70px;
+  text-align: center;
+}
+
+.selected-rs-tags-tag {
+  padding: 4px 9px 4px 9px;
+  border-radius: 29px;
+  margin-right: 8px;
+  cursor: pointer;
+  margin-bottom: 7px;
+  font-size: 13px;
+  background: #5865f2;
+  min-width: 70px;
+  text-align: center;
+}
+
+.the-selected-rs-tags-tag {
+  padding: 4px 9px 4px 9px;
+  border-radius: 29px;
+  margin-right: 8px;
+  cursor: pointer;
+  margin-bottom: 7px;
+  font-size: 13px;
+  background: #5865f2;
+  min-width: 70px;
+  text-align: center;
+}
+
+.rs-loading-circle {
+  width: 50px;
+  height: 50px;
+  border: 4px solid transparent;
+  border-top: 4px solid #3498db;
+  /* Change the color as needed */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rs-central-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rs-selectedTagsTag {
+  /* display : inline; */
+}
+
+.rs-selectedTagsTagHover {
+  display: none;
+}
+
+.selected-rs-tags-tag:hover .rs-selectedTagsTag {
+  display: none;
+}
+
+.selected-rs-tags-tag:hover .rs-selectedTagsTagHover {
+  display: block;
+}
+
+.selected-rs-tags-tag:active .rs-selectedTagsTag {
+  display: none;
+}
+
+.selected-rs-tags-tag:active .rs-selectedTagsTagHover {
+  display: block;
+}
+
+.selected-rs-tags-tag:focus .rs-selectedTagsTag {
+  display: none;
+}
+
+.selected-rs-tags-tag:focus .rs-selectedTagsTagHover {
+  display: block;
+}
+
+.rs-search-div {
+  position: relative;
+}
+
+.rs-search-box {
+  position: absolute;
+  border: 1px solid #2f394a;
+  background: #28303f;
+  border-radius: 10px;
+  min-height: 4rem;
+  max-height: 9rem;
+  overflow: scroll;
+  padding: 10px;
+  width: 100%;
+  top: 85%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: default;
+  z-index: 1;
+}
+
+.rs-portfolios-container {
+  border: 1px solid #2c354d;
+  background: #2c354d;
+  color: #fff;
+  width: 100%;
+  min-height: 100px;
+  max-height: 170px;
+  overflow: auto;
+  outline: none;
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.the-rs-portfolios-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rs-portfolios-table {
+  overflow: auto;
+}
+
+.rs-custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rs-custom-table thead {
+  padding-right: 100px;
+}
+
+.rs-custom-table th {
+  padding: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.rs-first-heading {
+  width: 65%;
+  padding-left: 1.5rem !important;
+  text-align: left !important;
+}
+
+.rs-custom-table td {
+  padding: 0;
+  text-align: center;
+  font-size: 14px;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #373e56;
+}
+
+.rs-left-align {
+  text-align: left !important;
+  padding-left: 1.5rem;
+}
+
+/* Checkbox container and styling */
+/* checkbox container */
+.rs-checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.rs-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.rs-checkmark-label {
+  position: absolute;
+  top: 0.25rem;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #373e56;
+}
+
+/* When the checkbox is checked, add a blue background */
+.rs-checkbox-container input:checked~.rs-checkmark-label {
+  background-color: #5865f2;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.rs-checkmark-label:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.rs-checkbox-container input:checked~.rs-checkmark-label:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.rs-checkbox-container .rs-checkmark-label:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 1.5px 1.5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Create a custom checkbox */
+.rs-checkmark1 {
+  position: absolute;
+  top: -0.25rem;
+  left: 2.25rem;
+  height: 15px;
+  width: 15px;
+  background-color: #373e56;
+}
+
+/* When the checkbox is checked, add a blue background */
+.rs-checkbox-container input:checked~.rs-checkmark1 {
+  background-color: #5865f2;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.rs-checkmark1:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.rs-checkbox-container input:checked~.rs-checkmark1:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.rs-checkbox-container .rs-checkmark1:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 1.5px 1.5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Create a custom checkbox */
+.rs-checkmark2 {
+  position: absolute;
+  top: -0.25rem;
+  left: 1rem;
+  height: 15px;
+  width: 15px;
+  background-color: #373e56;
+}
+
+/* When the checkbox is checked, add a blue background */
+.rs-checkbox-container input:checked~.rs-checkmark2 {
+  background-color: #5865f2;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.rs-checkmark2:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.rs-checkbox-container input:checked~.rs-checkmark2:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.rs-checkbox-container .rs-checkmark2:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 1.5px 1.5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.rs-tags-icon-container {
+  margin-left: 2rem;
+  background-color: #2c354d;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.rs-tags-icon-container svg {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+}
+
+.rs-tags-icon-container:hover {
+  background-color: #5865f2;
+}
+
+.portfolio-rs-tags-container {
+  position: relative;
+  border: 1px solid #2f394a;
+  background: #28303f;
+  border-radius: 10px;
+  min-height: 3rem;
+  max-height: 12.5rem;
+  overflow: hidden;
+  padding: 10px;
+  width: 17rem;
+  left: 80%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: none;
+  flex-wrap: wrap;
+}
+
+.portfolio-rs-tags-tag {
+  padding: 4px 9px 4px 9px;
+  border-radius: 29px;
+  margin-right: 8px;
+  cursor: pointer;
+  margin-bottom: 7px;
+  font-size: 11px;
+  background: #2f394a;
+  min-width: 70px;
+  text-align: center;
+}
+
+.rs-next-back-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.rs-cross-icon-hidden {
+  display: none;
+}
+
+.rs-cross-icon-shown {
+  display: block;
+}
+
+.rs-close-button {
+  position: absolute;
+  color: white;
+  top: 0;
+  right: 0;
+}
+
+.rs-preview-detail-block {
+  background-color: #343e50;
+  border-radius: 1rem;
+  width: 24.5rem;
+  height: 32.5rem;
+  position: absolute;
+  top: 15%;
+  left: -45%;
+  color: #fff;
+  font-size: 0.9rem;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* display: none; */
+}
+
+.rs-preview-detail-head {
+  border-radius: 1rem 1rem 0rem 0rem;
+  padding: 1rem 1.25rem 1rem 1.5rem;
+  width: 100%;
+  background: #28303f;
+  align-items: center;
+  color: #fff;
+  font-size: 0.875rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rs-preview-detail-body {
+  background-color: #343e50;
+  overflow: scroll;
+  width: 100%;
+  max-height: 78%;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+}
+
+.rs-close-button-div {
+  position: relative;
+}
+
+.rs-close-button.rs-bottom-right {
+  position: absolute;
+  top: 29.2rem;
+  right: 3%;
+  background-color: #28303f;
+  color: #fff;
+  padding: 0.3rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.rs-close-button.rs-bottom-right:hover {
+  background-color: #384759;
+}
+
+.rs-checkbox-container-preview {
+  display: block;
+  position: relative;
+  padding-left: 1.5rem;
+  /* margin-bottom: 0.5rem; */
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.rs-checkbox-container-preview input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.rs-checkmark-label-preview {
+  position: absolute;
+  top: 0.25rem;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #556476;
+}
+
+.rs-checkbox-container-preview input:checked~.rs-checkmark-label-preview {
+  background-color: #5865f2;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.rs-checkmark-label-preview:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.rs-checkbox-container-preview input:checked~.rs-checkmark-label-preview:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.rs-checkbox-container-preview .rs-checkmark-label-preview:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 1.5px 1.5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.rs-inlineBlock-linkedin {
+  display: flex;
+  justify-content: center;
+}

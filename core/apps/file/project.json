@@ -1,0 +1,27 @@
+{
+  "name": "file",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/file/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "inspect": false,
+        "buildTarget": "file:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "file:build:development"
+        },
+        "production": {
+          "buildTarget": "file:build:production"
+        }
+      }
+    }
+  }
+}

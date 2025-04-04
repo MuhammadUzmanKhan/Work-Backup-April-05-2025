@@ -1,0 +1,29 @@
+; for compat with black, taken from
+; https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html#flake8
+[flake8]
+max-line-length = 88
+extend-ignore = E203, W503
+per-file-ignores =
+    backend/escapi/__init__.py:F401
+    backend/stream_discovery/__init__.py:F401
+    backend/kinesis_api/__init__.py:F401
+    backend/perception/__init__.py:F401
+    backend/alert/__init__.py:F401
+    backend/shared_video/__init__.py:F401
+    backend/database/orm/__init__.py:F401
+    backend/database/orm/*.py:E712
+    backend/text_search/__init__.py:F401
+    backend/auth0_api/__init__.py:F401
+    backend/members/__init__.py:F401
+    backend/organization_alert_subscribers/__init__.py:F401
+    backend/devices/__init__.py:F401
+    backend/archive/__init__.py:F401
+    backend/value_store/__init__.py:F401
+
+exclude =
+    .venv,
+    __pycache__,
+    .git,
+    frontend
+    backend/text_search/prompts.py
+    api_client

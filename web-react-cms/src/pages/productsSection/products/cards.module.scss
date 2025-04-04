@@ -1,0 +1,60 @@
+.filterIcon {
+  padding: 10px;
+  background: #f2f2f2;
+  border-radius: 50px;
+  overflow: visible;
+}
+
+.caretRight {
+  path {
+    // fill: #453157;
+    fill: #c6c6c6;
+  }
+}
+
+.cardContainer {
+  background: #ffffff;
+  border: 2px solid #f2f2f2 !important;
+  box-sizing: border-box !important;
+  border-radius: 20px !important;
+  box-shadow: none !important;
+  margin-bottom: 8px;
+}
+
+.listItemButton {
+  height: 97px;
+  background: #ffffff !important;
+  padding: 31px 16px 30px !important;
+  filter: drop-shadow(0px 4px 16px rgba(40, 24, 58, 0.08)) drop-shadow(0px -1px 8px rgba(40, 24, 58, 0.05)) !important;
+  border-radius: 20px !important;
+  margin-bottom: 8px !important;
+
+  .listItemButtonIcon {
+    margin-right: 15px;
+
+    img {
+      max-width: 50px;
+    }
+  }
+}
+
+.rightCaret {
+  path {
+    fill: #453157;
+  }
+}
+
+.baseBadge {
+  font-weight: 700 !important;
+  font-size: 10px !important;
+  line-height: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  color: #FFFFFF !important;
+  top: 5px !important;
+  right: 5px !important;
+  filter: drop-shadow(0px 4px 8px rgba(82, 67, 170, 0.4));
+
+}

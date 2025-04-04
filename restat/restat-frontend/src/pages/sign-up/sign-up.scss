@@ -1,0 +1,136 @@
+.form-card {
+    background-color: white;
+    padding: 2.5rem 1.25rem;
+    box-shadow: 0rem 0rem 1.25rem var(--blue-shadow-dark);
+    border-radius: 0.5rem;
+    max-width: 37.375rem;
+    margin: 0 auto;
+}
+.form-card h2 {
+    font-weight: 600;
+    font-size: 1.875rem;
+    line-height: 2.875rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+}
+.form-card .field {
+    margin-bottom: 1.25rem;
+}
+.form-card .field label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+.form-card .field .infield {
+    position: relative;
+}
+.form-card .field .infield .field-icon-right,
+.form-card .field .infield .field-icon-left {
+    position: absolute;
+    left: 1.1875rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.form-card .field .infield .field-icon-right {
+    left: inherit;
+    right: 1.1875rem;
+}
+.form-card .field .custom-input {
+    border: 0.0625rem solid var(--blue-border);
+    height: 3.125rem;
+    padding-left: 3.25rem;
+    padding-right: 3.25rem;
+    border-radius: 0.625rem;
+    width: 100%;
+    font-size: 1.125rem;
+    line-height: 1.6875rem;
+    color: var(--blue);
+}
+.form-card .field .custom-input:focus {
+    outline: none;
+    border-color: var(--blue);
+}
+.form-card .field .custom-input::placeholder {
+    color: var(--blue-opacity-50);
+    opacity: 1; /* Firefox */
+} 
+.form-card .field .custom-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--blue-opacity-50);
+}
+.form-card .field .custom-input::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--blue-opacity-50);
+}
+.form-card .btn-lg.blue-btn {
+    margin: 1.25rem 0;
+}
+.form-card .btn-lg.blue-btn:hover {
+    box-shadow: 0rem 0.125rem 0.625rem #1A489557;
+}
+.inner-wrapper {
+    max-width: 28.125rem;
+    margin: auto;
+}
+.saprator {
+    display: flex;
+    align-items: center;
+}
+.saprator span {
+    color: var(--blue-opacity-50);
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    padding: 0 0.9375rem;
+}
+.saprator::After,
+.saprator::before {
+    content: "";
+    height: 0.0625rem;
+    background: var(--blue-shadow);
+    flex: 1;
+    display: block;
+}
+.social-link {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    gap: 1.25rem;
+}
+.social-link li {
+    display: grid;
+    flex: 1;
+    background: white;
+    box-shadow: 0rem 0.25rem 0.375rem var(--blue-shadow);
+    border-radius: 0.625rem;
+}
+.social-link li button {
+    display: flex;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.disabled{
+  pointer-events: none;
+  cursor: default;
+  background-color: lightgray;
+  box-shadow: 0rem 0.25rem 0.375rem var(--blue-shadow);
+  border-radius: 0.625rem;
+}
+
+@media only screen and (max-width: 991px) {
+    .form-card {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .content {
+        padding: 0;
+    }
+    .form-card {
+        box-shadow: none;
+        border-radius: 0;
+    }
+    
+}

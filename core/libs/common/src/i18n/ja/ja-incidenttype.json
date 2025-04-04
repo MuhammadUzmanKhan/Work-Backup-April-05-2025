@@ -1,0 +1,12 @@
+{
+  "actions": {
+    "added": "新しいコアインシデントタイプ {second_val} を追加しました",
+    "added_variant": "{incident_type_name} にバリアント {second_val} を {name} に追加しました",
+    "changed_to": "{name} で {first_val} を {second_val} に変更しました",
+    "updated_to": "{name} で {first_val} を {second_val} に変更しました"
+  },
+  "labels": {
+    "name": "名前",
+    "translation": "翻訳"
+  }
+}

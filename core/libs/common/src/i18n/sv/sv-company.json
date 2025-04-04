@@ -1,0 +1,20 @@
+{
+  "actions": {
+    "created": "Skapade event",
+    "set_to": "{column_name} har ställts in på '{value}'",
+    "updated_from": "{column_name} har uppdaterats från '{first_val}' till '{second_val}'"
+  },
+  "labels": {
+    "about": "Handla om",
+    "contact_email": "E-post för primär kontakt",
+    "contact_name": "Primärt kontaktnamn",
+    "contact_phone": "Primär kontakttelefon",
+    "email": "Sekundär e-post",
+    "location": "Plats",
+    "name": "Namn",
+    "number": "Sekundärt nummer",
+    "regionName": "Regionens namn",
+    "timezone": "Tidszon",
+    "url": "Url"
+  }
+}

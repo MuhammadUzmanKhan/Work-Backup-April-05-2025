@@ -1,0 +1,41 @@
+{
+  "actions": {
+    "complete_task": "Tapahtumatehtävän '{subTaskName}' tila päivitetty valmiiksi",
+    "created": "Luotu tapahtuma",
+    "created_subtask": "Loi tapahtumatehtävän '{value}'",
+    "delete_image": "Poisti tiedoston{imageName}",
+    "delete_subtask_image": "Poisti tiedoston '{imageName}' tapahtumatehtävästä '{subTaskName}'",
+    "demo": "Tapahtuma on merkitty demoksi",
+    "demo_remove": "Tapahtumaa ei ole enää merkitty demoksi",
+    "disabled": "{column_name} '{first_val}' on poistettu käytöstä",
+    "enabled": "{column_name} '{value}' on otettu käyttöön",
+    "event_cad": "Ladattu tiedosto {column_name} '{second_val}' versiolla '{cadVersion}' vastaan ​​'{cadName}'",
+    "current_version": "Nykyinen versio '{cadName}' on asetettu '{cadVersion}'",
+    "image": "Lähetti tiedoston{imageName}",
+    "incomplete_task": "Tapahtumatehtävän '{subTaskName}' tila päivitetty keskeneräiseksi",
+    "set_to": "{column_name} on asetettu arvoon{value}",
+    "subtask_image": "Lähetti tiedoston '{imageName}' tapahtumatehtävää '{subTaskName}' vastaan",
+    "updated_from": "{column_name} on päivitetty arvosta{first_val}arvoon{second_val}",
+    "updated_from_subtask": "{column_name} on päivitetty arvosta \"{first_val}\" arvoon \"{second_val}\" tapahtumatehtävässä \"{subTaskName}\""
+  },
+  "labels": {
+    "about_event": "Tietoja Tapahtumasta",
+    "attachment": "Liite",
+    "deadline": "Takaraja",
+    "demo_event": "Demo Tapahtuma",
+    "division_lock_service": "Division Lock Service",
+    "end_date": "Päättymispäivä",
+    "event cad creation": "Cad-tapahtuman luominen",
+    "event_access_lock": "Tapahtuman pääsylukko",
+    "event_cad": "Tapahtuma CAD",
+    "name": "Nimi",
+    "public_end_date": "Julkinen päättymispäivä",
+    "public_start_date": "Julkinen aloituspäivä",
+    "start_date": "Aloituspäivämäärä",
+    "status": "Tila",
+    "subtask": "Tapahtuman tehtävä",
+    "subtask_attachment": "Tehtävän liite",
+    "update event cad current version": "Päivitä Event Cadin nykyinen versio",
+    "current_version": "Nykyinen versio"
+  }
+}

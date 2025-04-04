@@ -1,0 +1,27 @@
+{
+  "name": "dotmap",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/dotmap/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "inspect": false,
+        "buildTarget": "dotmap:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "dotmap:build:development"
+        },
+        "production": {
+          "buildTarget": "dotmap:build:production"
+        }
+      }
+    }
+  }
+}

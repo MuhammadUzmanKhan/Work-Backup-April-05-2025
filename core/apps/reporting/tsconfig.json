@@ -1,0 +1,35 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "paths": {
+      "@Modules/*": ["apps/reporting/src/modules/*"],
+      "@Modules": ["apps/reporting/src/modules"],
+      "@Common/*": ["apps/reporting/src/common/*"],
+      "@Common": ["apps/reporting/src/common"],
+      "@Common/constants": ["apps/reporting/src/common/constants"],
+      "@ontrack-tech-group/common/helpers": ["libs/common/src/helpers"],
+      "@ontrack-tech-group/common/constants": ["libs/common/src/constants"],
+      "@ontrack-tech-group/common/models": ["libs/common/src/models"],
+      "@ontrack-tech-group/common/dto": ["libs/common/src/dto"],
+      "@ontrack-tech-group/common/services": ["libs/common/src/services"],
+      "@ontrack-tech-group/common/decorators": ["libs/common/src/decorators"],
+      "@ontrack-tech-group/common/database": ["libs/common/src/database"],
+      "@ontrack-tech-group/common/interceptors": [
+        "libs/common/src/interceptors"
+      ],
+      "@ontrack-tech-group/common/controllers": ["libs/common/src/controllers"],
+      "@ontrack-tech-group/common/fixtures": ["libs/common/src/fixtures"]
+    }
+  }
+}

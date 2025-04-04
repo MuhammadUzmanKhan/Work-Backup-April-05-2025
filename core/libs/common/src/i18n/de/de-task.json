@@ -1,0 +1,39 @@
+{
+  "actions": {
+    "assigned": "{column_name} '{value}' wurde zugewiesen",
+    "assigned_subtask": "{column_name} '{value}' wurde der Unteraufgabe '{subTaskName}' zugewiesen.",
+    "created": "{column_name} wurde erstellt",
+    "created_subtask": "Erstellt ein {column_name} '{subTaskName}'",
+    "delete_image": "Eine Datei '{imageName}' wurde gelöscht",
+    "delete_subtask_image": "Eine Datei '{imageName}' wurde für die Unteraufgabe '{subTaskName}' gelöscht.",
+    "set": "{column_name} wurde gesetzt",
+    "subtask_image": "Eine Datei '{imageName}' wurde für die Unteraufgabe '{subTaskName}' hochgeladen.",
+    "subtask_set": "{column_name} der Unteraufgabe '{subTaskName}' wurde festgelegt",
+    "subtask_unset": "{column_name} der Unteraufgabe '{subTaskName}' wurde aufgehoben",
+    "task_image": "Eine Datei '{imageName}' wurde hochgeladen.",
+    "unassigned": "Die Zuweisung von{column_name} '{value}' wurde aufgehoben",
+    "unassigned_subtask": "Die Zuweisung von{column_name} '{value}' zur Unteraufgabe '{subTaskName}' wurde aufgehoben.",
+    "unset": "{column_name} wurde aufgehoben",
+    "updated_from": "{column_name} aktualisiert von '{first_val}' auf '{second_val}'",
+    "updated_from_subtask": "{column_name} wurde von '{first_val}' auf '{second_val}' einer Unteraufgabe '{subTaskName}' aktualisiert.",
+    "updated_to": "{column_name} aktualisiert auf '{value}'",
+    "set_to": "{column_name} wurde auf '{value}' gesetzt"
+  },
+  "labels": {
+    "category": "Kategorie",
+    "company_id": "Unternehmen",
+    "deadline": "Frist",
+    "department_id": "Abteilung",
+    "description": "Beschreibung",
+    "image": "Bild",
+    "incident_division_id": "Einsatzabteilung",
+    "name": "Name",
+    "priority": "Priorität",
+    "status": "Status",
+    "subTask": "Unteraufgabe",
+    "task": "Aufgabe",
+    "task_list_id": "Aufgabenliste",
+    "user": "Benutzer",
+    "start_date": "Startdatum"
+  }
+}

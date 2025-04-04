@@ -1,0 +1,20 @@
+{
+  "actions": {
+    "created": "Oprettet begivenhed",
+    "set_to": "{column_name} er blevet indstillet til '{value}'",
+    "updated_from": "{column_name} er blevet opdateret fra '{first_val}' til '{second_val}'"
+  },
+  "labels": {
+    "about": "Om",
+    "contact_email": "Primær kontakt e-mail",
+    "contact_name": "Primært kontaktnavn",
+    "contact_phone": "Primær kontakttelefon",
+    "email": "Sekundær e-mail",
+    "location": "Beliggenhed",
+    "name": "Navn",
+    "number": "Sekundært nummer",
+    "regionName": "Regionsnavn",
+    "timezone": "Tidszone",
+    "url": "URL"
+  }
+}

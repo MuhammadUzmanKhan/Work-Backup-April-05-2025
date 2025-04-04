@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon-1024.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-universal.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.coramai.coram",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon-1024.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.coramai.coram"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "scheme": "coram"
+  }
+}

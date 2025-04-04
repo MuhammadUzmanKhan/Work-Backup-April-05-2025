@@ -1,0 +1,11 @@
+.rounded.MuiFormControl-root {
+  .MuiOutlinedInput-root {
+    background: #29173b;
+    border-radius: 44px;
+    border: 1px solid transparent;
+
+    &.Mui-focused {
+      border-color: #29173b;
+    }
+  }
+}

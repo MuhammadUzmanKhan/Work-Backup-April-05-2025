@@ -1,0 +1,27 @@
+-- create a login and user
+CREATE LOGIN [Joe] WITH PASSWORD = '1', CHECK_POLICY = OFF
+GO
+ 
+USE [library]
+GO
+CREATE USER [Joe] FOR LOGIN [Joe]
+WITH DEFAULT_SCHEMA = [dbo]
+GO
+
+
+GRANT SELECT ON dbo.author TO [Joe]
+GO
+
+EXECUTE AS USER = 'Joe'
+SELECT * FROM dbo.author
+
+revert
+
+REVOKE SELECT ON dbo.author FROM [Joe]
+GO
+
+EXECUTE AS USER = 'Joe'
+SELECT * FROM dbo.author
+
+revert
+

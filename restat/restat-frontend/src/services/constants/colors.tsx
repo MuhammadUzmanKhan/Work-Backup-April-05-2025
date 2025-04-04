@@ -1,0 +1,9 @@
+export const GRAPH_COLORS = {
+  PROPOSALS: '#ef3a24',
+  LEADS: '#1a4895',
+  CONTRACTS: '#faca2a',
+  INVITES: '#28a745',
+  INVITE_CONTRACTS: '#faca8a',
+  DIRECT_LEADS: '#ff700f',
+  DIRECT_CONTRACTS: '#E8EB49',
+}

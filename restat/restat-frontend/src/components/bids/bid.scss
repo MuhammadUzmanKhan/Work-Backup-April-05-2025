@@ -1,0 +1,43 @@
+.status-active {
+  background-color:rgb(26, 72, 149);
+  color: white;
+}
+
+.status-pending {
+  background-color:rgb(239, 58, 36);
+  color: white;
+}
+
+.status-completed {
+  background-color:rgb(40, 167, 69);;
+  color: white;
+}
+
+.status-button {
+  cursor: pointer;
+  padding: 4px 9px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-button .anticon {
+  margin-left: 8px;
+}
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.detail-item .status-button {
+  margin-left: 8px; /* Adjust spacing between label and dropdown */
+}
+
+.ant-picker-ok button {
+  background-color: #1A4895 !important;
+  color: white; 
+}

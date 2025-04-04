@@ -1,0 +1,10 @@
+Oracle:alter table employee modify ssn default '0000'
+SQL SERVER: alter table employee add default(10) for salary
+
+Oracle:alter table department modify mgr_ssn not null
+SQL SERVER:alter table works_on alter column hours int not null;
+
+
+Oracle: Command to fetch 2nd word in a sentence
+select substr(address, instr(address, ' ', 1, 1), instr(address, ' ', 1, 2)-instr(address, ' ', 1, 1)-1), address from employee
+

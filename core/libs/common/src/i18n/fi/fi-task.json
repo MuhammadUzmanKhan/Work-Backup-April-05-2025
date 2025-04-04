@@ -1,0 +1,39 @@
+{
+  "actions": {
+    "assigned": "{column_name} '{value}' on määritetty",
+    "assigned_subtask": "{column_name} '{value}' on määritetty alatehtävälle '{subTaskName}'",
+    "created": "{column_name} on luotu",
+    "created_subtask": "Loi kohteen {column_name} '{subTaskName}'",
+    "delete_image": "Poisti tiedoston{imageName}",
+    "delete_subtask_image": "Poisti tiedoston '{imageName}' alatehtävästä '{subTaskName}'",
+    "set": "{column_name} on asetettu",
+    "subtask_image": "Lähetti tiedoston '{imageName}' alatehtävään '{subTaskName}'",
+    "subtask_set": "{column_name} osatehtävästä '{subTaskName}' on asetettu",
+    "subtask_unset": "{column_name} osatehtävästä '{subTaskName}' on poistettu",
+    "task_image": "Lähetti tiedoston {imageName}",
+    "unassigned": "{column_name} {value} on poistettu",
+    "unassigned_subtask": "{column_name} '{value}' on poistettu alatehtävästä '{subTaskName}'",
+    "unset": "{column_name} on poistettu käytöstä",
+    "updated_from": "{column_name} päivitetty arvosta {first_val} arvoon {second_val}",
+    "updated_from_subtask": "{column_name} on päivitetty arvosta '{first_val}' arvoon '{second_val}' alitehtävässä '{subTaskName}'",
+    "updated_to": "{column_name} päivitetty arvoon '{value}'",
+    "set_to": "{column_name} on asetettu arvoksi '{value}'"
+  },
+  "labels": {
+    "category": "Kategoria",
+    "company_id": "Yhtiö",
+    "deadline": "Takaraja",
+    "department_id": "Osasto",
+    "description": "Kuvaus",
+    "image": "Kuva",
+    "incident_division_id": "Tapahtumaosasto",
+    "name": "Nimi",
+    "priority": "Prioriteetti",
+    "status": "Tila",
+    "subTask": "Alatehtävä",
+    "task": "Tehtävä",
+    "task_list_id": "Tehtävälista",
+    "user": "Käyttäjä",
+    "start_date": "Aloituspäivämäärä"
+  }
+}

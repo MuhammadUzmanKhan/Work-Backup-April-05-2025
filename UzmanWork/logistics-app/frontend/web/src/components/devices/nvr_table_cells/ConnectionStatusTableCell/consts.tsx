@@ -1,0 +1,1 @@
+export const REQUIRED_MIN_UPLOAD_SPEED_BPS = 15_000_000;

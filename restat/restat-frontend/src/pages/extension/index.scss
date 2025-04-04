@@ -1,0 +1,75 @@
+// index.scss
+.extension-signin {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Roboto', sans-serif;
+
+  .left-side {
+    flex: 1;
+    background: linear-gradient(135deg, #186ce2, #4f93ff);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+
+    .icon img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: gold;
+      font-weight: bold;
+
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 500px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+  }
+
+  .right-side {
+    flex: 1;
+    background: #f4f6f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+
+    h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .google-button {
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #4285f4;
+      border-color: #4285f4;
+
+      &:hover {
+        background-color: #357ae8;
+        border-color: #357ae8;
+      }
+    }
+  }
+}

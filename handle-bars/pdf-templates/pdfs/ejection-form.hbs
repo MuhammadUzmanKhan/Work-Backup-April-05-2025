@@ -1,0 +1,523 @@
+<html>
+
+<head>
+  <title>front</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #141414;
+      font-size: 12px;
+    }
+
+    .pdf-page {
+      {{!-- border-top: 6px solid #F73D51;
+      border-bottom: 6px solid #F73D51; --}}
+      overflow: hidden;
+      position: relative;
+      padding: 0 30px;
+      margin: auto;
+      min-height: 950px;
+    }
+
+    .bottom-bg,
+    .top-bg {
+      opacity: 0.2;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: -1;
+    }
+
+    .bottom-bg {
+      top: inherit;
+      bottom: 0;
+    }
+
+    .pdf-page-header {
+      padding: 10px 0;
+      border-bottom: 1px solid #E9ECF0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .h-text {
+      color: #434343;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .event-detail {
+      padding: 10px 0;
+      border-bottom: 1px solid #E9ECF0;
+    }
+
+    ul.detail-list {
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.detail-list li {
+      display: flex;
+      font-size: 12px;
+      font-weight: 300;
+      padding: 4px 0;
+    }
+
+    ul.detail-list li span {
+      display: flex;
+      min-width: 100px;
+    }
+
+    ul.detail-list li span:first-child {
+      font-weight: 500;
+      display: flex;
+      min-width: 140px;
+    }
+
+    .gray-panel {
+      border-radius: 10px;
+      background: #F4F5F7;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .gray-panel-header {
+      border-radius: 6px;
+      background: #E9ECF0;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 10px 18px;
+    }
+
+    .description {
+      padding: 8px 0;
+      margin: 8px 0;
+      border-bottom: 1px solid #E9ECF0;
+      border-top: 1px solid #E9ECF0;
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    .d-title {
+      font-weight: 500;
+      display: flex;
+      min-width: 140px;
+    }
+
+    .d-detail {
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    .reported {
+      display: flex;
+    }
+
+    .w-50 {
+      width: 50%;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .mt-0 {
+      margin-top: 0;
+    }
+
+    .reported .d-title {
+      min-width: 250px;
+    }
+
+    .detail-list.detail-list-1 li span:first-child {
+      min-width: 180px;
+    }
+
+    .id-detail,
+    ul.detail-list.bt-1 {
+      padding: 8px 0;
+      margin: 8px 0;
+      border-top: 1px solid #E9ECF0;
+    }
+
+    .id-detail {
+      display: flex;
+    }
+
+    .id-detail>div {
+      min-width: 90px;
+      padding-right: 30px;
+    }
+
+    .mb-1 {
+      margin-bottom: 10px;
+    }
+
+    .mt-2 {
+      margin-top: 20px;
+    }
+
+    .id-img {
+      width: 125px;
+      height: 125px;
+      border-radius: 8px;
+      border: 1px solid #D8D8D8;
+      margin-top: 15px;
+      overflow: hidden;
+    }
+
+    .id-img img{
+      width: 100%; 
+      height: 100%; 
+      object-fit:contain;
+    }
+
+    .signature {
+      margin-left: 15px;
+      max-width: 100px;
+      max-height: 50px;
+    }
+
+    .writer-signature{
+      max-width: 100px;
+      max-height: 50px;
+    }
+
+    .sup-image-list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .sup-image-list li {
+      margin-right: 15px;
+      font-size: 11px;
+      list-style: none;
+      
+    }
+
+    .sup-image-list li .inner-img {
+      width: 90px;
+      height: 90px;
+      background-color: #141414;
+      border-radius: 4px;
+      overflow: hidden;
+      
+    }
+
+    .gray-panel-header span {
+      font-weight: 300;
+    }
+
+    .header {
+      position: fixed;
+      top:-25px;
+    }
+
+    .content {
+      margin-top: 80px; 
+    }
+
+    .inner-img img{
+      width: 100%; /* or any custom size */
+      height: 100%; 
+      object-fit:contain;
+      }
+  </style>
+</head>
+
+<body>
+  <div class="pdf-page">
+    {{!-- <div class="header">
+
+    <div class="top-bg">
+      <img src="https://svgshare.com/i/zew.svg" alt="bg-top" width="100%" />
+    </div>
+    <div class="pdf-page-header">
+      <a href="#">
+        <img src="https://i.postimg.cc/0yrGxtXk/logo.png" width="100" alt="logo" />
+      </a>
+      <span class="h-text">Security | Ejection Form </span>
+    </div>
+    </div> --}}
+    <div class="event-detail">
+      <ul class="detail-list">
+        <li>
+          <span>Event Name: </span>
+          <span>{{event.name}}</span>
+        </li>
+        <li>
+          <span>Event Date: </span>
+          <span>{{event_start_date}} - {{event_end_date}}</span>
+        </li>
+        <li>
+          <span>Venue Name: </span>
+          <span>{{event.venue_name}}</span>
+        </li>
+        <li>
+          <span>Linked Incident(s): </span>
+          <span>005412</span>
+        </li>
+      </ul>
+    </div>
+    <div class="gray-panel">
+      <div class="gray-panel-header">
+        Ejection Details
+      </div>
+      <div style="padding: 10px 18px 0 18px;">
+        <ul class="detail-list">
+          <li>
+            <span>Ejection Reason: </span>
+            <span><strong>{{reason_type}}</strong> </span>
+          </li>
+          <li>
+            <span>Incident Location:</span>
+            <span>{{incident_zone.name}}</span>
+          </li>
+          <li>
+            <span>Number Affected:</span>
+            <span>{{affected_person}}</span>
+          </li>
+          <li>
+            <span>Section:</span>
+            <span>{{section}}</span>
+            <span><strong style="display: inline-block;margin-right: 15px;">Row: </strong> {{row}}</span>
+            <span><strong style="display: inline-block;margin-right: 15px;">Seat: </strong>{{seat}}</span>
+          </li>
+        </ul>
+        <div class="description">
+          <div class="d-title">Ejection Description:</div>
+          <div class="d-detail">{{description}} </div>
+        </div>
+        <div class="reported">
+          <div class="w-50 flex items-center">
+            <span class="d-title">Was a Police Report completed?</span>
+            <span class="d-detail mt-0">{{#if police_report}}
+              Yes
+              {{else}}
+              No
+              {{/if}}
+            </span>
+          </div>
+          <div class="w-50 flex items-center">
+            <span class="d-title">Is There a Witness?</span>
+            <span class="d-detail mt-0">{{#if witness}}
+              Yes
+              {{else}}
+              No
+              {{/if}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gray-panel">
+      <div class="gray-panel-header">
+        Person(s) Involved
+      </div>
+      {{#each person_involveds}}
+
+      <div style="padding: 10px 18px;">
+        <ul class="detail-list detail-list-1">
+          <li>
+            <span>Person Involved: </span>
+            <span>{{first_name}} {{last_name}}</span>
+          </li>
+          <li>
+            <span>Date of Birth:</span>
+            <span>{{birth_date}}</span>
+          </li>
+          <li>
+            <span>Gender: </span>
+            <span>{{gender}}</span>
+          </li>
+          <li>
+            <span>Phone Number:</span>
+            <span>{{country_code}} {{cell}}</span>
+          </li>
+          <li>
+            <span>Email:</span>
+            <span>{{email}}</span>
+          </li>
+          <li>
+            <span>Home Address:</span>
+            <span>{{address}} </span>
+          </li>
+        </ul>
+        <div class="description">
+          <div class="d-title">Description of Person Involved:</div>
+          <div class="d-detail">{{description}}</div>
+        </div>
+        <ul class="detail-list detail-list-1">
+          <li>
+            <span>Staff Member Involved: </span>
+            <span>{{is_staff_involved}} </span>
+          </li>
+          <li>
+            <span>Details:</span>
+            <span>{{staff_detail}}</span>
+          </li>
+        </ul>
+        <div class="id-detail">
+          <div class="inner">
+            <div class="d-title mb-1">Credential Type:</div>
+            <div class="d-title">ID of Involved:</div>
+            <div class="d-detail">{{id_proof_no}}</div>
+          </div>
+          <div class="inner">
+            <div class="d-detail mt-0">{{credential_type}}</div>
+            {{#each images}}
+              {{#if (eq image_type "id_proof")}}
+                <div class="id-img">
+                  <img src="{{url}}" alt="ID">
+                </div>
+              {{/if}}
+            {{/each}}
+           
+          </div>
+          <div class="inner flex mt-2">
+            {{#each images}}
+            {{#if (eq image_type "person_signature")}}
+              <div class="d-title">Signature of Involved:</div>
+                <img class="signature" src={{url}} alt="Signature">
+              </div>
+            {{/if}}
+            {{/each}}
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+    <div class="gray-panel">
+      <div class="gray-panel-header">
+        Witness Details
+      </div>
+      {{#each witnesses}}
+        <div style="padding: 10px 18px 0 18px;">
+          <ul class="detail-list">
+            <li>
+              <span>Witness Name: </span>
+              <span>{{first_name}} {{last_name}}</span>
+            </li>
+            <li>
+              <span>Phone Number:</span>
+              <span>{{country_code}} {{cell}}</span>
+            </li>
+            <li>
+              <span>Email:</span>
+              <span>{{email}}</span>
+            </li>
+          </ul>
+        </div>
+      {{/each}}
+
+    </div>
+    <div class="gray-panel">
+      <div class="gray-panel-header">
+        Support Images
+      </div>
+
+      <div style="padding: 10px 18px 0 18px;">
+        <ul class="sup-image-list">
+      {{#each incident_images}}
+          <li>
+            <div class="inner-img">
+              <img src={{url}} alt="img" />
+            </div>
+            <p>12/13/2023 - 10:30 pm</p>
+          </li>
+      {{/each}}
+        </ul>
+      </div>
+
+
+    </div>
+    <div class="gray-panel">
+      <div class="gray-panel-header">
+        Report Writer
+      </div>
+      <div style="padding: 10px 18px 0 18px;">
+        <ul class="detail-list">
+          <li>
+            <span>Writer Name: </span>
+            <span>{{reporter_writer.first_name}} {{reporter_writer.last_name}}</span>
+          </li>
+          <li>
+            <span>Department:</span>
+            <span>{{department.name}}</span>
+          </li>
+          <li>
+            <span>Report Location:</span>
+            <span>{{incident_zone.name}}</span>
+          </li>
+          <li>
+            <span>Signature of Writer:</span>
+            <span>
+              <img class="writer-signature" src={{reporter_writer.image_url.url}} alt="signature" />
+            </span>
+          </li>
+          <li>
+            <span>Report Writer Narrative:</span>
+            <span>{{reporter_writer.reporter_narrative}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="gray-panel">
+      <div class="gray-panel-header">
+        Involved Representatives
+      </div>
+      {{#each representatives}}
+      <div style="padding: 10px 18px 0 18px;">
+        <ul class="detail-list detail-list-1">
+          <li>
+            <span>Representative Name: </span>
+            <span>{{first_name}} {{last_name}}</span>
+          </li>
+          <li>
+            <span>Department or Association</span>
+            <span>{{department_name}}</span>
+          </li>
+
+        </ul>
+      </div>
+      {{/each}}
+    </div>
+    <div class="gray-panel">
+      <div class="gray-panel-header">
+        Form Notes <span>(Additional notes, corrections or context clarifications)</span>
+      </div>
+      <div style="padding: 0px 18px 0 18px;">
+        <p>{{note}}</p>
+      </div>
+    </div>
+    {{!-- <div class="bottom-bg">
+      <img src="https://svgshare.com/i/ziS.svg" alt="bg-top" width="100%" />
+    </div> --}}
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./src/tsconfig.json" // Add the new reference here
+    }
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "strict": false,
+    "paths": {
+      "@Modules/*": ["apps/audit/src/modules/*"],
+      "@Modules": ["apps/audit/src/modules"],
+      "@Common/*": ["apps/audit/src/common/*"],
+      "@Common": ["apps/audit/src/common"],
+      "@Common/helpers": ["apps/audit/src/common/helpers"],
+      "@Common/constants": ["apps/audit/src/common/constants"],
+      "@Common/dto": ["apps/audit/src/common/dto"],
+      "@Common/decorators": ["apps/audit/src/common/decorators"],
+      "@ontrack-tech-group/common/helpers": ["libs/common/src/helpers"],
+      "@ontrack-tech-group/common/constants": ["libs/common/src/constants"],
+      "@ontrack-tech-group/common/models": ["libs/common/src/models"],
+      "@ontrack-tech-group/common/dto": ["libs/common/src/dto"],
+      "@ontrack-tech-group/common/services": ["libs/common/src/services"],
+      "@ontrack-tech-group/common/decorators": ["libs/common/src/decorators"],
+      "@ontrack-tech-group/common/database": ["libs/common/src/database"],
+      "@ontrack-tech-group/common/interceptors": [
+        "libs/common/src/interceptors"
+      ],
+      "@ontrack-tech-group/common/controllers": ["libs/common/src/controllers"]
+    }
+  }
+}

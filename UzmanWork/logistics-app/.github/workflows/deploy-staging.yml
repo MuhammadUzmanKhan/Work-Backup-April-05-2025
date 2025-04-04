@@ -1,0 +1,13 @@
+name: Deploy Staging Website
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  call-deployment-job:
+    uses: ./.github/workflows/deploy-template.yml
+    with:
+      environment: staging
+      machine: app-api-staging
+    secrets: inherit

@@ -1,0 +1,54 @@
+name: Check API backwards compatibility
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  generate_spec:
+    strategy:
+      matrix:
+        checkout_sha: ["${{ github.event.pull_request.base.sha }}", ""]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          ssh-key: ${{ secrets.CI_KEY }}
+          ref: ${{ matrix.checkout_sha }}
+
+      - name: Install Poetry
+        run: |
+          pipx install poetry==1.2.2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+          cache: "poetry"
+
+      - name: Set Poetry environment
+        run: |
+          poetry env use 3.10
+      - name: Install Dependencies from lock
+        run: |
+          poetry install
+
+      - name: Generate spec
+        run: |
+          poetry run python scripts/generate_backend_openapi_spec.py
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{matrix.checkout_sha == '' && 'new_spec' || 'old_spec' }}
+          path: openapi_spec.json
+
+  check_spec:
+    needs: generate_spec
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+      - run: ls
+      - name: Check API backwards compatibility
+        run: |
+          docker run --mount type=bind,source=./old_spec/openapi_spec.json,target=/app/openapi_spec.old.json,readonly --mount type=bind,source=./new_spec/openapi_spec.json,target=/app/openapi_spec.json,readonly openapitools/openapi-diff:2.0.1 openapi_spec.old.json openapi_spec.json --fail-on-incompatible

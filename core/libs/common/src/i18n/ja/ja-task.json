@@ -1,0 +1,39 @@
+{
+  "actions": {
+    "assigned": "{column_name} '{value}' が割り当てられました",
+    "assigned_subtask": "{column_name} '{value}' がサブタスク '{subTaskName}' に割り当てられました",
+    "created": "{column_name} が作成されました",
+    "created_subtask": " {column_name} '{subTaskName}' を作成しました",
+    "delete_image": "ファイル '{imageName}' を削除しました",
+    "delete_subtask_image": "サブタスク '{subTaskName}' に対してファイル '{imageName}' を削除しました",
+    "set": "{column_name} が設定されました",
+    "subtask_image": "サブタスク '{subTaskName}' に対してファイル '{imageName}' をアップロードしました",
+    "subtask_set": "サブタスク '{subTaskName}' の{column_name} が設定されました",
+    "subtask_unset": "サブタスク '{subTaskName}' の{column_name} が設定解除されました",
+    "task_image": "ファイル「{imageName}」をアップロードしました",
+    "unassigned": "{column_name} '{value}' の割り当てが解除されました",
+    "unassigned_subtask": "{column_name} '{value}' はサブタスク '{subTaskName}' への割り当てが解除されました",
+    "unset": "{column_name} は設定解除されました",
+    "updated_from": "{column_name} が {first_val} から {second_val}に更新されました",
+    "updated_from_subtask": "{column_name} は、サブタスク '{subTaskName}' の '{first_val}' から '{second_val}' に更新されました",
+    "updated_to": "{column_name} が '{value}'に更新されました",
+    "set_to": "{column_name} が '{value}' に設定されました"
+  },
+  "labels": {
+    "category": "カテゴリー",
+    "company_id": "会社",
+    "deadline": "締め切り",
+    "department_id": "部門",
+    "description": "説明",
+    "image": "画像",
+    "incident_division_id": "インシデント課",
+    "name": "名前",
+    "priority": "優先度",
+    "status": "状態",
+    "subTask": "サブタスク",
+    "task": "タスク",
+    "task_list_id": "タスクリスト",
+    "user": "ユーザー",
+    "start_date": "開始日"
+  }
+}

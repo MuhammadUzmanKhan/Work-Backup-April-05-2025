@@ -1,0 +1,177 @@
+.Profile {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  /* Space between columns */
+}
+
+@media screen and (max-width: 991px) {
+  .Profile {
+    grid-template-columns: 1fr;
+    /* Switch to single column layout for smaller screens */
+  }
+}
+
+.profile-form {
+  // margin: 10px auto;
+  padding: 10px;
+  width: 100%;
+  /* Make form responsive */
+  max-width: 600px;
+  /* Set a max-width for better readability */
+  overflow-y: auto;
+
+  /* Ensure all form items have the same width */
+  .ant-form-item {
+    margin-bottom: 15px;
+    /* Space between form items */
+  }
+
+  .ant-form-item-label {
+    width: 150px;
+    /* Fixed width for labels to align with inputs */
+    text-align: left;
+    margin-right: 16px;
+    /* Space between label and input */
+    line-height: 40px;
+    /* Align with input height */
+  }
+
+  .ant-form-item-control-input {
+    flex: 1;
+    /* Make input fields fill available space */
+    display: flex;
+    align-items: left;
+    /* Center input content vertically */
+  }
+
+  .ant-input,
+  .ant-input-password {
+    width: 100%;
+    /* Ensure input fields take full width */
+    padding: 10px;
+    /* Padding inside the input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Include padding and border in width */
+    font-size: 16px;
+    /* Match font size to label */
+    height: 40px;
+    /* Consistent height for inputs */
+    line-height: 40px;
+    /* Ensure line height matches input height */
+    text-align: left;
+    /* Center text horizontally */
+  }
+
+  .ant-input::placeholder,
+  .ant-input-password::placeholder {
+    color: #888;
+    /* Placeholder color */
+    text-align: left !important;
+    /* Center placeholder text horizontally */
+    line-height: 40px;
+    /* Center placeholder text vertically */
+    vertical-align: middle !important;
+    /* Align text vertically */
+  }
+
+  .ant-input:focus,
+  .ant-input-password:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  .ant-input-password .ant-input-suffix {
+    position: absolute;
+    right: 10px;
+    /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    /* Match icon size to font size */
+  }
+
+  .error-message {
+    color: #dc3545;
+    margin-top: 5px;
+    font-size: 0.8rem;
+  }
+
+  button[type='submit'] {
+    display: block;
+    width: 100%;
+    /* Make button full-width */
+    padding: 10px;
+    background-color: #1a4895;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 50px;
+    /* Consistent height for button */
+  }
+
+  button[type='submit']:hover {
+    background-color: #0056b3;
+  }
+
+  .submitting {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}
+
+.stats-container {
+  padding: 30px;
+  display: flex;
+  height: max-content;
+  gap: calc(1rem + (2 - 1) * ((100vw - 480px) / (768 - 480)));
+  justify-content: center;
+}
+
+.count-container {
+  color: #FFFFFF;
+  width: max-content;
+  padding: 15px 40px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  h1,
+  h3 {
+    color: #FFFFFF;
+  }
+}
+
+.daily-bids {
+  background-color: #343e50;
+}
+
+.monthly-bids {
+  background-color: #495469;
+}
+
+.profile-form input:disabled {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.right-side-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-input {
+  padding-bottom: 20px;
+}
+
+.profile-input.ant-input-affix-wrapper>input.ant-input {
+  padding-bottom: 20px;
+}

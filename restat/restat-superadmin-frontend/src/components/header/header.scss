@@ -1,0 +1,55 @@
+.blue-btn {
+    color: var(--white2) !important;
+    background-color: var(--blue);
+    border-radius: 0.625rem;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.5625rem;
+    font-size: 1.125rem;
+}
+.btn-lg {
+    height: 64px;
+}
+.full-w {
+    width: 100% !important;
+}
+.header {
+    padding: 2rem 2rem 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header .brand-logo img {
+    width: 8.25rem;
+    height: auto;
+}
+.header .account {
+    display: flex;
+    align-items: center;
+}
+.forgot-link a,
+.header .account p {
+    font-size: 1rem;
+    line-height: 1.5625rem;
+    color: var(--blue) !important;
+    margin: 0 1.25rem;
+}
+.forgot-link {
+    text-align: right;
+}
+.forgot-link a {
+    text-decoration: none !important;
+    margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .main .content {
+        padding: 0;
+    }
+    .header .account p {
+        display: none;
+    }
+    
+}

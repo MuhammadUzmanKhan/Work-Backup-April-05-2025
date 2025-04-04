@@ -1,0 +1,12 @@
+name: Deploy Prod Website
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-deployment-job:
+    uses: ./.github/workflows/deploy-template.yml
+    with:
+      environment: prod
+      machine: app-api-prod
+    secrets: inherit

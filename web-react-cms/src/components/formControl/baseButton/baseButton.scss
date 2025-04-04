@@ -1,0 +1,13 @@
+.loop-icon {
+  animation: looping 2.4s linear infinite;
+}
+
+@keyframes looping {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-520deg);
+
+  }
+}

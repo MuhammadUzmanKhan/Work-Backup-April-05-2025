@@ -1,0 +1,12 @@
+{
+  "actions": {
+    "added": "een nieuw kernincidenttype {second_val} toegevoegd",
+    "added_variant": "een variant {second_val} toegevoegd aan {incident_type_name} aan {name}",
+    "changed_to": "gewijzigd {first_val} naar {second_val} in {name}",
+    "updated_to": "gewijzigd {first_val} naar {second_val} in {name}"
+  },
+  "labels": {
+    "name": "Naam",
+    "translation": "Vertaling"
+  }
+}

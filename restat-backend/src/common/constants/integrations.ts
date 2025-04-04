@@ -1,0 +1,4 @@
+export enum INTEGRATION_TYPES {
+    CLICKUP = 'CLICKUP',
+    HUBSPOT = 'HUBSPOT'
+}

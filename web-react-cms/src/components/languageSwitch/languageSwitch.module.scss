@@ -1,0 +1,37 @@
+.languageContainer {
+  border: 1px solid #c6c6c6;
+  box-sizing: border-box;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 32px;
+  position: relative;
+
+  span {
+    margin: 0 0 0 25px;
+  }
+
+  svg {
+    position: absolute;
+    left: -1px;
+  }
+
+  &.isWhite {
+    border-color: #ffffff;
+  }
+}
+
+[dir='rtl'] {
+  .languageContainer {
+    svg {
+      right: -1px;
+      left: initial;
+    }
+
+    span {
+      margin: 0 25px 0 0;
+    }
+  }
+}

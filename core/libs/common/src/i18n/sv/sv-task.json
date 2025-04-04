@@ -1,0 +1,39 @@
+{
+  "actions": {
+    "assigned": "{column_name} '{value}' har tilldelats",
+    "assigned_subtask": "{column_name} '{value}' har tilldelats deluppgift '{subTaskName}'",
+    "created": "{column_name} har skapats",
+    "created_subtask": "Skapat en {column_name} '{subTaskName}'",
+    "delete_image": "Raderade en fil '{imageName}'",
+    "delete_subtask_image": "Raderade en fil '{imageName}' mot underuppgift '{subTaskName}'",
+    "set": "{column_name} har ställts in",
+    "subtask_image": "Laddade upp en fil '{imageName}' mot deluppgift '{subTaskName}'",
+    "subtask_set": "{column_name} av underuppgiften '{subTaskName}' har ställts in",
+    "subtask_unset": "{column_name} av underuppgiften \"{subTaskName}\" har avaktiverats",
+    "task_image": "Laddade upp en fil '{imageName}'",
+    "unassigned": "{column_name} {value} har tagits bort",
+    "unassigned_subtask": "{column_name} '{value}' har tagits bort tilldelad deluppgift '{subTaskName}'",
+    "unset": "{column_name} har avaktiverats",
+    "updated_from": "{column_name} uppdaterad från {first_val} till {second_val}",
+    "updated_from_subtask": "{column_name} har uppdaterats från '{first_val}' till '{second_val}' för en deluppgift '{subTaskName}'",
+    "updated_to": "{column_name} uppdaterad till '{value}'",
+    "set_to": "{column_name} har ställts in till '{value}'"
+  },
+  "labels": {
+    "category": "Kategori",
+    "company_id": "Företag",
+    "deadline": "Deadline",
+    "department_id": "Avdelning",
+    "description": "Beskrivning",
+    "image": "Bild",
+    "incident_division_id": "Incident Division",
+    "name": "Namn",
+    "priority": "Prioritet",
+    "status": "Status",
+    "subTask": "Underuppgift",
+    "task": "Uppgift",
+    "task_list_id": "Uppgiftslista",
+    "user": "Användare",
+    "start_date": "Start datum"
+  }
+}

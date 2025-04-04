@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "esnext",
+    "lib": ["es2019", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "types": ["jest", "node", "express", "multer"],
+    "paths": {}
+  },
+  "references": [
+    {
+      "path": "./apps/incident/tsconfig.json"
+    },
+    {
+      "path": "./apps/audit/tsconfig.json"
+    }
+  ],
+  "exclude": ["node_modules", "tmp"]
+}

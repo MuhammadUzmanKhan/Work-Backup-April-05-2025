@@ -1,0 +1,27 @@
+{
+  "name": "workforce",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/workforce/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "inspect": false,
+        "buildTarget": "workforce:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "workforce:build:development"
+        },
+        "production": {
+          "buildTarget": "workforce:build:production"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "reporting",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/reporting/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "inspect": false,
+        "buildTarget": "reporting:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "reporting:build:development"
+        },
+        "production": {
+          "buildTarget": "reporting:build:production"
+        }
+      }
+    }
+  }
+}

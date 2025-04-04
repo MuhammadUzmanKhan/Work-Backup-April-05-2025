@@ -1,0 +1,12 @@
+{
+  "actions": {
+    "added": "lade till en ny kärnincidenttyp {second_val}",
+    "added_variant": "lade till en variant {second_val} till {incident_type_name} till {name}",
+    "changed_to": "ändrade {first_val} till {second_val} i {name}",
+    "updated_to": "ändrade {first_val} till {second_val} i {name}"
+  },
+  "labels": {
+    "name": "Namn",
+    "translation": "Översättning"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "actions": {
+    "assigned": "{column_name} '{value}' a été attribué",
+    "assigned_subtask": "{column_name} '{value}' a été affecté à la sous-tâche '{subTaskName}'",
+    "created": "{column_name} a été créé",
+    "created_subtask": "Créé un {column_name} '{subTaskName}'",
+    "delete_image": "J'ai supprimé un fichier '{imageName}'",
+    "delete_subtask_image": "Suppression d'un fichier '{imageName}' dans la sous-tâche '{subTaskName}'",
+    "set": "{column_name} a été défini",
+    "subtask_image": "Un fichier '{imageName}' a été téléchargé pour la sous-tâche '{subTaskName}'",
+    "subtask_set": "{column_name} de la sous-tâche '{subTaskName}' a été défini",
+    "subtask_unset": "{column_name} de la sous-tâche '{subTaskName}' a été annulé",
+    "task_image": "J'ai téléchargé un fichier '{imageName}'",
+    "unassigned": "{column_name} {value} n'a pas été attribué",
+    "unassigned_subtask": "{column_name} '{value}' n'a pas été affecté à la sous-tâche '{subTaskName}'",
+    "unset": "{column_name} n'a pas été défini",
+    "updated_from": "{column_name} mis à jour de '{first_val}' à '{second_val}'",
+    "updated_from_subtask": "{column_name} a été mis à jour de '{first_val}' à '{second_val}' d'une sous-tâche '{subTaskName}'",
+    "updated_to": "{column_name} mis à jour vers '{value}'",
+    "set_to": "{column_name} a été défini sur '{value}'"
+  },
+  "labels": {
+    "category": "Catégorie",
+    "company_id": "Entreprise",
+    "deadline": "Date limite",
+    "department_id": "Département",
+    "description": "Description",
+    "image": "Image",
+    "incident_division_id": "Division des incidents",
+    "name": "Nom",
+    "priority": "Priorité",
+    "status": "Statut",
+    "subTask": "Sous-tâche",
+    "task": "Tâche",
+    "task_list_id": "Liste des tâches",
+    "user": "Utilisateur",
+    "start_date": "Date de début"
+  }
+}

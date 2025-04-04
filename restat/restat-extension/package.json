@@ -1,0 +1,61 @@
+{
+  "name": "Restat",
+  "version": "1.04.00",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "build-local": "NODE_ENV=local vue-cli-service build-watch --mode local",
+    "build-staging": "NODE_ENV=dev vue-cli-service build --mode dev",
+    "build-prod": "NODE_ENV=prod vue-cli-service build --mode prod"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.5.1",
+    "@ant-design/icons-vue": "^7.0.1",
+    "ant-design-vue": "^4.2.3",
+    "antd": "^5.20.2",
+    "bootstrap": "^5.1.3",
+    "core-js": "^3.8.3",
+    "firebase": "^10.5.0",
+    "moment": "^2.30.1",
+    "rollbar": "^2.26.4",
+    "vue": "^3.2.13",
+    "vue-router": "^4.0.13",
+    "vuex": "^4.1.0",
+    "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "vue-cli-plugin-chrome-extension-cli": "~1.1.1",
+    "webpack-bundle-analyzer": "^4.10.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true,
+      "webextensions": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

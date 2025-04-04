@@ -1,0 +1,90 @@
+image: atlassian/default-image:3
+
+
+definitions:
+  services:
+    docker:
+      memory: 2048  # memory for docker-in-docker, default is 1024MB
+
+  steps:
+    - step: &display-bitbucket-info
+        name: 'Display Bitbucket information'
+        script:
+          - |
+            echo "Bitbucket commit hash: ${BITBUCKET_COMMIT}"
+            echo "Short commit hash: $(git rev-parse --short=7 HEAD)"
+            echo "PR destination branch: ${BITBUCKET_PR_DESTINATION_BRANCH}"
+          - echo "$(ls)"  # List files
+
+pipelines:
+  pull-requests:
+    '**':  # this runs as default for any branch not elsewhere defined
+      - step: *display-bitbucket-info
+      - step:
+          name: "Install"
+          image: node:18.3.0
+          caches:
+            - node
+          script:
+            - yarn
+            - yarn build
+
+  branches:  # these will run on every push of the branch
+    'dev':
+      - step: *display-bitbucket-info
+      - step:
+          name: "Install & Deploy to S3"
+          image: node:18.3.0
+          caches:
+            - node
+          script:
+            - yarn
+            - yarn build-dev
+
+            - pipe: atlassian/aws-s3-deploy:0.3.8
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: 'me-south-1'
+                S3_BUCKET: 'daleel-dev-web-react-cms'
+                LOCAL_PATH: 'build'
+
+    'master':
+      - step: *display-bitbucket-info
+      - step:
+          name: "Install & Deploy to S3"
+          image: node:18.3.0
+          caches:
+            - node
+          script:
+            - yarn
+            - yarn build-uat
+
+            - pipe: atlassian/aws-s3-deploy:0.3.8
+              variables:
+                AWS_ACCESS_KEY_ID: $UAT_AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $UAT_AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: 'me-south-1'
+                S3_BUCKET: 'daleel-uat-web-react-cms'
+                LOCAL_PATH: 'build'
+
+# Deployment to PROD
+  tags:
+    '*.*.*':
+      - step: *display-bitbucket-info
+      - step:
+          name: "Install & Deploy to S3"
+          image: node:18.3.0
+          caches:
+            - node
+          script:
+            - yarn
+            - yarn build-prod
+
+            - pipe: atlassian/aws-s3-deploy:0.3.8
+              variables:
+                AWS_ACCESS_KEY_ID: $PROD_AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $PROD_AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: 'me-south-1'
+                S3_BUCKET: 'daleel-prod-web-react-cms'
+                LOCAL_PATH: 'build'

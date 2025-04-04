@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="./img/ON-Iogo.svg">
+    <!-- <link rel="stylesheet" href="../../css/bootstrap.css"> -->
+    <!-- <link rel="stylesheet" href="../../css/styleguide.css">
+    <link rel="stylesheet" href="../../css/style.css"> -->
+    <!-- <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script> -->
+    <title> Specific event detail </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body style="font-family: 'Roboto', sans-serif; color: #141414;">
+    <div class="mainpage"
+        style="display: flex; flex-direction: column; height: 100vh; justify-content: space-between; background-color: #fff;">
+        <div>
+            <header class="dashboard-header" style="background-color: #0794EC; padding:14px 10px; width: 100%; ">
+                <div style="float: left; width: 30%;display: flex;">
+                    <img src="https://i.postimg.cc/fyLpRNQd/On-Track-Tech-Group-Main-Logo-Dark.png" alt="">
+                </div>
+                <div style="text-align: right; font-size: 12px;">Specific Event Detail report</div>
+            </header>
+            <div class="in-content" style="padding: 0 30px; width: 100%; margin: auto;">
+                <p style="font-size: 12px;padding-top: 18px; padding-bottom: 4px;"><span style="font-weight: bold;"> Company Name:</span> {{name}}</p>
+                <p style="font-size: 12px;padding-bottom: 4px;">Event Date: {{event_date}}</p>
+                <p style="font-size: 12px;padding-bottom: 4px;">Event Location: {{location}}</p>
+                <p style="font-size: 12px;padding-bottom: 4px;">Event Venue: {{venue}}</p>
+                <p style="font-size: 12px;padding-bottom: 4px;">Event Time Zone: {{time_zone}}</p>
+                <p style="font-size: 12px;padding-bottom: 4px;">Description: {{about_event}}</p>
+                <div>
+                    <p style="font-size:12px; background-color: #F5F6FA;padding: 5px; margin: 0;">Genres: (3 Genres)</p>
+                    <table style="width: 100%; border-collapse: collapse;margin-bottom: 10px;">
+                        <thead>
+                            <tr>
+                                <td
+                                    style="width: 25%; text-align: center; color: #0794EC; font-size: 12px;background-color: #F5F6FA; padding: 6px; border-bottom: 1px solid #000 !important; border: 1px solid #F5F6FA;">
+                                    Key Genre</td>
+                                <td
+                                    style="width: 25%; text-align: center; color: #0794EC; font-size: 12px;background-color: #F5F6FA;padding: 6px; border-bottom: 1px solid #000 !important; border: 1px solid #F5F6FA;">
+                                    Genre</td>
+                                <td
+                                    style="width: 25%; text-align: center; color: #0794EC; font-size: 12px;background-color: #F5F6FA;padding: 6px; border-bottom: 1px solid #000 !important; border: 1px solid #F5F6FA;">
+                                    Genre</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td
+                                    style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">
+                                    {{key_genre}}</td>
+                                <td
+                                    style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">
+                                    {{genre}}</td>
+                                <td
+                                    style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">
+                                    {{sub_genre}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size:12px; background-color: #F5F6FA;padding: 5px; margin: 0; min-height: 24px;">
+                        Active Modules: ({{modules.length}} Modules)</p>
+                    <div style="display: flex; flex-wrap: wrap; ">
+                        {{#each modules}}
+                        <div
+                            style="width: 25%; text-align: center; background-color: {{color}};padding: 5px;color: #000; font-size: 12px;">
+                            <span style="font-weight: bold;">{{text}}</span></div>  
+                            {{/each}}          
+
+                    </div>
+                    {{!-- <div style="width: 100%; display: flex;">
+
+                        <div
+                            style="width: 25%; text-align: center; background-color: #336b87c7;padding: 5px;color: #000; font-size: 12px;">
+                            Asset Tracking</div>
+
+                        <div
+                            style="width: 25%; text-align: center; background-color: #336b87c7;padding: 5px;color: #000; font-size: 12px;">
+                            C.O.R.E</div>
+
+                        <div
+                            style="width: 25%; text-align: center; background-color: #D9D9D9;padding: 5px;color: #000; font-size: 12px;">
+                            Site Tasks</div>
+
+                        <div
+                            style="width: 25%; text-align: center; background-color: #D9D9D9;padding: 5px;color: #000; font-size: 12px;">
+                            Vendor Portal</div>
+                    </div>
+                    <div style="width: 100%; display: flex;">
+
+                        <div
+                            style="width: 25%; text-align: center; background-color: #D9D9D9;padding: 5px;color: #000; font-size: 12px;">
+                            Service Management </div>
+
+                        <div
+                            style="width: 25%; text-align: center; background-color: #D9D9D9;padding: 5px;color: #000; font-size: 12px;">
+                            Audit System</div>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+
+        <footer style="width: 100%; display: flex; padding: 0 30px 15px 30px;margin:0 auto;">
+            <div class="copyright" style="width: 33.3%; text-align: left;font-size: 10px;"><a href=""
+                    style="color: #141414; text-decoration: none;">Strictly Private & Confidential</a> </div>
+            <div class="copyright"
+                style="width: 33.3%;text-align: center; display: flex; align-items: center;justify-content: center;">
+                <img style="width: 86px;" src="https://i.postimg.cc/fyLpRNQd/On-Track-Tech-Group-Main-Logo-Dark.png"
+                    alt=""></div>
+            <div class="copyright" style="width: 33.3%; text-align: right;font-size: 10px;">1 of 1</div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        feather.replace()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{
+  "actions": {
+    "created": "Gebeurtenis aangemaakt",
+    "set_to": "{column_name} is ingesteld op '{value}'",
+    "updated_from": "{column_name} is bijgewerkt van '{first_val}' naar '{second_val}'"
+  },
+  "labels": {
+    "about": "Over",
+    "contact_email": "E-mailadres van primaire contactpersoon",
+    "contact_name": "Naam primaire contactpersoon",
+    "contact_phone": "Telefoon van primair contact",
+    "email": "Secundaire e-mail",
+    "location": "Plaats",
+    "name": "Naam",
+    "number": "Secundair nummer",
+    "regionName": "Regionaam",
+    "timezone": "Tijdzone",
+    "url": "Url"
+  }
+}

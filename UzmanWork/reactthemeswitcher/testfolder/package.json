@@ -1,0 +1,23 @@
+{
+  "name": "testfolder",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "react-scripts start"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.4",
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-react": "^7.23.3",
+    "babel-eslint": "^10.1.0",
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-scripts": "5.0.1",
+    "react-theme-switcher": "^1.1.1",
+    "styled-components": "^4.4.1"
+  }
+}

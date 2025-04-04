@@ -1,0 +1,13 @@
+
+.container{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+div h1{
+  font-size: 50px;
+  color: #1A4895;
+  font-weight: bold;
+}

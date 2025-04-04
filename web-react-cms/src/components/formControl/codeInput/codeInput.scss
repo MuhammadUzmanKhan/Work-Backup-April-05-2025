@@ -1,0 +1,61 @@
+.MuiFormControl-root.code-input {
+  &.filled {
+    .MuiOutlinedInput-root {
+      &.MuiInputBase-root {
+        border-color: #69B5B5;
+      }
+    }
+  }
+
+  &.error {
+    .MuiOutlinedInput-root {
+      &.MuiInputBase-root {
+        border-color: #C86B6D;
+      }
+    }
+  }
+
+  .MuiOutlinedInput-root {
+    &.MuiInputBase-root {
+      height: 40px;
+      width: 40px;
+      border: 2px solid #F2F2F2;
+      box-sizing: border-box;
+      border-radius: 6px;
+
+      &.Mui-focused {
+        border-color: #5243AA;
+      }
+
+
+      .MuiOutlinedInput-input {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+        color: #29173B;
+        padding: 0;
+      }
+    }
+  }
+
+}
+
+.MuiFormControl-root {
+  .MuiOutlinedInput-root {
+    max-height: 43px;
+
+    .MuiInputBase-input {
+      &[type="password"] {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        height: 42px;
+        box-sizing: border-box;
+      }
+    }
+  }
+}

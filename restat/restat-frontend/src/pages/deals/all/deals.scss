@@ -1,0 +1,5 @@
+.custom-table-v1 .ant-table-cell {
+  height: 55px !important; /* Override Ant Design's default height */
+  line-height: 55px;       /* Ensures text aligns vertically */
+  vertical-align: middle;  /* Centers other content types */
+}

@@ -1,0 +1,27 @@
+{
+  "name": "task",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/task/src",
+  "projectType": "application",
+  "tags": ["excludeFromTest"],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "inspect": false,
+        "buildTarget": "task:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "task:build:development"
+        },
+        "production": {
+          "buildTarget": "task:build:production"
+        }
+      }
+    }
+  }
+}

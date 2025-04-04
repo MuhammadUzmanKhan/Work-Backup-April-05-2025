@@ -1,0 +1,12 @@
+{
+  "actions": {
+    "added": "tilføjede en ny kernehændelsestype {second_val}",
+    "added_variant": "tilføjede en variant {second_val} til {incident_type_name} til {name}",
+    "changed_to": "ændret {first_val} til {second_val} i {name}",
+    "updated_to": "ændret {first_val} til {second_val} i {name}"
+  },
+  "labels": {
+    "name": "Navn",
+    "translation": "Oversættelse"
+  }
+}

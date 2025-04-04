@@ -1,0 +1,41 @@
+{
+  "actions": {
+    "complete_task": "Oppdaterte status for hendelsesoppgaven '{subTaskName}' som fullført",
+    "created": "Opprettet arrangement",
+    "created_subtask": "Opprettet en hendelsesoppgave '{value}'",
+    "delete_image": "Slettet en fil '{imageName}'",
+    "delete_subtask_image": "Slettet en fil '{imageName}' mot hendelsesoppgave '{subTaskName}'",
+    "demo": "Arrangementet er merket som demo",
+    "demo_remove": "Arrangementet er ikke lenger merket som demo",
+    "disabled": "{column_name} '{first_val}' er dxweaktivert",
+    "enabled": "{column_name} '{value}' er aktivert",
+    "event_cad": "Lastet opp {column_name} '{second_val}' fil med versjon '{cadVersion}' mot '{cadName}'",
+    "current_version": "Gjeldende versjon av '{cadName}' satt til '{cadVersion}'",
+    "image": "Lastet opp en fil '{imageName}'",
+    "incomplete_task": "Oppdaterte status for hendelsesoppgaven '{subTaskName}' som fullført",
+    "set_to": "{column_name} er satt til '{value}'",
+    "subtask_image": "Lastet opp en fil '{imageName}' mot hendelsesoppgave '{subTaskName}'",
+    "updated_from": "{column_name} har blitt oppdatert fra '{first_val}' til '{second_val}'",
+    "updated_from_subtask": "{column_name} har blitt oppdatert fra '{first_val}' til '{second_val}' for en hendelsesoppgave '{subTaskName}'"
+  },
+  "labels": {
+    "about_event": "Om arrangementet",
+    "attachment": "Vedlegg",
+    "deadline": "Frist",
+    "demo_event": "Demo-arrangement",
+    "division_lock_service": "Division Lock Service",
+    "end_date": "Sluttdato",
+    "event cad creation": "Event Cad Creation",
+    "event_access_lock": "Lås for hendelsestilgang",
+    "event_cad": "Hendelse CAD",
+    "name": "Navn",
+    "public_end_date": "Offentlig sluttdato",
+    "public_start_date": "Offentlig startdato",
+    "start_date": "Startdato",
+    "status": "Status",
+    "subtask": "Event oppgave",
+    "subtask_attachment": "Oppgavevedlegg",
+    "update event cad current version": "Oppdater Event Cad gjeldende versjon",
+    "current_version": "Gjeldende versjon"
+  }
+}

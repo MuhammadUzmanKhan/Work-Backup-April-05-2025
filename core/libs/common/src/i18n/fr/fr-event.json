@@ -1,0 +1,41 @@
+{
+  "actions": {
+    "complete_task": "Mise à jour du statut de la tâche d'événement « {subTaskName} » comme terminée",
+    "created": "Événement créé",
+    "created_subtask": "Création d'une tâche d'événement « {value} »",
+    "delete_image": "J'ai supprimé un fichier '{imageName}'",
+    "delete_subtask_image": "Suppression d'un fichier « {imageName} » par rapport à la tâche événementielle « {subTaskName} »",
+    "demo": "L'événement a été marqué comme Démo",
+    "demo_remove": "L'événement n'est plus marqué comme Démo",
+    "disabled": "{column_name} '{first_val}' a été désactivé",
+    "enabled": "{column_name} '{value}' a été activé",
+    "event_cad": "Fichier {column_name} '{second_val}' téléchargé avec la version '{cadVersion}' contre '{cadName}'",
+    "current_version": "Version actuelle de '{cadName}' définie sur '{cadVersion}'",
+    "image": "J'ai téléchargé un fichier '{imageName}'",
+    "incomplete_task": "Mise à jour du statut de la tâche d'événement « {subTaskName} » comme non terminée",
+    "set_to": "{column_name} a été défini sur '{value}'",
+    "subtask_image": "Un fichier « {imageName} » a été téléchargé pour la tâche d'événement « {subTaskName} »",
+    "updated_from": "{column_name} a été mis à jour de '{first_val}' à '{second_val}'",
+    "updated_from_subtask": "{column_name} a été mis à jour de '{first_val}' à '{second_val}' d'une tâche d'événement '{subTaskName}'"
+  },
+  "labels": {
+    "about_event": "À propos de l'événement",
+    "attachment": "Pièce jointe",
+    "deadline": "Date limite",
+    "demo_event": "Événement de démonstration",
+    "division_lock_service": "Service de verrouillage de division",
+    "end_date": "Date de fin",
+    "event cad creation": "Création d'événements CAD",
+    "event_access_lock": "Verrouillage de l'accès à l'événement",
+    "event_cad": "Événement CAD",
+    "name": "Nom",
+    "public_end_date": "Date de fin publique",
+    "public_start_date": "Date de début publique",
+    "start_date": "Date de début",
+    "status": "Statut",
+    "subtask": "Tâche d'événement",
+    "subtask_attachment": "Pièce jointe à la tâche",
+    "update event cad current version": "Mise à jour de la version actuelle de l'événement CAD",
+    "current_version": "Version actuelle"
+  }
+}

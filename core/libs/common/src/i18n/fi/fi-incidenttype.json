@@ -1,0 +1,12 @@
+{
+  "actions": {
+    "added": "lisätty uusi ydinvahinkotyyppi {second_val}",
+    "added_variant": "lisätty variantti {second_val} kohteeseen {incident_type_name} kohteeseen {name}",
+    "changed_to": "muutettu {first_val} -> {second_val} kohteessa {name}",
+    "updated_to": "muutettu {first_val} -> {second_val} kohteessa {name}"
+  },
+  "labels": {
+    "name": "Nimi",
+    "translation": "Käännös"
+  }
+}

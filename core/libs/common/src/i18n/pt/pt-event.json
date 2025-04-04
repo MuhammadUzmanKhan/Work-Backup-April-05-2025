@@ -1,0 +1,41 @@
+{
+  "actions": {
+    "complete_task": "Atualizou o status da tarefa do evento '{subTaskName}' como concluída",
+    "created": "Evento criado",
+    "created_subtask": "Criou uma tarefa de evento '{value}'",
+    "delete_image": "Excluiu um arquivo '{imageName}'",
+    "delete_subtask_image": "Excluiu um arquivo '{imageName}' em relação à Tarefa de Evento '{subTaskName}'",
+    "demo": "O evento foi marcado como Demo",
+    "demo_remove": "O evento não está mais marcado como Demo",
+    "disabled": "{column_name} '{first_val}' foi desabilitado",
+    "enabled": "{column_name} '{value}' foi habilitado",
+    "event_cad": "Arquivo carregado {column_name} '{second_val}' com versão '{cadVersion}' contra '{cadName}'",
+    "current_version": "Versão atual de '{cadName}' definida como '{cadVersion}'",
+    "image": "Carregou um arquivo '{imageName}'",
+    "incomplete_task": "Atualizou o status da tarefa do evento '{subTaskName}' como inconclusa",
+    "set_to": "{column_name} foi definido como '{value}'",
+    "subtask_image": "Carregou um arquivo '{imageName}' para a Tarefa de Evento '{subTaskName}'",
+    "updated_from": "{column_name} foi atualizado de '{first_val}' para '{second_val}'",
+    "updated_from_subtask": "{column_name} foi atualizado de '{first_val}' para '{second_val}' de uma Tarefa de Evento '{subTaskName}'"
+  },
+  "labels": {
+    "about_event": "Sobre o evento",
+    "attachment": "Anexo",
+    "deadline": "Prazo final",
+    "demo_event": "Evento de demonstração",
+    "division_lock_service": "Serviço de bloqueio de divisão",
+    "end_date": "Data de término",
+    "event cad creation": "Criação de CAD de eventos",
+    "event_access_lock": "Bloqueio de acesso ao evento",
+    "event_cad": "Evento CAD",
+    "name": "Nome",
+    "public_end_date": "Data de término pública",
+    "public_start_date": "Data de início pública",
+    "start_date": "Data de início",
+    "status": "STATUS",
+    "subtask": "Tarefa de evento",
+    "subtask_attachment": "Anexo de tarefa",
+    "update event cad current version": "Atualizar Evento Cad Versão Atual",
+    "current_version": "Versão atual de"
+  }
+}

@@ -1,0 +1,81 @@
+name: Pytest + mypy
+
+on:
+  pull_request:
+  merge_group:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Pytest + mypy
+    runs-on: ubuntu-latest
+
+    # Cancel any previously running jobs from this PR
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
+    # This adds the job in a 'concurrency' group. Only one job from each
+    # concurrency group can run at a time. We also cancel all the previously
+    # running or scheduled jobs from the group if it is a pull request
+    # (we do not want to kill jobs on the main branch).
+    # The group name combines
+    #   - repository name
+    #   - the workflow name (this filename)
+    #   - source branch (we use Run ID in case the brach is not defined e.g. merge queue)
+    concurrency:
+      group: ${{ github.repository }}-${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+      cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          ssh-key: ${{ secrets.CI_KEY }}
+
+      - name: Install Poetry
+        run: |
+          pipx install poetry==1.2.2
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+          cache: "poetry"
+
+      - name: Set Poetry environment
+        run: |
+          poetry env use 3.10
+      - name: Install Dependencies from lock
+        run: |
+          poetry install
+
+      - name: Generate api client
+        run: |
+          poetry run python scripts/generate_backend_openapi_spec.py
+
+      - name: Cache Mypy
+        uses: actions/cache@v3
+        with:
+          path: .mypy_cache
+          key: ${{ runner.os }}-mypy
+      - name: Typing check with mypy
+        run: |
+          poetry run python -m mypy .
+
+      - name: Import sorting with isort
+        run: |
+          poetry run python -m isort . --check-only
+
+      - name: Flake8 linting
+        run: poetry run flake8 .
+
+      - name: Python Black formatting check
+        run: poetry run python -m black --check .
+
+      - name: Cache Pytest
+        uses: actions/cache@v3
+        with:
+          path: .pytest_cache
+          key: ${{ runner.os }}-pytest
+      - name: Test with pytest and report coverage
+        run: |
+          poetry run python -m pytest --cov --cov-report=xml -n=2 .

@@ -1,0 +1,20 @@
+{
+  "actions": {
+    "created": "Luotu tapahtuma",
+    "set_to": "{column_name} on asetettu arvoon{value}",
+    "updated_from": "{column_name} on päivitetty arvosta{first_val}arvoon{second_val}"
+  },
+  "labels": {
+    "about": "Noin",
+    "contact_email": "Ensisijainen yhteyssähköposti",
+    "contact_name": "Ensisijaisen yhteyshenkilön nimi",
+    "contact_phone": "Ensisijainen yhteyspuhelin",
+    "email": "Toissijainen sähköposti",
+    "location": "Sijainti",
+    "name": "Nimi",
+    "number": "Toissijainen numero",
+    "regionName": "Alueen nimi",
+    "timezone": "Aikavyöhyke",
+    "url": "URL-osoite"
+  }
+}

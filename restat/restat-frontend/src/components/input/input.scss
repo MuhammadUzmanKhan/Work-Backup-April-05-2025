@@ -1,0 +1,51 @@
+.form-card .field {
+    margin-bottom: 1.25rem;
+}
+.form-card .field label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+.form-card .field .infield {
+    position: relative;
+}
+.form-card .field .infield .field-icon-right,
+.form-card .field .infield .field-icon-left {
+    position: absolute;
+    left: 1.1875rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.field-icon-left g {
+    // fill: red;
+   }
+.form-card .field .infield .field-icon-right {
+    left: inherit;
+    right: 1.1875rem;
+}
+.form-card .field .custom-input {
+    border: 0.0625rem solid var(--blue-border);
+    height: 3.125rem;
+    padding-left: 3.25rem;
+    padding-right: 3.25rem;
+    border-radius: 0.625rem;
+    width: 100%;
+    font-size: 1.125rem;
+    line-height: 1.6875rem;
+    color: var(--blue);
+}
+.form-card .field .custom-input:focus {
+    outline: none;
+    border-color: var(--blue);
+}
+.form-card .field .custom-input::placeholder {
+    color: var(--blue-opacity-50);
+    opacity: 1; /* Firefox */
+} 
+.form-card .field .custom-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--blue-opacity-50);
+}
+.form-card .field .custom-input::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--blue-opacity-50);
+}

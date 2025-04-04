@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Severe Weather",
+    "text": "ALERT! Severe Weather expected within 30 minutes. For the safety of all Guest & Staff we will be shutting down [STAGE NAME] while the weather passes."
+  },
+  {
+    "title": "Stage Evacuation",
+    "text": "ALERT! A Stage Evacuation has been issues for [STAGE NAME]. Please follow staff instructions while we work to safely reopen the stage."
+  },
+  {
+    "title": "Camp Showers Down",
+    "text": "The camping showers are temporarily closed due to cleaning or maintenance. We hope to reopen them as soon as possible. Additional showers may be opera."
+  },
+  {
+    "title": "Camp Area Closure",
+    "text": "CAMP ALERT! The [CAMP AREA NAME] and its amenities will be temporarily closed while we resolve an issue. Please use the facilities at Camp Center."
+  }
+]

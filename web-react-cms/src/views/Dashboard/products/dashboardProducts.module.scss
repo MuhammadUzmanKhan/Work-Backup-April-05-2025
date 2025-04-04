@@ -1,0 +1,41 @@
+.listContainer {
+  background: transparent !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 18px;
+  grid-row-gap: 14px;
+
+  .MuiTouchRipple-root {
+    display: none;
+  }
+
+  .listItemButton {
+    flex-direction: column;
+
+    .listItemIcon {
+      background: #ffffff;
+      border-radius: 20px;
+      // padding: 27px 19px;
+      margin: 0 0 8px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      width: 100px;
+
+      img {
+        max-width: 62px;
+        width: 62px;
+        height: 62px;
+      }
+    }
+
+    .listItemText {
+      width: max-content;
+      margin: 0;
+      text-align: center;
+      display: flex;
+    }
+  }
+}

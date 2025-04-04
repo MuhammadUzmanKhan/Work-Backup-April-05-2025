@@ -1,0 +1,82 @@
+.d-flex {
+    display: flex;
+    justify-content: center;
+    /* Center the buttons horizontally */
+    align-items: center;
+    /* Center the buttons vertically */
+}
+
+.button {
+    margin: 0 10px;
+    /* Add some space between buttons */
+    padding: 10px 20px;
+    /* Adjust padding as needed */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Define custom colors for buttons */
+.button.clickup {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.button.hubspot {
+    background-color: #ff7657;
+    color: #fff;
+}
+
+.g-2 {
+    gap: 8px;
+}
+
+.connect-to-clickup-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+}
+
+.connection-icons-page{
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 1rem;
+  &:hover {
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.connect-text-page{
+  color: #555;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.continue-div{
+  margin-top: 2rem;
+  padding: 20px;
+}
+  
+.continue-button {
+  background: linear-gradient(45deg, #1b4895, #3498db);
+  color: #FFFFFF;
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  font-weight: bold;
+
+  &:hover {
+    background: linear-gradient(45deg, #3498db, #1b4895);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+}

@@ -1,0 +1,27 @@
+name: Staging CI/CD Pipeline
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: staging-backend
+
+    strategy:
+      matrix:
+        node-version:
+          - 18.x
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: cp /home/ubuntu/restat/staging/backend/.env /home/ubuntu/restat/staging/backend-pipeline/_work/restat-backend/restat-backend/.env
+    - run: npm i --legacy-peer-deps
+    - run: npm run build
+    - run: pm2 delete restat-backend-staging
+    - run: pm2 start npm --name "restat-backend-staging" -- start

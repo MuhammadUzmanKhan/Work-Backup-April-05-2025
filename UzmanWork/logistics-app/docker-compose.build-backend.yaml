@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+      args:
+        - RUN_AS=production
+        - BACKEND_PORT=8000
+        - FRONTEND_EXPOSED_PORT=5173
+  backend_edge:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+      args:
+        - RUN_AS=production
+        - BACKEND_PORT=8200
+        - FRONTEND_EXPOSED_PORT=5173
+
+  task_worker:
+    build:
+      context: .
+      dockerfile: celery.Dockerfile
+
+  task_scheduler:
+    build:
+      context: .
+      dockerfile: celery.Dockerfile
+
+  task_monitor:
+    build:
+      context: .
+      dockerfile: celery.Dockerfile

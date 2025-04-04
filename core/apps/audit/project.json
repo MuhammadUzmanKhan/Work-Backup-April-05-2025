@@ -1,0 +1,35 @@
+{
+  "name": "audit",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/audit/src",
+  "projectType": "application",
+  "tags": [],
+  "lint": {
+    "executor": "@nx/eslint:lint",
+    "outputs": ["{options.outputFile}"],
+    "options": {
+      "lintFilePatterns": ["apps/audit/src/**/*.ts"],
+      "eslintConfig": "eslint.config.js"
+    }
+  },
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "inspect": false,
+        "buildTarget": "audit:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "audit:build:development"
+        },
+        "production": {
+          "buildTarget": "audit:build:production"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "actions": {
+    "complete_task": "Se actualizó el estado de la tarea de evento '{subTaskName}' como Completado",
+    "created": "Evento creado",
+    "created_subtask": "Se creó una tarea de evento '{value}'",
+    "delete_image": "Se eliminó un archivo '{imageName}'",
+    "delete_subtask_image": "Se eliminó un archivo '{imageName}' contra la tarea de evento '{subTaskName}'",
+    "demo": "El evento ha sido marcado como Demo",
+    "demo_remove": "El evento ya no está marcado como Demo",
+    "disabled": "{column_name} '{first_val}' ha sido deshabilitado",
+    "enabled": "{column_name} '{value}' se ha habilitado",
+    "event_cad": "Se cargó el archivo {column_name} '{second_val}' con la versión '{cadVersion}' contra '{cadName}'",
+    "current_version": "Versión actual de '{cadName}' establecida en '{cadVersion}'",
+    "image": "Subió un archivo '{imageName}'",
+    "incomplete_task": "Se actualizó el estado de la tarea de evento '{subTaskName}' como Incompleta",
+    "set_to": "{column_name} se ha establecido en '{value}'",
+    "subtask_image": "Se cargó un archivo '{imageName}' contra la tarea de evento '{subTaskName}'",
+    "updated_from": "{column_name} se ha actualizado de '{first_val}' a '{second_val}'",
+    "updated_from_subtask": "{column_name} se ha actualizado de '{first_val}' a '{second_val}' de una tarea de evento '{subTaskName}'"
+  },
+  "labels": {
+    "about_event": "Acerca del evento",
+    "attachment": "Adjunto",
+    "deadline": "Fecha límite",
+    "demo_event": "Evento de demostración",
+    "division_lock_service": "Servicio de esclusas de división",
+    "end_date": "Fecha final",
+    "event cad creation": "Creación de eventos Cad",
+    "event_access_lock": "Bloqueo de acceso a eventos",
+    "event_cad": "CAD de eventos",
+    "name": "Nombre",
+    "public_end_date": "Fecha de finalización pública",
+    "public_start_date": "Fecha de inicio pública",
+    "start_date": "Fecha de inicio",
+    "status": "Estado",
+    "subtask": "Tarea de evento",
+    "subtask_attachment": "Adjunto de tarea",
+    "update event cad current version": "Actualizar Evento Cad Versión Actual",
+    "current_version": "Versión Actual"
+  }
+}

@@ -1,0 +1,33 @@
+.rounded {
+  position: relative;
+
+  .MuiInput-root {
+    border: 1px solid #29173b;
+    box-sizing: border-box;
+    border-radius: 12px;
+    padding: 11px 29px 13px 9px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #29173b;
+
+    &.Mui-focused {
+      border-color: #29173b;
+    }
+
+    &.Mui-error {
+      border-color: #c86b6d;
+    }
+
+    &:after,
+    &:before {
+      display: none;
+    }
+  }
+
+  .base-input--error-text {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}

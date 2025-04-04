@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Workspace Deletion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #007bff;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 22px;
+        }
+
+        p {
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .credentials {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+        }
+
+        .credentials p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #999;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://github.com/umar-phaedra/assets/blob/main/logo-icon-restat.png?raw=true" alt="" />
+            <h1>Confirm Workspace Deletion, {{name}}</h1>
+        </div>
+        <div class="content">
+            <p>Hello {{name}},</p>
+            <p>You have requested to delete the workspace <b>{{workspaceName}}</b>. To proceed with this action, please
+                use the OTP (One-Time Password) provided below:</p>
+            <div class="credentials">
+                <p>OTP: <b>{{otp}}</b></p>
+            </div>
+            <p>This OTP is valid for the next <b>{{expirationTime}} minutes</b> and can only be used once.</p>
+            <p>Once confirmed, all data associated with <b>{{workspaceName}}</b> will be permanently deleted and cannot
+                be recovered. Please ensure that you want to proceed with this action.</p>
+            <p>If you did not request this deletion, please disregard this email. For further assistance, feel free to
+                reach out to our support team.</p>
+            <p>Best regards,</p>
+            <p>The Restat Team</p>
+        </div>
+        <div class="footer">
+            &copy; {{currentYear}} Restat. All rights reserved.
+        </div>
+    </div>
+</body>
+
+</html>

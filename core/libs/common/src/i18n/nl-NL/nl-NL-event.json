@@ -1,0 +1,41 @@
+{
+  "actions": {
+    "complete_task": "De status van gebeurtenistaak '{subTaskName}' is bijgewerkt als voltooid",
+    "created": "Evenement aangemaakt",
+    "created_subtask": "Een gebeurtenistaak '{value}' gemaakt",
+    "delete_image": "Een bestand '{imageName}' verwijderd",
+    "delete_subtask_image": "Een bestand '{imageName}' verwijderd voor gebeurtenistaak '{subTaskName}'",
+    "demo": "Het evenement is gemarkeerd als demo",
+    "demo_remove": "Het evenement is niet langer gemarkeerd als demo",
+    "disabled": "{column_name} '{first_val}' is uitgeschakeld",
+    "enabled": "{column_name} '{value}' is ingeschakeld",
+    "event_cad": "Bestand {column_name} '{second_val}' geüpload met versie '{cadVersion}' tegen '{cadName}'",
+    "current_version": "Huidige versie van '{cadName}' is ingesteld op '{cadVersion}'",
+    "image": "Een bestand geüpload '{imageName}'",
+    "incomplete_task": "De status van gebeurtenistaak '{subTaskName}' is bijgewerkt als voltooid",
+    "set_to": "{column_name} is ingesteld op '{value}'",
+    "subtask_image": "Een bestand '{imageName}' geüpload voor gebeurtenistaak '{subTaskName}'",
+    "updated_from": "{column_name} is bijgewerkt van '{first_val}' naar '{second_val}'",
+    "updated_from_subtask": "{column_name} is bijgewerkt van '{first_val}' naar '{second_val}' van een gebeurtenistaak '{subTaskName}'"
+  },
+  "labels": {
+    "about_event": "Over evenement",
+    "attachment": "Bijlage",
+    "deadline": "Deadline",
+    "demo_event": "Demo-evenement",
+    "division_lock_service": "Divisie Lock Service",
+    "end_date": "Einddatum",
+    "event cad creation": "Event CAD-creatie",
+    "event_access_lock": "Toegangsvergrendeling voor evenementen",
+    "event_cad": "Evenement-CAD",
+    "name": "Naam",
+    "public_end_date": "Openbare einddatum",
+    "public_start_date": "Openbare startdatum",
+    "start_date": "Begin datum",
+    "status": "Toestand",
+    "subtask": "Gebeurtenis taak",
+    "subtask_attachment": "Taakbijlage",
+    "update event cad current version": "Update Event CAD huidige versie",
+    "current_version": "Huidige versie"
+  }
+}

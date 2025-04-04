@@ -1,0 +1,30 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "1234",
+    "database": "nest-db-1",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": 5433,
+    "logging": true,
+    "define": {
+      "timestamps": false
+    }
+  },
+  "test": {
+    "username": "postgres",
+    "password": "1234",
+    "database": "database_test",
+    "host": "localhost",
+    "dialect": "postgres",
+    "logging": false
+  },
+  "production": {
+    "username": "postgres",
+    "password": "1234",
+    "database": "database_production",
+    "host": "localhost",
+    "dialect": "postgres",
+    "logging": false
+  }
+}

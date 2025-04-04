@@ -1,0 +1,41 @@
+{
+  "actions": {
+    "complete_task": "Uppdaterade statusen för händelseuppgiften '{subTaskName}' när den är slutförd",
+    "created": "Skapade event",
+    "created_subtask": "Skapat en händelseuppgift '{value}'",
+    "delete_image": "Raderade en fil '{imageName}'",
+    "delete_subtask_image": "Raderade en fil '{imageName}' mot Event Task '{subTaskName}'",
+    "demo": "Evenemanget har markerats som demo",
+    "demo_remove": "Evenemanget är inte längre markerat som demo",
+    "disabled": "{column_name} '{first_val}' har inaktiverats",
+    "enabled": "{column_name} '{value}' har aktiverats",
+    "event_cad": "Laddade upp {column_name} '{second_val}' fil med version '{cadVersion}' mot '{cadName}'",
+    "current_version": "Aktuell version av '{cadName}' inställd på '{cadVersion}'",
+    "image": "Laddade upp en fil '{imageName}'",
+    "incomplete_task": "Uppdaterade statusen för händelseuppgiften '{subTaskName}' som in-Completed",
+    "set_to": "{column_name} har ställts in på '{value}'",
+    "subtask_image": "Laddade upp en fil '{imageName}' mot Event Task '{subTaskName}'",
+    "updated_from": "{column_name} har uppdaterats från '{first_val}' till '{second_val}'",
+    "updated_from_subtask": "{column_name} har uppdaterats från '{first_val}' till '{second_val}' för en händelseuppgift '{subTaskName}'"
+  },
+  "labels": {
+    "about_event": "Om Event",
+    "attachment": "Fastsättning",
+    "deadline": "Deadline",
+    "demo_event": "Demo Event",
+    "division_lock_service": "Division Lock Service",
+    "end_date": "Slutdatum",
+    "event cad creation": "Event Cad Skapande",
+    "event_access_lock": "Åtkomstlås för händelser",
+    "event_cad": "Event CAD",
+    "name": "Namn",
+    "public_end_date": "Offentligt slutdatum",
+    "public_start_date": "Offentligt startdatum",
+    "start_date": "Start datum",
+    "status": "Status",
+    "subtask": "Händelseuppgift",
+    "subtask_attachment": "Bilaga till uppgift",
+    "update event cad current version": "Uppdatera Event Cad aktuell version",
+    "current_version": "Aktuell version"
+  }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation to Join Restat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #007bff;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .header img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: white;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 20px 0;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 22px;
+        }
+
+        p {
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #999;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://github.com/umar-phaedra/assets/blob/main/logo-icon-restat.png?raw=true" alt="" />
+            <h1>You're Invited!</h1>
+        </div>
+        <div class="content">
+            <h1>Welcome, {{name}}!</h1>
+            <p>
+                We are excited to invite you to join Restat, a leading platform designed specifically for business
+                developers like you. You have been invited by {{invitedBy}} to become a part of our growing community.
+            </p>
+            <p>
+                Restat offers a suite of tools to help you track, measure, and analyze your goals and KPIs effectively.
+                We believe you would find tremendous value in our platform and be a great fit for our community.
+            </p>
+            <p>
+                To get started, simply click the button below to accept the invitation and join Restat.
+            </p>
+            <a href={{accpetInviteUrl}} class="button">Accept Invitation</a>
+            <p>
+                Once you've signed up, you can immediately begin utilizing Restat's features to enhance your business
+                development efforts.
+            </p>
+            <p>
+                We look forward to having you on board!
+            </p>
+            <p>Best regards,</p>
+            <p>The Restat Team</p>
+        </div>
+        <div class="footer">
+            &copy; {{currentYear}} Restat. All rights reserved.
+        </div>
+    </div>
+</body>
+
+</html>

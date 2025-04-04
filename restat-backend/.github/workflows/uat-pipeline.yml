@@ -1,0 +1,29 @@
+name: UAT CI/CD Pipeline
+on:
+  push:
+    branches:
+      - UAT
+
+jobs:
+  build:
+    runs-on: uat-backend
+
+    strategy:
+      matrix:
+        node-version:
+          - 18.x
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: cp /home/ubuntu/restat/staging/backend/.env /home/ubuntu/restat/uat/backend/_work/restat-backend/restat-backend/.env
+    - name: Update PORT in .env
+      run: sed -i 's/PORT=3025/PORT=3026/' /home/ubuntu/restat/uat/backend/_work/restat-backend/restat-backend/.env
+    - run: npm i --legacy-peer-deps
+    - run: npm run build
+    - run: pm2 delete restat-backend-uat
+    - run: pm2 start npm --name "restat-backend-uat" -- start

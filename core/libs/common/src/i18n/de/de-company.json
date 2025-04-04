@@ -1,0 +1,20 @@
+{
+  "actions": {
+    "created": "Erstelltes Ereignis",
+    "set_to": "{column_name} wurde auf '{value}' gesetzt.",
+    "updated_from": "{column_name} wurde von '{first_val}' auf '{second_val}' aktualisiert."
+  },
+  "labels": {
+    "about": "Um",
+    "contact_email": "E-Mail des primären Kontakts",
+    "contact_name": "Name des primären Kontakts",
+    "contact_phone": "Primäre Kontakttelefonnummer",
+    "email": "Sekundäre E-Mail",
+    "location": "Standort",
+    "name": "Name",
+    "number": "Sekundärnummer",
+    "regionName": "Regionsname",
+    "timezone": "Zeitzone",
+    "url": "Url"
+  }
+}

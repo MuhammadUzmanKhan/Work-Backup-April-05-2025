@@ -1,0 +1,6 @@
+.eslintrc.js
+vite.config.ts
+**/dist/
+**/android/
+**/ios/
+**/node_modules/

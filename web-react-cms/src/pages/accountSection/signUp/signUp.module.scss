@@ -1,0 +1,19 @@
+.formContainer {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 21px 20px 24px 20px;
+}
+
+.journeyBox {
+  border: 2px solid #000000;
+  border-radius: 12px;
+  padding: 12px 16px 17px;
+
+  &.financial {
+    border-color: #F29469;
+  }
+
+  &.physical {
+    border-color: #69B5B5;
+  }
+}

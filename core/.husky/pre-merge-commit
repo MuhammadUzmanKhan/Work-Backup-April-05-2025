@@ -1,0 +1,19 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Get the name of the current branch
+BRANCH=$(git symbolic-ref --short HEAD)
+
+# List of branches where merging is restricted
+RESTRICTED_BRANCHES=("uat" "master" "staging")
+
+# Check if the current branch is restricted
+for branch in "${RESTRICTED_BRANCHES[@]}"; do
+    if [ "$BRANCH" = "$branch" ]; then
+        echo "Error: Merging into $BRANCH is restricted!"
+        exit 1
+    fi
+done
+
+# If no restrictions, allow the merge
+echo "Merging into $BRANCH is allowed."

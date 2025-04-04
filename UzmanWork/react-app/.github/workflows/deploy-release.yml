@@ -1,0 +1,12 @@
+name: Deploy Release Website
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-deployment-job:
+    uses: ./.github/workflows/deploy-template.yml
+    with:
+      environment: release
+      machine: app-api-release
+    secrets: inherit

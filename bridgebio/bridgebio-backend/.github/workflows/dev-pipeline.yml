@@ -1,0 +1,27 @@
+name: Development CI/CD Pipeline
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: bb-dev
+
+    strategy:
+      matrix:
+        node-version:
+          - 20.x
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: cp /home/ec2-user/development/secret/.env /home/ec2-user/development/bb-backend/_work/bridgebio-backend/bridgebio-backend/.env
+    - run: npm i
+    - run: npm run build
+    - run: pm2 delete bb-backend-development
+    - run: pm2 start npm --name "bb-backend-development" -- start

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Low",
+    "priority": "low",
+    "description": "No immediate resolution needed if there are other priorities. It does not threaten anyone’s health or safety. It does not threaten infrastructure use or performance."
+  },
+  {
+    "name": "Medium",
+    "priority": "medium",
+    "description": "No immediate resolution needed if there are higher priorities. It does not threaten anyone’s health or safety. Infrastructure use or performance may be involved so long it doesn’t affect a person’s safety."
+  },
+  {
+    "name": "High",
+    "priority": "high",
+    "description": "Immediate attention needed by a designated Event Manager. It may threaten a person’s health or safety if not immediately addressed."
+  },
+  {
+    "name": "Critical",
+    "priority": "critical",
+    "description": "Immediate attention required. Someone’s health or safety is at risk in a possibly life threatening situation. Key infrastructure is at risk with the possibility of mass casualty if not immediately addressed. Designated Event Directors should be notified."
+  }
+]

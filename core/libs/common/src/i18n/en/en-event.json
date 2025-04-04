@@ -1,0 +1,41 @@
+{
+  "actions": {
+    "complete_task": "Updated the Status of Event Task '{subTaskName}' as Completed",
+    "created": "Created Event",
+    "created_subtask": "Created an Event Task '{value}'",
+    "delete_image": "Deleted a file '{imageName}'",
+    "delete_subtask_image": "Deleted a file '{imageName}' against Event Task '{subTaskName}'",
+    "demo": "The event has been marked as Demo",
+    "demo_remove": "The event is no longer marked as Demo",
+    "disabled": "{column_name} '{first_val}' has been disabled",
+    "enabled": "{column_name} '{value}' has been enabled",
+    "event_cad": "Uploaded {column_name} '{second_val}' File With Version '{cadVersion}' against '{cadName}'",
+    "current_version": "Current Version of '{cadName}' set to '{cadVersion}'",
+    "image": "Uploaded a file '{imageName}'",
+    "incomplete_task": "Updated the Status of Event Task '{subTaskName}' as In-Completed",
+    "set_to": "{column_name} has been set to '{value}'",
+    "subtask_image": "Uploaded a file '{imageName}' against Event Task '{subTaskName}'",
+    "updated_from": "{column_name} has been updated from '{first_val}' to '{second_val}'",
+    "updated_from_subtask": "{column_name} has been updated from '{first_val}' to '{second_val}' of a Event Task '{subTaskName}'"
+  },
+  "labels": {
+    "about_event": "About Event",
+    "attachment": "Attachment",
+    "deadline": "Deadline",
+    "demo_event": "Demo Event",
+    "division_lock_service": "Division Lock Serivce",
+    "end_date": "End Date",
+    "event cad creation": "Event Cad Creation",
+    "event_access_lock": "Event Access Lock",
+    "event_cad": "Event CAD",
+    "name": "Name",
+    "public_end_date": "Public End Date",
+    "public_start_date": "Public Start Date",
+    "start_date": "Start Date",
+    "status": "Status",
+    "subtask": "Event Task",
+    "subtask_attachment": "Task Attachment",
+    "update event cad current version": "Update Event Cad Current Version",
+    "current_version": "Current Version"
+  }
+}

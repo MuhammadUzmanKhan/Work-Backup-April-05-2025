@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn nx affected -t lint --base=staging
+# yarn nx affected -t test --base=staging --exclude=tag:excludeFromTest
+# yarn nx affected -t build --base=staging 

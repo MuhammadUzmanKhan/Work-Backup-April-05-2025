@@ -1,0 +1,2 @@
+from .router import shared_video_router as shared_video_router
+from .router import shared_video_router_public as shared_video_router_public

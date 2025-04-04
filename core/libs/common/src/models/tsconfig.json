@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "strict": false,
+    "strictPropertyInitialization": false // Disable strict initialization check here
+    // other options...
+  },
+  "include": [
+    "*.ts" // Include all TypeScript files in this directory
+  ]
+}

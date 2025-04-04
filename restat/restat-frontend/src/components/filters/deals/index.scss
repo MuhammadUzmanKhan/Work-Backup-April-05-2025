@@ -1,0 +1,7 @@
+.custom-placeholder input::placeholder {
+  font-size: 8px !important;
+}
+
+.custom-placeholder .ant-picker-input > input {
+  font-size: 8px !important; /* Ensures the font size for the value is set */
+}

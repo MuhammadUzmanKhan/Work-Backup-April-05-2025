@@ -1,0 +1,58 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #f0f2f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 95vw;
+}
+
+.configuration-form {
+    width: 100%;
+    padding-top: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: calc(33.33% - 10px);
+
+    .switch-label {
+        margin-right: 4px; // Reduce spacing between label and switch
+        font-weight: bold;
+        font-size: 0.9rem;
+        width: 30%;
+        white-space: nowrap;
+    }
+
+    .custom-switch {
+        margin-left: 0px; // Remove auto margin to bring switch closer to label
+    }
+}
+
+.submit-container {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+.submit-button {
+    margin-top: 20px;
+    background: #1890ff;
+    border-color: #1890ff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+        background: #40a9ff;
+        border-color: #40a9ff;
+    }
+}

@@ -1,0 +1,29 @@
+@media only screen and (max-width: 1800px) {
+
+	html,
+	body {
+		font-size: 14.5px;
+	}
+}
+
+@media only screen and (max-width: 1500px) {
+
+	html,
+	body {
+		font-size: 13px;
+	}
+}
+
+@media only screen and (max-width: 1400px) {
+
+	html,
+	body {
+		font-size: 12px;
+	}
+}
+
+body {
+	color: #28303F;
+}
+
+/* Add Styleguide */

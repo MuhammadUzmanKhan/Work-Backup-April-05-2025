@@ -1,0 +1,39 @@
+{
+  "actions": {
+    "assigned": "{column_name} '{value}' is toegewezen",
+    "assigned_subtask": "{column_name} '{value}' is toegewezen aan een Subtaak",
+    "created": "{column_name} is gemaakt",
+    "created_subtask": "Gemaakt een  {column_name} '{subTaskName}'",
+    "delete_image": "Een bestand verwijderd '{imageName}'",
+    "delete_subtask_image": "Een bestand verwijderd  '{imageName}' tegen Subtaak  '{subTaskName}'",
+    "set": "{column_name} is ingesteld",
+    "subtask_image": "Een bestand '{imageName}' geüpload voor subtaak '{subTaskName}'",
+    "subtask_set": "{column_name} van subtaak '{subTaskName}' is ingesteld",
+    "subtask_unset": "{column_name} van subtaak '{subTaskName}' is uitgeschakeld",
+    "task_image": "Een bestand '{imageName}' geüpload",
+    "unassigned": "{column_name} '{value}' is niet toegewezen",
+    "unassigned_subtask": "{column_name} '{value}' is niet meer toegewezen aan subtaak '{subTaskName}",
+    "unset": "{column_name} is verwijderd",
+    "updated_from": "{column_name} bijgewerkt van {first_val} naar '{second_val}'",
+    "updated_from_subtask": "{column_name} is bijgewerkt van '{first_val}' naar '{second_val}' van een subtaak '{subTaskName}'",
+    "updated_to": "{column_name} bijgewerkt naar '{value}'",
+    "set_to": "{column_name} is ingesteld op '{value}'"
+  },
+  "labels": {
+    "category": "Categorie",
+    "company_id": "Bedrijf",
+    "deadline": "Deadline",
+    "department_id": "Afdeling",
+    "description": "Beschrijving",
+    "image": "Afbeelding",
+    "incident_division_id": "Afdeling Incidenten",
+    "name": "Naam",
+    "priority": "Prioriteit",
+    "status": "Toestand",
+    "subTask": "Subtaak",
+    "task": "Taak",
+    "task_list_id": "Takenlijst",
+    "user": "Gebruiker",
+    "start_date": "Begin datum"
+  }
+}

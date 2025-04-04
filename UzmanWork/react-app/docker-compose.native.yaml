@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  frontend:
+    container_name: logistics-app-frontend
+    volumes:
+      - ./frontend/web/dist:/host/dist
+    command: cp -r /app/frontend/web/dist /host

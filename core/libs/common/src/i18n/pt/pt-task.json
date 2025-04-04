@@ -1,0 +1,39 @@
+{
+  "actions": {
+    "assigned": "{column_name} '{value}' foi atribuído",
+    "assigned_subtask": "{column_name} '{value}' foi atribuído à Subtarefa '{subTaskName}'",
+    "created": "{column_name} foi criado",
+    "created_subtask": "Criou um {column_name} '{subTaskName}'",
+    "delete_image": "Excluiu um arquivo '{imageName}'",
+    "delete_subtask_image": "Excluiu um arquivo '{imageName}' da Subtarefa '{subTaskName}'",
+    "set": "{column_name} foi definido",
+    "subtask_image": "Carregou um arquivo '{imageName}' para a Subtarefa '{subTaskName}'",
+    "subtask_set": "{column_name} da subtarefa '{subTaskName}' foi definida",
+    "subtask_unset": "{column_name} da subtarefa '{subTaskName}' foi desmarcada",
+    "task_image": "Carregou um arquivo '{imageName}'",
+    "unassigned": "{column_name} {value} foi desatribuído",
+    "unassigned_subtask": "{column_name} '{value}' foi desatribuído à Subtarefa '{subTaskName}'",
+    "unset": "{column_name} foi desmarcado",
+    "updated_from": "{column_name} atualizado de '{first_val}' para '{second_val}'",
+    "updated_from_subtask": "{column_name} foi atualizado de '{first_val}' para '{second_val}' de uma Subtarefa '{subTaskName}'",
+    "updated_to": "{column_name} atualizado para '{value}'",
+    "set_to": "{column_name} foi definido como '{value}'"
+  },
+  "labels": {
+    "category": "Categoria",
+    "company_id": "Empresa",
+    "deadline": "Prazo final",
+    "department_id": "Departamento",
+    "description": "Descrição",
+    "image": "Imagem",
+    "incident_division_id": "Divisão de Incidentes",
+    "name": "Nome",
+    "priority": "Prioridade",
+    "status": "STATUS",
+    "subTask": "Subtarefa",
+    "task": "Tarefa",
+    "task_list_id": "Lista de Tarefas",
+    "user": "Usuário",
+    "start_date": "Data de início"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "actions": {
+    "assigned": "{column_name} '{value}' ha sido asignado",
+    "assigned_subtask": "{column_name} '{value}' ha sido asignado a la subtarea '{subTaskName}'",
+    "created": "Se ha creado{column_name} ",
+    "created_subtask": "Se creó un {column_name} '{subTaskName}'",
+    "delete_image": "Se eliminó un archivo '{imageName}'",
+    "delete_subtask_image": "Se eliminó un archivo '{imageName}' contra la subtarea '{subTaskName}'",
+    "set": "Se ha establecido{column_name}",
+    "subtask_image": "Se cargó un archivo '{imageName}' contra la subtarea '{subTaskName}'",
+    "subtask_set": "Se ha establecido el{column_name} de la subtarea '{subTaskName}'",
+    "subtask_unset": "Se ha anulado la configuración del{column_name} de la subtarea '{subTaskName}'",
+    "task_image": "Subió un archivo '{imageName}'",
+    "unassigned": "{column_name} {value} ha sido desasignado",
+    "unassigned_subtask": "{column_name} '{value}' ha sido desasignado a la subtarea '{subTaskName}'",
+    "unset": "{column_name} ha sido desconfigurado",
+    "updated_from": "{column_name} actualizado de {first_val} a {second_val}",
+    "updated_from_subtask": "{column_name} se ha actualizado de '{first_val}' a '{second_val}' de una subtarea '{subTaskName}'",
+    "updated_to": "{column_name} actualizado a {value}",
+    "set_to": "{column_name} se ha establecido en '{value}'"
+  },
+  "labels": {
+    "category": "Categoría",
+    "company_id": "Compañía",
+    "deadline": "Fecha límite",
+    "department_id": "Departamento",
+    "description": "Descripción",
+    "image": "Imagen",
+    "incident_division_id": "División de incidentes",
+    "name": "Nombre",
+    "priority": "Prioridad",
+    "status": "Estado",
+    "subTask": "Subtarea",
+    "task": "Tarea",
+    "task_list_id": "Lista de tareas",
+    "user": "Usuario",
+    "start_date": "Fecha de inicio"
+  }
+}

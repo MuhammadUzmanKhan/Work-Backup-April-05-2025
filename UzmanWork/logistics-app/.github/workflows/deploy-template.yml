@@ -1,0 +1,87 @@
+name: Deploy Template
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      machine:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to ${{ inputs.environment }}
+
+    steps:
+      - name: Setup Tailscale
+        uses: tailscale/github-action@main
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+
+      - name: Fetch code
+        uses: actions/checkout@v3
+        with:
+          lfs: True
+          submodules: recursive
+
+      - name: Add to auth keys
+        run: |
+          mkdir -p ~/.ssh
+          for i in {1..100}; do
+            ssh-keyscan -t ed25519 ${{ inputs.machine }} >> ~/.ssh/known_hosts && break || sleep 1
+          done
+
+      - name: Prepare Alembic migrations directory and copy current version migrations
+        run: |
+          ssh admin@${{ inputs.machine }} -t "\
+            sudo rm -rf /tmp/alembic-migrations/* && \
+            mkdir -p /tmp/alembic-migrations/versions && \
+            cp -r /home/admin/code/logistics-app/backend/alembic/versions/* /tmp/alembic-migrations/versions/"
+
+      - name: Copy Source Code to the server
+        run: |
+          rsync -r --filter=':- .gitignore' --delete . admin@${{ inputs.machine }}:/home/admin/code/logistics-app
+
+      - name: Login docker registry
+        run: ssh admin@${{ inputs.machine }} -t "echo ${{ secrets.CI_PACKAGE_PAT }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin"
+
+      - name: Pull the new version of the app
+        run: |
+          ssh admin@${{ inputs.machine }} -t "\
+            cd /home/admin/code/logistics-app && \
+            GIT_SHA=${{ github.sha }} ./run_compose_cmd.sh .${{ inputs.environment }}.env pull"
+
+      - name: Copy new version of Alembic folder
+        run: |
+          ssh admin@${{ inputs.machine }} -t "\
+            cp -r /home/admin/code/logistics-app/backend/alembic/* /tmp/alembic-migrations/"
+
+      - name: Build Alembic Migrator docker image
+        run: |
+          ssh admin@${{ inputs.machine }} -t "\
+            cd /home/admin/code/logistics-app && \
+            docker build -t alembic-migrator -f alembic-migrator.Dockerfile ."
+
+      - name: Stop docker containers
+        run: ssh admin@${{ inputs.machine }} -t "cd ~/code/logistics-app && GIT_SHA=${{ github.sha }} ./run_compose_cmd.sh .${{ inputs.environment }}.env stop"
+
+      - name: Run database migrations
+        run: |
+          ssh admin@${{ inputs.machine }} -t "\
+            TARGET_REVISION=\$(docker run alembic-migrator find_head_revision --migrations_path /app/backend/alembic) && \
+            docker run -v /tmp/alembic-migrations:/app/alembic-migrations alembic-migrator migrate --migrations_path /app/alembic-migrations --revision \$TARGET_REVISION"
+
+      - name: Restart Service
+        run: ssh admin@${{ inputs.machine }} -t "cd ~/code/logistics-app && git clean -f && GIT_SHA=${{ github.sha }} ./run_compose_cmd.sh .${{ inputs.environment }}.env up -d"
+
+      - name: Create Sentry APP API release
+        uses: getsentry/action-release@v1.3.1
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: coram
+        with:
+          projects: app api
+          environment: ${{ inputs.environment }}

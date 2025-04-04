@@ -1,0 +1,63 @@
+.container {
+  min-height: 100vh;
+  padding-bottom: 80px;
+  background: top / cover url('/assets/images/background/MainLayout-background.svg') no-repeat
+    #e5e5e5;
+  overflow: hidden;
+  background-position-y: -44px;
+
+  .logoContainer {
+    padding: 13px 0 24px;
+    display: flex;
+    justify-content: center;
+
+    &.fullWidth {
+      width: 100%;
+    }
+  }
+
+  .logoContainerFull {
+    padding: 13px 0 24px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .MuiGrid-container {
+    margin: 0;
+  }
+
+  .contentContainer {
+    padding: 15px 16px 95px;
+  }
+
+  .isWhiteCaret {
+    path {
+      fill: #ffffff;
+    }
+  }
+
+  &.backgroundOgange {
+    background: top / cover url('/assets/images/background/MainLayout-background.svg') no-repeat
+      #e5e5e5;
+  }
+
+  &.backgroundGreen {
+    background: top / cover url('/assets/images/background/Vector.svg') no-repeat #e5e5e5;
+  }
+}
+
+.quizzesWrap {
+  .quizze {
+    height: 100px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background: right / cover url('/assets/images/background/Quezze-item-background.svg') no-repeat
+      #ffffff;
+  }
+}
+
+.contentContainerAdmin {
+  padding: 90px 20px 20px;
+}

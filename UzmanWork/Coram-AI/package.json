@@ -1,0 +1,25 @@
+{
+  "name": "coram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuhammadUzmanKhan/Coram-AI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MuhammadUzmanKhan/Coram-AI/issues"
+  },
+  "homepage": "https://github.com/MuhammadUzmanKhan/Coram-AI#readme",
+  "dependencies": {
+    "jsonfile": "^6.1.0",
+    "moment": "^2.30.1",
+    "random": "^4.1.0",
+    "simple-git": "^3.22.0"
+  }
+}

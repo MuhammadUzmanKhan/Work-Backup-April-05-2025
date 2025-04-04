@@ -1,0 +1,151 @@
+.spaces-container {
+  width: 70%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.folder-container {
+  width: 70%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.folder-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-container {
+  width: 70%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clickup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 50px;
+  height: 100vh;
+  padding: 100px;
+}
+
+.save-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+.save-button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.map-button {
+  margin-top: 50px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.map-button:hover {
+  background-color: #555;
+  color: white;
+}
+
+.map-button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+
+.back-button {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background-color: #1a4895;
+  padding: 7px 25px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.top-img {
+  margin-bottom: 50px;
+}
+
+.checkbox-container {
+  margin-top: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  cursor: pointer;
+  ;
+  position: relative;
+  margin-right: 10px;
+
+}
+
+.checkbox-container input[type="checkbox"]::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.checkbox-container input[type="checkbox"]:checked::before {
+  background-color: #333;
+}
+
+.checkbox-container input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 5px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+}
+
+.checkbox-container label {
+  cursor: pointer;
+  color: #333;
+  font-size: 18px;
+}

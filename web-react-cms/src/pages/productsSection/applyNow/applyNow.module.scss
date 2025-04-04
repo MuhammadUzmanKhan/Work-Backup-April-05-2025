@@ -1,0 +1,76 @@
+.list {
+  list-style: none;
+  padding: 0 0 0 20px;
+  margin: 0;
+
+  .listItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+    position: relative;
+
+    &:before {
+      content: "\2022";
+      color: #69B5B5;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      font-size: 32px;
+      position: absolute;
+      left: -20px;
+      top: -12px;
+    }
+  }
+}
+
+.stepper {
+  position: relative;
+
+  :global {
+    .MuiStepLabel-root.MuiStepLabel-vertical {
+      align-items: unset;
+      padding: 0;
+    }
+
+    .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiStepIcon-root {
+      color: #69B5B5;
+    }
+
+    .MuiStep-root.MuiStep-vertical {
+      padding-bottom: 16px;
+      overflow: hidden;
+      position: relative;
+      z-index: 10;
+
+      &:last-child {
+        .MuiStepLabel-iconContainer {
+          &:after {
+            display: none !important;
+          }
+        }
+      }
+    }
+
+    .MuiStepLabel-iconContainer {
+      &:after {
+        display: none;
+      }
+
+      &:after {
+        display: block;
+        content: '';
+        border-left: 1px dashed #69B5B5;
+        height: 1000px;
+        position: absolute;
+        top: 0;
+        left: 11.5px;
+        z-index: -1;
+      }
+    }
+
+    .MuiStepConnector-line.MuiStepConnector-lineVertical {
+      display: none;
+    }
+  }
+
+}

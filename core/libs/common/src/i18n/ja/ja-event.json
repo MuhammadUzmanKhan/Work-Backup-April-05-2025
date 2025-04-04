@@ -1,0 +1,41 @@
+{
+  "actions": {
+    "complete_task": "イベントタスク「{subTaskName}」のステータスを完了として更新しました",
+    "created": "作成されたイベント",
+    "created_subtask": "イベントタスク「{value}」を作成しました",
+    "delete_image": "ファイル '{imageName}' を削除しました",
+    "delete_subtask_image": "イベント タスク '{subTaskName}' に対してファイル '{imageName}' を削除しました",
+    "demo": "イベントはデモとしてマークされています",
+    "demo_remove": "イベントはデモとしてマークされなくなりました",
+    "disabled": "{column_name} '{first_val}' は無効になりました",
+    "enabled": "{column_name} '{value}' が有効になりました",
+    "event_cad": "バージョン '{cadVersion}' の {column_name} '{second_val}' ファイルを '{cadName}' に対してアップロードしました",
+    "current_version": "'{cadName}' の現在のバージョンが '{cadVersion}' に設定されました",
+    "image": "ファイル「{imageName}」をアップロードしました",
+    "incomplete_task": "イベント タスク '{subTaskName}' のステータスを未完了に更新しました",
+    "set_to": "{column_name} は '{value}' に設定されました",
+    "subtask_image": "イベント タスク '{subTaskName}' に対してファイル '{imageName}' をアップロードしました",
+    "updated_from": "{column_name} は '{first_val}' から '{second_val}' に更新されました",
+    "updated_from_subtask": "イベント タスク '{subTaskName}' の{column_name} が '{first_val}' から '{second_val}' に更新されました"
+  },
+  "labels": {
+    "about_event": "イベントについて",
+    "attachment": "添付ファイル",
+    "deadline": "締め切り",
+    "demo_event": "デモイベント",
+    "division_lock_service": "部門ロックサービス",
+    "end_date": "終了日",
+    "event cad creation": "イベントCAD作成",
+    "event_access_lock": "イベントアクセスロック",
+    "event_cad": "イベントCAD",
+    "name": "名前",
+    "public_end_date": "公開終了日",
+    "public_start_date": "公開開始日",
+    "start_date": "開始日",
+    "status": "状態",
+    "subtask": "イベントタスク",
+    "subtask_attachment": "タスク添付ファイル",
+    "update event cad current version": "イベント CAD の現在のバージョンを更新",
+    "current_version": "現在のバージョン英語"
+  }
+}

@@ -1,0 +1,1020 @@
+<html>
+
+<head>
+  <title>front</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #141414;
+      font-size: 12px;
+    }
+
+    .pdf-page {
+      border-top: 6px solid #F73D51;
+      border-bottom: 6px solid #F73D51;
+      overflow: hidden;
+      position: relative;
+      padding: 0 30px;
+      margin: auto;
+      min-height: 950px;
+    }
+
+    .bottom-bg,
+    .top-bg {
+      opacity: 0.2;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: -1;
+    }
+
+    .bottom-bg {
+      top: inherit;
+      bottom: 0;
+    }
+
+    .pdf-page-header {
+      padding: 10px 0;
+      border-bottom: 1px solid #E9ECF0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .h-text {
+      color: #434343;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .event-detail {
+      padding: 10px 0;
+      border-bottom: 1px solid #E9ECF0;
+    }
+
+    ul.detail-list {
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.detail-list li {
+      display: flex;
+      font-size: 12px;
+      font-weight: 300;
+      padding: 4px 0;
+    }
+
+    ul.detail-list li span {
+      display: flex;
+      min-width: 100px;
+    }
+
+    ul.detail-list li span:first-child {
+      font-weight: 500;
+      display: flex;
+      min-width: 140px;
+    }
+
+    .gray-panel {
+      border-radius: 10px;
+      background: #F4F5F7;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .gray-panel-header {
+      border-radius: 6px;
+      background: #E9ECF0;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 10px 18px;
+    }
+
+    .gray-panel-header span {
+      font-weight: 400;
+    }
+
+    .description {
+      padding: 8px 0;
+      margin: 8px 0;
+      border-bottom: 1px solid #E9ECF0;
+      border-top: 1px solid #E9ECF0;
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    .d-title {
+      font-weight: 500;
+      display: flex;
+      min-width: 140px;
+    }
+
+    .d-detail {
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    .reported {
+      display: flex;
+    }
+
+    .w-50 {
+      width: 50%;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .mt-0 {
+      margin-top: 0;
+    }
+
+    .reported .d-title {
+      min-width: 250px;
+    }
+
+    .detail-list.detail-list-1 li span:first-child {
+      min-width: 180px;
+    }
+
+    .id-detail,
+    ul.detail-list.bt-1 {
+      padding: 8px 0;
+      margin: 8px 0;
+      border-top: 1px solid #E9ECF0;
+    }
+
+    .id-detail {
+      display: flex;
+    }
+
+    .id-detail>div {
+      min-width: 90px;
+      padding-right: 30px;
+    }
+
+    .mb-1 {
+      margin-bottom: 10px;
+    }
+
+    .mt-2 {
+      margin-top: 20px;
+    }
+
+    .id-img {
+      width: 125px;
+      height: 125px;
+      border-radius: 8px;
+      border: 1px solid #D8D8D8;
+      margin-top: 15px;
+      overflow: hidden;
+    }
+
+    .signature {
+      margin-left: 15px;
+    }
+
+    .detail-list-half {
+      display: block;
+    }
+
+    ul.detail-list.detail-list-2 li span:first-child {
+      min-width: 100px;
+    }
+
+    .detail-list-half li {
+      width: 48%;
+      display: inline-flex !important;
+    }
+
+    .detail-list-third li {
+      width: 33%;
+      display: inline-flex !important;
+    }
+
+    ul.detail-list.detail-list-third li span:first-child {
+      min-width: 60px;
+    }
+
+    ul.detail-list li span.lable {
+      font-size: 11px;
+      border: 1px solid #000;
+      min-width: 65px;
+      text-align: center !important;
+      justify-content: center;
+      border-radius: 20px;
+      padding: 1px 10px;
+    }
+
+    .f12 {
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 17px;
+      margin: 0;
+    }
+
+    .f12 strong {
+      font-weight: 500;
+    }
+
+    .gray-panel-header-flex {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .incidient-table {
+      font-size: 11px;
+      color: #434343;
+      width: 100%;
+      font-weight: 300;
+    }
+
+    .incidient-table tr td {
+      border-bottom: 1px solid #E9ECF0;
+      padding: 5px;
+      vertical-align: top;
+    }
+
+    .incidient-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .incidient-table tr td strong {
+      font-weight: 500;
+    }
+
+    .checklist-table th,
+    .checklist-table td {
+      padding: 10px 18px;
+      font-size: 12px;
+      vertical-align: top;
+    }
+
+    .checklist-table td {
+      border-top: 1px solid #E9ECF0;
+    }
+
+    .checklist-table td p {
+      font-size: 10px;
+      margin: 1px 0;
+    }
+
+    .checkbox {
+      height: 10px;
+      width: 10px;
+      border-radius: 2px;
+      border: 1px solid #969696;
+      display: block;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .checklist-ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      width: 100%;
+    }
+
+    .checklist-ul li {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .bold{
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="pdf-page">
+    {{!-- <div class="top-bg">
+      <img src="images/bg-Rectangle.svg" alt="bg-top" width="100%" />
+    </div>
+    <div class="pdf-page-header">
+      <a href="#">
+        <img src="./images/logo.svg" width="100" alt="logo" />
+      </a>
+      <span class="h-text">System Checklist: Module readiness</span>
+    </div> --}}
+    <div class="gray-panel">
+      <div class="gray-panel-header gray-panel-header-flex">
+        <div>Module Checklist: <span>Complete this list 2-3 days prior to your event start. Report any issues to
+            OnTrack.</span></div>
+      </div>
+      <div style="padding: 0;">
+        <table class="checklist-table" style="width: 100%;text-align: left;">
+          <tr>
+            <th width="90px">Module/Section</th>
+            <th>
+              <div style="display: flex; justify-content: space-between;">
+                <span>Description</span> <span>Successful</span>
+              </div>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <p>Dispatch Center</p>
+            </td>
+            <td>
+              <ul class="checklist-ul">
+                <li>
+                  <p>Enter an Incident Division</p>
+                  <div class="checkbox">
+                    {{#if dispatch_center.enter_incident_division}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Enter an Incident Type</p>
+                  <div class="checkbox">
+                    {{#if dispatch_center.enter_incident_type}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Enter and Incident Location</p>
+                  <div class="checkbox">
+                    {{#if dispatch_center.enter_incident_location}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Add Description Notes</p>
+                  <div class="checkbox">
+                    {{#if dispatch_center.add_description}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Dispatch a unit</p>
+                  <div class="checkbox">
+                    {{#if dispatch_center.dispatch_unit}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Change the status of an Incident</p>
+                  <div class="checkbox">
+                    {{#if dispatch_center.status_of_incident}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Add Comments</p>
+                  <div class="checkbox">
+                    {{#if dispatch_center.add_comment}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Add Event Notes</p>
+                  <div class="checkbox">
+                    {{#if dispatch_center.add_event_note}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Add Scan Counts</p>
+                  <div class="checkbox"></div>
+                  {{#if dispatch_center.add_scan_count}}
+                  <svg class="checkmark" viewBox="0 0 24 24">
+                    <path fill="#969696"
+                      d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                    </path>
+                  </svg>
+                  {{/if}}
+                </li>
+                <li>
+                  <p>Check Map View</p>
+                  <div class="checkbox">
+                    {{#if dispatch_center.check_map_view}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Change Division in dropdown (Top right box)</p>
+                  <div class="checkbox">
+                    {{#if dispatch_center.change_division_dropdown}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Change Department in dropdown (Top right box)</p>
+                  <div class="checkbox">
+                    {{#if dispatch_center.change_department_dropdown}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Use Search Box (Top right box)</p>
+                  <div class="checkbox">
+                    {{#if dispatch_center.search_box}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Incident Zones</p>
+            </td>
+            <td>
+              <ul class="checklist-ul">
+                <li>
+                  <p>Toggle Main Zone</p>
+                  <div class="checkbox">
+                    {{#if incident_zone.main_zone}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Toggle Sub Zone / Choose Main Zone from the list</p>
+                  <div class="checkbox">
+                    {{#if incident_zone.sub_zone}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Change Colors</p>
+                  <div class="checkbox">
+                    {{#if incident_zone.change_color}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Move around the map freely, zoom in and out</p>
+                  <div class="checkbox">
+                    {{#if incident_zone.map_zoom_in_and_out}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Drop a zone (Both Main Zone and Sub Zone)</p>
+                  <div class="checkbox">
+                    {{#if incident_zone.drop_zone}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Change zone details (Move, Color, Rename, if Sub Zone, ability to change Main Zone associations)</p>
+                  <div class="checkbox">
+                    {{#if incident_zone.zone_detail}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>In List view, the ability to Rename</p>
+                  <div class="checkbox">
+                    {{#if incident_zone.list_view_and_rename}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>In the list view, Find the zone (via the location button)</p>
+                  <div class="checkbox">
+                    {{#if incident_zone.list_view_find_zone}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Ability to delete Zones</p>
+                  <div class="checkbox">
+                    {{#if incident_zone.delete_zone}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Ability to use street view</p>
+                  <div class="checkbox">
+                    {{#if incident_zone.street_view}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Change to satellite view</p>
+                  <div class="checkbox">
+                    {{#if incident_zone.satellite_view}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Incident Dashboard</p>
+            </td>
+            <td>
+              <ul class="checklist-ul">
+                <li>
+                  <p>Change Date on Incident Range</p>
+                  <div class="checkbox">
+                    {{#if incident_dashboard.change_date_incident_range}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Utilize "Filter" in Incidents Overview</p>
+                  <div class="checkbox">
+                    {{#if incident_dashboard.check_filter_incident_overview}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Move around the map</p>
+                  <div class="checkbox">
+                    {{#if incident_dashboard.move_around_map}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Use Dropdown Division / Incident Types / Statuses</p>
+                  <div class="checkbox">
+                    {{#if incident_dashboard.use_dropdown}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Street View</p>
+                  <div class="checkbox">
+                    {{#if incident_dashboard.street_view}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Toggle Map/Satellite</p>
+                  <div class="checkbox">
+                    {{#if incident_dashboard.satellite_view}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Toggle "View Staff" within Map</p>
+                  <div class="checkbox">
+                    {{#if incident_dashboard.view_staff}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Change Departments</p>
+                  <div class="checkbox">
+                    {{#if incident_dashboard.change_department}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Search Staff</p>
+                  <div class="checkbox">
+                    {{#if incident_dashboard.search_staff}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Toggle "Incidents"</p>
+                  <div class="checkbox">
+                    {{#if incident_dashboard.toggle_incident}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Incident Module Setup</p>
+            </td>
+            <td>
+              <ul class="checklist-ul">
+                <li>
+                  <p>Check / Uncheck Sources</p>
+                  <div class="checkbox">
+                    {{#if incident_module_setup.check_uncheck_source}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Utilize Select All / Unselect All</p>
+                  <div class="checkbox">
+                    {{#if incident_module_setup.select_unselect_all}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>"Create New Source", "Create New Division"</p>
+                  <div class="checkbox">
+                    {{#if incident_module_setup.create_source_and_division}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Search Sources/Divisions/Types</p>
+                  <div class="checkbox">
+                    {{#if incident_module_setup.check_search}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Delete Sources/Divisions</p>
+                  <div class="checkbox">
+                    {{#if incident_module_setup.delete_source_and_division}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Edit Source/Division Names</p>
+                  <div class="checkbox">
+                    {{#if incident_module_setup.edit_source_and_division}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Click "Go to Incident Zones"</p>
+                  <div class="checkbox">
+                    {{#if incident_module_setup.click_incident_zone}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Click "Manage Incident Module Alerts"</p>
+                  <div class="checkbox">
+                    {{#if incident_module_setup.incident_module_alert}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Workforce -> Staff</p>
+            </td>
+            <td>
+              <ul class="checklist-ul">
+                <li>
+                  <p>Click between departments</p>
+                  <div class="checkbox">
+                    {{#if workforce_staff.click_department}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Utilize Search Bar (Both in a Department and within Total Staff)</p>
+                  <div class="checkbox">
+                    {{#if workforce_staff.search_box}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Change Division Drop Down</p>
+                  <div class="checkbox">
+                    {{#if workforce_staff.change_Division_dropdown}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Change Department Dropdown</p>
+                  <div class="checkbox">
+                    {{#if workforce_staff.change_department_dropdown}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p class="bold">Action (Dropdown)</p>
+                </li>
+                <li>
+                  <p>-> Action -> Add New Staff </p>
+                  <div class="checkbox">
+                    {{#if workforce_staff.add_new_staff}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>-> Action &rarr; Add Existing Staff </p>
+                  <div class="checkbox">
+                    {{#if workforce_staff.add_existing_staff}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>⟶ Action ⟶ Add Department</p>
+                  <div class="checkbox">
+                    {{#if workforce_staff.add_department}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>(Above Tests should just make sure the correct popup appears, close after)</p>
+                  <div class="checkbox">
+                    {{#if workforce_staff.correct_popup_appear}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p class="bold">Users</p>
+                </li>
+                <li>
+                  <p>Edit / Message / Map (Make sure the correct popup appears)</p>
+                  <div class="checkbox">
+                    {{#if workforce_staff.edit_message_map}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+                <li>
+                  <p>Click any User ⟶ Make Sure Popup Displays</p>
+                  <div class="checkbox">
+                    {{#if workforce_staff.popup_display}}
+                    <svg class="checkmark" viewBox="0 0 24 24">
+                      <path fill="#969696"
+                        d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414l5.293 5.293 10-10a1 1 0 0 1 1.414 0z">
+                      </path>
+                    </svg>
+                    {{/if}}
+                  </div>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

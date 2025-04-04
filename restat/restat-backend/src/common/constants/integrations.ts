@@ -1,0 +1,9 @@
+export enum INTEGRATION_TYPES {
+    CLICKUP = 'CLICKUP',
+    HUBSPOT = 'HUBSPOT'
+}
+
+export enum CLICKUP_SUB_TYPES {
+    DEALS = 'DEALS',
+    CONTACTS = 'CONTACTS',
+}

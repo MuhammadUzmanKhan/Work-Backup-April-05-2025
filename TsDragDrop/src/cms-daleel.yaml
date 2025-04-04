@@ -1,0 +1,7385 @@
+openapi: 3.0.1
+info:
+  title: Daleel Content Management API
+  description: All Resources
+  version: "1.0"
+servers:
+  - url: https://vh01xo6ira.execute-api.me-south-1.amazonaws.com
+    description: DEV
+  - url: https://api.uat.getdaleel.io
+    description: UAT
+paths:
+  /cms/asset:
+    post:
+      tags:
+        - asset-controller
+      operationId: uploadFile
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - file
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssetlDTO"
+      security:
+        - daleel_cms: []
+  /cms/expert:
+    get:
+      tags:
+        - expert-controller
+      description: Get All expert records
+      operationId: getExperts
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ExpertSummaryDTO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - expert-controller
+      description: Create an Expert
+      operationId: saveExpert
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExpertVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExpertVO"
+      security:
+        - daleel_cms: []
+  /cms/expert/{id}:
+    get:
+      tags:
+        - expert-controller
+      description: Get Expert for given id
+      operationId: getExpert
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExpertVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - expert-controller
+      description: Update Expert for given id
+      operationId: updateExpert
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExpertVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExpertVO"
+      security:
+        - daleel_cms: []
+    delete:
+      tags:
+        - expert-controller
+      operationId: deleteExpert
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/expert/{id}/i18n_data:
+    put:
+      tags:
+        - expert-controller
+      description: Update Expert I18n data for given id
+      operationId: updateExpertI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExpertI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExpertVO"
+      security:
+        - daleel_cms: []
+  /cms/expert/{id}/publish:
+    put:
+      tags:
+        - expert-controller
+      operationId: publishExpert
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/expert/{id}/published:
+    get:
+      tags:
+        - expert-controller
+      operationId: getPublishedExpert
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExpertVO"
+      security:
+        - daleel_cms: []
+  /cms/faq:
+    get:
+      tags:
+        - faq-controller
+      operationId: getFaqs
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FaqVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - faq-controller
+      operationId: saveFaq
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FaqVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FaqVO"
+      security:
+        - daleel_cms: []
+  /cms/faq/search:
+    post:
+      tags:
+        - faq-controller
+      operationId: searchFaq
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FaqSearchDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FaqVO"
+      security:
+        - daleel_cms: []
+  /cms/faq/{id}:
+    get:
+      tags:
+        - faq-controller
+      operationId: getFaq
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FaqVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - faq-controller
+      operationId: updateFaq
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FaqVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FaqVO"
+      security:
+        - daleel_cms: []
+    delete:
+      tags:
+        - faq-controller
+      operationId: deleteFaq
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/faq/{id}/i18n_data:
+    put:
+      tags:
+        - faq-controller
+      operationId: updateFaqI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FaqI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FaqVO"
+      security:
+        - daleel_cms: []
+  /cms/faq/{id}/publish:
+    put:
+      tags:
+        - faq-controller
+      operationId: publishdFaq
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/faq/{id}/published:
+    get:
+      tags:
+        - faq-controller
+      operationId: getPublishedFaq
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FaqVO"
+      security:
+        - daleel_cms: []
+  /cms/faq_tag:
+    get:
+      tags:
+        - faq-controller
+      operationId: getFaqTags
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FaqTagVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - faq-controller
+      operationId: saveFaqTag
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FaqTagVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FaqTagVO"
+      security:
+        - daleel_cms: []
+  /cms/faq_tag/{id}:
+    get:
+      tags:
+        - faq-controller
+      operationId: getFaqTag
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FaqTagVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - faq-controller
+      operationId: updateFaqTag
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FaqTagVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FaqTagVO"
+      security:
+        - daleel_cms: []
+    delete:
+      tags:
+        - faq-controller
+      operationId: deleteFaqTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/faq_tag/{id}/entity_links:
+    get:
+      tags:
+        - faq-controller
+      operationId: getEntityLinksForFaqTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EntityReferenceDTO"
+      security:
+        - daleel_cms: []
+  /cms/faq_tag/{id}/i18n_data:
+    put:
+      tags:
+        - faq-controller
+      operationId: updateFaqTagI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NameI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FaqTagVO"
+      security:
+        - daleel_cms: []
+  /cms/guidebook:
+    get:
+      tags:
+        - guidebook-controller
+      operationId: getGuidebooks
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/GuidebookSummaryDTO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - guidebook-controller
+      operationId: saveGuidebook
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GuidebookVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GuidebookVO"
+      security:
+        - daleel_cms: []
+  /cms/guidebook/search:
+    post:
+      tags:
+        - guidebook-controller
+      operationId: searchGuidebook
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GuidebookSearchDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/GuidebookSummaryDTO"
+      security:
+        - daleel_cms: []
+  /cms/guidebook/{id}:
+    get:
+      tags:
+        - guidebook-controller
+      operationId: getGuidebook
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GuidebookVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - guidebook-controller
+      operationId: updateGuidebook
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GuidebookVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GuidebookVO"
+      security:
+        - daleel_cms: []
+    delete:
+      tags:
+        - guidebook-controller
+      operationId: deleteGuidebook
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/guidebook/{id}/entity_links:
+    get:
+      tags:
+        - guidebook-controller
+      operationId: getEntityLinksForGuidebook
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EntityReferenceDTO"
+      security:
+        - daleel_cms: []
+  /cms/guidebook/{id}/i18n_data:
+    put:
+      tags:
+        - guidebook-controller
+      operationId: updateGuidebookI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GuidebookI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GuidebookVO"
+      security:
+        - daleel_cms: []
+  /cms/guidebook/{id}/publish:
+    put:
+      tags:
+        - guidebook-controller
+      operationId: publishdGuidebook
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/guidebook/{id}/published:
+    get:
+      tags:
+        - guidebook-controller
+      operationId: getPublishedGuidebook
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GuidebookVO"
+      security:
+        - daleel_cms: []
+  /cms/permissions:
+    get:
+      tags:
+        - role-permissions-controller
+      operationId: getPermissions
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+      security:
+        - daleel_cms: []
+  /cms/product:
+    get:
+      tags:
+        - product-controller
+      operationId: getProducts
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: categoryId
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: providerId
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: tagId
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - product-controller
+      operationId: saveProduct
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductVO"
+      security:
+        - daleel_cms: []
+  /cms/product/search:
+    post:
+      tags:
+        - product-controller
+      operationId: searchProduct
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductSearchDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductVO"
+      security:
+        - daleel_cms: []
+  /cms/product/{id}:
+    get:
+      tags:
+        - product-controller
+      operationId: getProduct
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - product-controller
+      operationId: updateProduct
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductVO"
+      security:
+        - daleel_cms: []
+    delete:
+      tags:
+        - product-controller
+      operationId: deleteProduct
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/product/{id}/i18n_data:
+    put:
+      tags:
+        - product-controller
+      operationId: updateProduct18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductVO"
+      security:
+        - daleel_cms: []
+  /cms/product/{id}/publish:
+    put:
+      tags:
+        - product-controller
+      operationId: publishProduct
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/product/{id}/published:
+    get:
+      tags:
+        - product-controller
+      operationId: getPublishedProduct
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductVO"
+      security:
+        - daleel_cms: []
+  /cms/product_category:
+    get:
+      tags:
+        - product-category-controller
+      operationId: getProductCategories
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductCategoryDTO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - product-category-controller
+      operationId: saveProductCategory
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductCategoryVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductCategoryDTO"
+      security:
+        - daleel_cms: []
+  /cms/product_category/published/summary:
+    get:
+      tags:
+        - product-category-controller
+      operationId: getPublishedProductCategorySummary
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductCategorySummaryDTO"
+      security:
+        - daleel_cms: []
+  /cms/product_category/summary:
+    get:
+      tags:
+        - product-category-controller
+      operationId: getProductCategorySummary
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductCategorySummaryDTO"
+      security:
+        - daleel_cms: []
+  /cms/product_category/{categoryId}:
+    get:
+      tags:
+        - product-category-controller
+      operationId: getProductCategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductCategoryDTO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - product-category-controller
+      operationId: updateProductCategory
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductCategoryVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductCategoryDTO"
+      security:
+        - daleel_cms: []
+  /cms/product_category/{categoryId}/filter:
+    put:
+      tags:
+        - product-category-controller
+      operationId: updateProductCategoryFilter
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductFilterVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductCategoryDTO"
+      security:
+        - daleel_cms: []
+  /cms/product_category/{categoryId}/i18n_data:
+    put:
+      tags:
+        - product-category-controller
+      operationId: updateProductCategoryI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductCategoryI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductCategoryDTO"
+      security:
+        - daleel_cms: []
+  /cms/product_category/{categoryId}/publish:
+    put:
+      tags:
+        - product-category-controller
+      operationId: publishProductCategory
+      parameters:
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/product_category/{categoryId}/published:
+    get:
+      tags:
+        - product-category-controller
+      operationId: getPublishedProductCategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductCategoryDTO"
+      security:
+        - daleel_cms: []
+  /cms/product_category/{id}:
+    delete:
+      tags:
+        - product-category-controller
+      operationId: deleteProductCategory
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/product_category/{id}/entity_links:
+    get:
+      tags:
+        - product-category-controller
+      operationId: getEntityLinksForProductCategory
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EntityReferenceDTO"
+      security:
+        - daleel_cms: []
+  /cms/product_filter_tag:
+    get:
+      tags:
+        - product-tag-controller
+      operationId: getProductFilterTags
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductFilterTagVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - product-tag-controller
+      operationId: saveProductFilterTag
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductFilterTagVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductFilterTagVO"
+      security:
+        - daleel_cms: []
+  /cms/product_filter_tag/{id}:
+    delete:
+      tags:
+        - product-tag-controller
+      operationId: deleteProductFilterTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/product_filter_tag/{id}/entity_links:
+    get:
+      tags:
+        - product-tag-controller
+      operationId: getEntityLinksForProductFilterTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EntityReferenceDTO"
+      security:
+        - daleel_cms: []
+  /cms/product_filter_tag/{tagId}:
+    get:
+      tags:
+        - product-tag-controller
+      operationId: getProductFilterTag
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: tagId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductFilterTagVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - product-tag-controller
+      operationId: updateProductFilterTag
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: tagId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductFilterTagVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductFilterTagVO"
+      security:
+        - daleel_cms: []
+  /cms/product_filter_tag/{tagId}/i18n_data:
+    put:
+      tags:
+        - product-tag-controller
+      operationId: updateProductFilterTagI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: tagId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductFilterTagI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductFilterTagVO"
+      security:
+        - daleel_cms: []
+  /cms/product_provider:
+    get:
+      tags:
+        - product-provider-controller
+      operationId: getProductProviders
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductProviderVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - product-provider-controller
+      operationId: saveProductProvider
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductProviderVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductProviderVO"
+      security:
+        - daleel_cms: []
+  /cms/product_provider/{id}:
+    delete:
+      tags:
+        - product-provider-controller
+      operationId: deleteProductProvider
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/product_provider/{id}/entity_links:
+    get:
+      tags:
+        - product-provider-controller
+      operationId: getEntityLinksForProductProvider
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EntityReferenceDTO"
+      security:
+        - daleel_cms: []
+  /cms/product_provider/{providerId}:
+    get:
+      tags:
+        - product-provider-controller
+      operationId: getProductProvider
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: providerId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductProviderVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - product-provider-controller
+      operationId: updateProductProvider
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: providerId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductProviderVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductProviderVO"
+      security:
+        - daleel_cms: []
+  /cms/product_provider/{providerId}/i18n_data:
+    put:
+      tags:
+        - product-provider-controller
+      operationId: updateProductProviderI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: providerId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductProviderI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductProviderVO"
+      security:
+        - daleel_cms: []
+  /cms/product_provider/{providerId}/publish:
+    put:
+      tags:
+        - product-provider-controller
+      operationId: publishProductProvider
+      parameters:
+        - name: providerId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/product_provider/{providerId}/published:
+    get:
+      tags:
+        - product-provider-controller
+      operationId: getPublishedProductProvider
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: providerId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductProviderVO"
+      security:
+        - daleel_cms: []
+  /cms/product_tag:
+    get:
+      tags:
+        - product-tag-controller
+      operationId: getProductTags
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductTagVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - product-tag-controller
+      operationId: saveProductTag
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductTagVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductTagVO"
+      security:
+        - daleel_cms: []
+  /cms/product_tag/{id}:
+    delete:
+      tags:
+        - product-tag-controller
+      operationId: deleteProductTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/product_tag/{id}/entity_links:
+    get:
+      tags:
+        - product-tag-controller
+      operationId: getEntityLinksForProductTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EntityReferenceDTO"
+      security:
+        - daleel_cms: []
+  /cms/product_tag/{tagId}:
+    get:
+      tags:
+        - product-tag-controller
+      operationId: getProductTag
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: tagId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductTagVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - product-tag-controller
+      operationId: updateProductTag
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: tagId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductTagVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductTagVO"
+      security:
+        - daleel_cms: []
+  /cms/product_tag/{tagId}/i18n_data:
+    put:
+      tags:
+        - product-tag-controller
+      operationId: updateProductTagI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: tagId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NameI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductTagVO"
+      security:
+        - daleel_cms: []
+  /cms/pushNotification:
+    post:
+      tags:
+        - push-notification-controller
+      operationId: pushNotification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PushNotificationDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/question:
+    get:
+      tags:
+        - quiz-controller
+      operationId: getQuizQnAs
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/QuizQnAVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - quiz-controller
+      operationId: saveQuiz
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuizQnAVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizQnAVO"
+      security:
+        - daleel_cms: []
+  /cms/question/search:
+    post:
+      tags:
+        - quiz-controller
+      operationId: searchQuizQnA
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuestionSearchDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/QuizQnAVO"
+      security:
+        - daleel_cms: []
+  /cms/question/{id}:
+    get:
+      tags:
+        - quiz-controller
+      operationId: getQuizQnA
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizQnAVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - quiz-controller
+      operationId: updateQuizQnA
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuizQnAVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizQnAVO"
+      security:
+        - daleel_cms: []
+    delete:
+      tags:
+        - quiz-controller
+      operationId: deleteQuestion
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/question/{id}/entity_links:
+    get:
+      tags:
+        - quiz-controller
+      operationId: getEntityLinksForQuestion
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EntityReferenceDTO"
+      security:
+        - daleel_cms: []
+  /cms/question/{id}/i18n_data:
+    put:
+      tags:
+        - quiz-controller
+      operationId: updateQuizQnAI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuizQnAI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizQnAVO"
+      security:
+        - daleel_cms: []
+  /cms/question/{id}/publish:
+    put:
+      tags:
+        - quiz-controller
+      operationId: publishQuizQnA
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/question/{id}/published:
+    get:
+      tags:
+        - quiz-controller
+      operationId: getPublishedQuizQnA
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizQnAVO"
+      security:
+        - daleel_cms: []
+  /cms/quiz_tag:
+    get:
+      tags:
+        - quiz-controller
+      operationId: getQuizTags
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/QuizTagVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - quiz-controller
+      operationId: saveQuizTag
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuizTagVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizTagVO"
+      security:
+        - daleel_cms: []
+  /cms/quiz_tag/{id}:
+    get:
+      tags:
+        - quiz-controller
+      operationId: getQuizTag
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizTagVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - quiz-controller
+      operationId: updateQuizTag
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuizTagVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizTagVO"
+      security:
+        - daleel_cms: []
+    delete:
+      tags:
+        - quiz-controller
+      operationId: deleteQuizTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/quiz_tag/{id}/entity_links:
+    get:
+      tags:
+        - quiz-controller
+      operationId: getEntityLinksForQuizTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EntityReferenceDTO"
+      security:
+        - daleel_cms: []
+  /cms/quiz_tag/{id}/i18n_data:
+    put:
+      tags:
+        - quiz-controller
+      operationId: updateQuizTagI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NameI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizTagVO"
+      security:
+        - daleel_cms: []
+  /cms/quiz_theme:
+    get:
+      tags:
+        - quiz-controller
+      operationId: getQuizThemes
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/QuizThemeVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - quiz-controller
+      operationId: saveQuizTheme
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuizThemeVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizThemeVO"
+      security:
+        - daleel_cms: []
+  /cms/quiz_theme/latest:
+    get:
+      tags:
+        - quiz-controller
+      operationId: getLatestQuizTheme
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizThemeVO"
+      security:
+        - daleel_cms: []
+  /cms/quiz_theme/{id}:
+    get:
+      tags:
+        - quiz-controller
+      operationId: getQuizTheme
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizThemeVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - quiz-controller
+      operationId: updateQuizTheme
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuizThemeVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizThemeVO"
+      security:
+        - daleel_cms: []
+    delete:
+      tags:
+        - quiz-controller
+      operationId: deleteQuizTheme
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/quiz_theme/{id}/i18n_data:
+    put:
+      tags:
+        - quiz-controller
+      operationId: updateQuizThemeI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuizThemeI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizThemeVO"
+      security:
+        - daleel_cms: []
+  /cms/quiz_theme/{id}/publish:
+    put:
+      tags:
+        - quiz-controller
+      operationId: publishQuizTheme
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/reward:
+    get:
+      tags:
+        - reward-controller
+      operationId: getRewards
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RewardVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - reward-controller
+      operationId: saveReward
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RewardVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RewardVO"
+      security:
+        - daleel_cms: []
+  /cms/reward/{id}:
+    get:
+      tags:
+        - reward-controller
+      operationId: getReward
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RewardVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - reward-controller
+      operationId: updateReward
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RewardVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RewardVO"
+      security:
+        - daleel_cms: []
+    delete:
+      tags:
+        - reward-controller
+      operationId: deleteReward
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/reward/{id}/i18n_data:
+    put:
+      tags:
+        - reward-controller
+      operationId: updateRewardI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RewardI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RewardVO"
+      security:
+        - daleel_cms: []
+  /cms/reward/{id}/publish:
+    put:
+      tags:
+        - reward-controller
+      operationId: publishReward
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/reward/{id}/published:
+    get:
+      tags:
+        - reward-controller
+      operationId: getPublishedReward
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RewardVO"
+      security:
+        - daleel_cms: []
+  /cms/reward_tag:
+    get:
+      tags:
+        - reward-controller
+      operationId: getRewardTags
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RewardTagVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - reward-controller
+      operationId: saveRewardTag
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RewardTagVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RewardTagVO"
+      security:
+        - daleel_cms: []
+  /cms/reward_tag/{id}:
+    get:
+      tags:
+        - reward-controller
+      operationId: getRewardTag
+      parameters:
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RewardTagVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - reward-controller
+      operationId: updateRewardTag
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RewardTagVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RewardTagVO"
+      security:
+        - daleel_cms: []
+    delete:
+      tags:
+        - reward-controller
+      operationId: deleteRewardTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+      security:
+        - daleel_cms: []
+  /cms/reward_tag/{id}/entity_links:
+    get:
+      tags:
+        - reward-controller
+      operationId: getEntityLinksForRewardTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EntityReferenceDTO"
+      security:
+        - daleel_cms: []
+  /cms/reward_tag/{id}/i18n_data:
+    put:
+      tags:
+        - reward-controller
+      operationId: updateRewardTagI18n
+      parameters:
+        - name: Content-Language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum:
+              - EN
+              - AR
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NameI18nDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RewardTagVO"
+      security:
+        - daleel_cms: []
+  /cms/tailored_notification:
+    get:
+      tags:
+        - tailored-notification-controller
+      operationId: getTailoredNotifications
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TailoredNotificationVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - tailored-notification-controller
+      operationId: saveTailoredNotification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TailoredNotificationVO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TailoredNotificationVO"
+      security:
+        - daleel_cms: []
+  /cms/tailored_notification/{type}:
+    get:
+      tags:
+        - tailored-notification-controller
+      operationId: getTailoredNotification
+      parameters:
+        - name: type
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - HEALTH_CONNECTION_REMINDER
+              - PROFILE_COMPLETION_REMINDER
+              - REWARD_REDEMPTION_REMINDER
+              - REVIEW_REMINDER
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TailoredNotificationVO"
+      security:
+        - daleel_cms: []
+  /cms/user:
+    get:
+      tags:
+        - cms-user-controller
+      operationId: getAllUsers
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CmsUserVO"
+      security:
+        - daleel_cms: []
+    post:
+      tags:
+        - cms-user-controller
+      operationId: saveUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CmsUserCreateDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CmsUserVO"
+      security:
+        - daleel_cms: []
+  /cms/user/{id}:
+    get:
+      tags:
+        - cms-user-controller
+      operationId: getUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CmsUserVO"
+      security:
+        - daleel_cms: []
+    put:
+      tags:
+        - cms-user-controller
+      operationId: updateUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CmsUserUpdateDTO"
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "405":
+          description: Method Not Allowed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "412":
+          description: Precondition Failed
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CmsUserVO"
+      security:
+        - daleel_cms: []
+components:
+  schemas:
+    ApiError:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - 100 CONTINUE
+            - 101 SWITCHING_PROTOCOLS
+            - 102 PROCESSING
+            - 103 CHECKPOINT
+            - 200 OK
+            - 201 CREATED
+            - 202 ACCEPTED
+            - 203 NON_AUTHORITATIVE_INFORMATION
+            - 204 NO_CONTENT
+            - 205 RESET_CONTENT
+            - 206 PARTIAL_CONTENT
+            - 207 MULTI_STATUS
+            - 208 ALREADY_REPORTED
+            - 226 IM_USED
+            - 300 MULTIPLE_CHOICES
+            - 301 MOVED_PERMANENTLY
+            - 302 FOUND
+            - 302 MOVED_TEMPORARILY
+            - 303 SEE_OTHER
+            - 304 NOT_MODIFIED
+            - 305 USE_PROXY
+            - 307 TEMPORARY_REDIRECT
+            - 308 PERMANENT_REDIRECT
+            - 400 BAD_REQUEST
+            - 401 UNAUTHORIZED
+            - 402 PAYMENT_REQUIRED
+            - 403 FORBIDDEN
+            - 404 NOT_FOUND
+            - 405 METHOD_NOT_ALLOWED
+            - 406 NOT_ACCEPTABLE
+            - 407 PROXY_AUTHENTICATION_REQUIRED
+            - 408 REQUEST_TIMEOUT
+            - 409 CONFLICT
+            - 410 GONE
+            - 411 LENGTH_REQUIRED
+            - 412 PRECONDITION_FAILED
+            - 413 PAYLOAD_TOO_LARGE
+            - 413 REQUEST_ENTITY_TOO_LARGE
+            - 414 URI_TOO_LONG
+            - 414 REQUEST_URI_TOO_LONG
+            - 415 UNSUPPORTED_MEDIA_TYPE
+            - 416 REQUESTED_RANGE_NOT_SATISFIABLE
+            - 417 EXPECTATION_FAILED
+            - 418 I_AM_A_TEAPOT
+            - 419 INSUFFICIENT_SPACE_ON_RESOURCE
+            - 420 METHOD_FAILURE
+            - 421 DESTINATION_LOCKED
+            - 422 UNPROCESSABLE_ENTITY
+            - 423 LOCKED
+            - 424 FAILED_DEPENDENCY
+            - 425 TOO_EARLY
+            - 426 UPGRADE_REQUIRED
+            - 428 PRECONDITION_REQUIRED
+            - 429 TOO_MANY_REQUESTS
+            - 431 REQUEST_HEADER_FIELDS_TOO_LARGE
+            - 451 UNAVAILABLE_FOR_LEGAL_REASONS
+            - 500 INTERNAL_SERVER_ERROR
+            - 501 NOT_IMPLEMENTED
+            - 502 BAD_GATEWAY
+            - 503 SERVICE_UNAVAILABLE
+            - 504 GATEWAY_TIMEOUT
+            - 505 HTTP_VERSION_NOT_SUPPORTED
+            - 506 VARIANT_ALSO_NEGOTIATES
+            - 507 INSUFFICIENT_STORAGE
+            - 508 LOOP_DETECTED
+            - 509 BANDWIDTH_LIMIT_EXCEEDED
+            - 510 NOT_EXTENDED
+            - 511 NETWORK_AUTHENTICATION_REQUIRED
+        message:
+          type: string
+        traceId:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+    CmsUserUpdateDTO:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+    CmsUserVO:
+      type: object
+      properties:
+        id:
+          type: string
+        subject:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+          enum:
+            - INTERNAL_EDITOR
+            - INTERNAL_PUBLISHER
+            - EXTERNAL_EDITOR
+            - EXTERNAL_PUBLISHER
+        providerId:
+          type: string
+        enabled:
+          type: boolean
+    RewardTagVO:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    NameI18nDTO:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          type: string
+          enum:
+            - EN
+            - AR
+    MetaInfo:
+      type: object
+      properties:
+        version:
+          type: integer
+          format: int64
+        lastModifiedBy:
+          type: string
+        lastModifiedAt:
+          type: string
+          format: date-time
+        publishedVersion:
+          type: integer
+          format: int64
+        publishedBy:
+          type: string
+        publishedAt:
+          type: string
+          format: date-time
+    RewardVO:
+      required:
+        - code
+        - description
+        - imageUrl
+        - name
+        - partner
+        - points
+        - redemptionSteps
+        - thumbnailUrl
+        - validUntil
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        partner:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+        points:
+          minimum: 1
+          type: integer
+          format: int32
+        validUntil:
+          type: string
+          format: date
+        imageUrl:
+          type: string
+        thumbnailUrl:
+          type: string
+        providerId:
+          type: string
+        redemptionSteps:
+          maxItems: 2147483647
+          minItems: 1
+          type: array
+          items:
+            type: string
+        rewardTagIds:
+          type: array
+          items:
+            type: string
+        metaInfo:
+          $ref: "#/components/schemas/MetaInfo"
+    RewardI18nDTO:
+      required:
+        - description
+        - name
+        - partner
+        - redemptionSteps
+      type: object
+      properties:
+        name:
+          type: string
+        partner:
+          type: string
+        description:
+          type: string
+        redemptionSteps:
+          maxItems: 2147483647
+          minItems: 1
+          type: array
+          items:
+            type: string
+    QuizThemeVO:
+      required:
+        - name
+        - quizTagIds
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        imageUrl:
+          type: string
+        iconUrl:
+          type: string
+        categoryIds:
+          maxItems: 2147483647
+          minItems: 1
+          type: array
+          items:
+            type: string
+        quizTagIds:
+          maxItems: 2147483647
+          minItems: 1
+          type: array
+          items:
+            type: string
+        metaInfo:
+          $ref: "#/components/schemas/MetaInfo"
+    QuizThemeI18nDTO:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+    QuizTagVO:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    QuizQnAVO:
+      required:
+        - answerType
+        - answers
+        - choices
+        - points
+        - question
+      type: object
+      properties:
+        id:
+          type: string
+        question:
+          type: string
+        choices:
+          type: object
+          additionalProperties:
+            type: string
+        answers:
+          maxItems: 2147483647
+          minItems: 1
+          type: array
+          items:
+            type: string
+        answerType:
+          type: string
+          enum:
+            - MULTIPLE
+            - SINGLE
+        points:
+          minimum: 1
+          type: integer
+          format: int32
+        guidebookId:
+          type: string
+        categoryIds:
+          type: array
+          items:
+            type: string
+        quizTagIds:
+          type: array
+          items:
+            type: string
+        metaInfo:
+          $ref: "#/components/schemas/MetaInfo"
+    QuizQnAI18nDTO:
+      required:
+        - answers
+        - choices
+        - question
+      type: object
+      properties:
+        question:
+          type: string
+        choices:
+          type: object
+          additionalProperties:
+            type: string
+        answers:
+          maxItems: 2147483647
+          minItems: 1
+          type: array
+          items:
+            type: string
+    ProductTagVO:
+      required:
+        - categoryId
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        iconUrl:
+          type: string
+        categoryId:
+          type: string
+        sequence:
+          type: integer
+          format: int32
+    ProductProviderVO:
+      required:
+        - categoryIds
+        - logoUrl
+        - name
+        - shortName
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        shortName:
+          type: string
+        logoUrl:
+          type: string
+        categoryIds:
+          type: array
+          items:
+            type: string
+        metaInfo:
+          $ref: "#/components/schemas/MetaInfo"
+    ProductProviderI18nDTO:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+        shortName:
+          type: string
+    ProductFilterTagVO:
+      type: object
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+        lowerValue:
+          type: integer
+          format: int32
+        higherValue:
+          type: integer
+          format: int32
+        valueSuffix:
+          type: string
+    ProductFilterTagI18nDTO:
+      type: object
+      properties:
+        value:
+          type: string
+        lowerValue:
+          minimum: 0
+          type: integer
+          format: int32
+        higherValue:
+          minimum: 0
+          type: integer
+          format: int32
+        valueSuffix:
+          type: string
+    ProductCategoryVO:
+      required:
+        - iconUrl
+        - mainFields
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+        mainFields:
+          maxItems: 6
+          minItems: 6
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductField"
+        iconUrl:
+          type: string
+        sequence:
+          type: integer
+          format: int32
+    ProductField:
+      required:
+        - description
+        - label
+      type: object
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        description:
+          type: string
+        preview:
+          type: boolean
+        fieldType:
+          type: string
+          enum:
+            - TEXT
+            - NUMERIC
+            - PERCENTAGE
+            - CURRENCY
+            - NONE
+    FilterAnswerDTO:
+      type: object
+      properties:
+        answer:
+          type: string
+        tag:
+          $ref: "#/components/schemas/ProductFilterTagDTO"
+    ProductCategoryDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        mainFields:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductField"
+        iconUrl:
+          type: string
+        tags:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductTagVO"
+        filter:
+          $ref: "#/components/schemas/ProductFilterDTO"
+        metaInfo:
+          $ref: "#/components/schemas/MetaInfo"
+        sequence:
+          type: integer
+          format: int32
+    ProductFilterCheckBoxDTO:
+      type: object
+      properties:
+        displayIndex:
+          type: integer
+          format: int32
+        label:
+          type: string
+        tag:
+          $ref: "#/components/schemas/ProductFilterTagDTO"
+    ProductFilterDTO:
+      type: object
+      properties:
+        productFilterQnAs:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductFilterQnADTO"
+        productFilterRanges:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductFilterRangeDTO"
+        productFilterCheckBoxes:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductFilterCheckBoxDTO"
+    ProductFilterQnADTO:
+      type: object
+      properties:
+        displayIndex:
+          type: integer
+          format: int32
+        question:
+          type: string
+        answers:
+          type: array
+          items:
+            $ref: "#/components/schemas/FilterAnswerDTO"
+        answerType:
+          type: string
+          enum:
+            - MULTIPLE
+            - SINGLE
+    ProductFilterRangeDTO:
+      type: object
+      properties:
+        displayIndex:
+          type: integer
+          format: int32
+        label:
+          type: string
+        lower:
+          type: integer
+          format: int32
+        higher:
+          type: integer
+          format: int32
+        suffix:
+          type: string
+        tags:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductFilterTagDTO"
+    ProductFilterTagDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+        lowerValue:
+          type: integer
+          format: int32
+        higherValue:
+          type: integer
+          format: int32
+        valueSuffix:
+          type: string
+    ProductCategoryI18nDTO:
+      required:
+        - mainFields
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+        mainFields:
+          maxItems: 6
+          minItems: 6
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductField"
+    FilterAnswerVO:
+      required:
+        - answer
+      type: object
+      properties:
+        answer:
+          type: string
+        tagId:
+          type: string
+    ProductFilterCheckBoxVO:
+      required:
+        - displayIndex
+        - label
+      type: object
+      properties:
+        displayIndex:
+          minimum: 0
+          type: integer
+          format: int32
+        label:
+          type: string
+        tagId:
+          type: string
+    ProductFilterQnAVO:
+      required:
+        - answerType
+        - displayIndex
+        - question
+      type: object
+      properties:
+        displayIndex:
+          minimum: 0
+          type: integer
+          format: int32
+        question:
+          type: string
+        answers:
+          type: array
+          items:
+            $ref: "#/components/schemas/FilterAnswerVO"
+        answerType:
+          type: string
+          enum:
+            - MULTIPLE
+            - SINGLE
+    ProductFilterRangeVO:
+      required:
+        - displayIndex
+        - higher
+        - label
+        - lower
+        - suffix
+      type: object
+      properties:
+        displayIndex:
+          minimum: 0
+          type: integer
+          format: int32
+        label:
+          type: string
+        lower:
+          minimum: 0
+          type: integer
+          format: int32
+        higher:
+          minimum: 0
+          type: integer
+          format: int32
+        suffix:
+          type: string
+        tagIds:
+          maxItems: 2147483647
+          minItems: 1
+          type: array
+          items:
+            type: string
+    ProductFilterVO:
+      type: object
+      properties:
+        productFilterQnAs:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductFilterQnAVO"
+        productFilterRanges:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductFilterRangeVO"
+        productFilterCheckBoxes:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductFilterCheckBoxVO"
+    ProductVO:
+      required:
+        - additionalText
+        - categoryId
+        - description
+        - howToApply
+        - imageUrl
+        - mainFields
+        - name
+        - previewText
+        - providerId
+        - thumbnailUrl
+      type: object
+      properties:
+        id:
+          type: string
+        categoryId:
+          type: string
+        providerId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        previewText:
+          type: string
+        additionalText:
+          type: string
+        howToApply:
+          type: string
+        mainFields:
+          type: object
+          additionalProperties:
+            type: string
+        imageUrl:
+          type: string
+        thumbnailUrl:
+          type: string
+        productTags:
+          type: array
+          items:
+            type: string
+        filterTags:
+          type: array
+          items:
+            type: string
+        metaInfo:
+          $ref: "#/components/schemas/MetaInfo"
+    ProductI18nDTO:
+      required:
+        - additionalText
+        - description
+        - howToApply
+        - mainFields
+        - name
+        - previewText
+      type: object
+      properties:
+        howToApply:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        previewText:
+          type: string
+        additionalText:
+          type: string
+        mainFields:
+          type: object
+          additionalProperties:
+            type: string
+    GuidebookVO:
+      required:
+        - authorId
+        - fullText
+        - iconUrl
+        - imageUrl
+        - name
+        - previewText
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        imageUrl:
+          type: string
+        iconUrl:
+          type: string
+        previewText:
+          type: string
+        fullText:
+          type: string
+        authorId:
+          type: string
+        metaInfo:
+          $ref: "#/components/schemas/MetaInfo"
+    GuidebookI18nDTO:
+      required:
+        - fullText
+        - name
+        - previewText
+      type: object
+      properties:
+        name:
+          type: string
+        previewText:
+          type: string
+        fullText:
+          type: string
+    FaqTagVO:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    FaqVO:
+      required:
+        - answer
+        - authorId
+        - question
+      type: object
+      properties:
+        id:
+          type: string
+        question:
+          type: string
+        answer:
+          type: string
+        authorId:
+          type: string
+        faqTagIds:
+          type: array
+          items:
+            type: string
+        metaInfo:
+          $ref: "#/components/schemas/MetaInfo"
+    FaqI18nDTO:
+      required:
+        - answer
+        - question
+      type: object
+      properties:
+        question:
+          type: string
+        answer:
+          type: string
+    ExpertVO:
+      required:
+        - aboutText
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        aboutText:
+          type: string
+        iconUrl:
+          type: string
+        areasOfExpertise:
+          type: array
+          items:
+            type: string
+        metaInfo:
+          $ref: "#/components/schemas/MetaInfo"
+    ExpertI18nDTO:
+      required:
+        - aboutText
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+        aboutText:
+          type: string
+    CmsUserCreateDTO:
+      required:
+        - email
+        - name
+        - role
+      type: object
+      properties:
+        email:
+          type: string
+        role:
+          type: string
+          enum:
+            - INTERNAL_EDITOR
+            - INTERNAL_PUBLISHER
+            - EXTERNAL_EDITOR
+            - EXTERNAL_PUBLISHER
+        providerId:
+          type: string
+        name:
+          type: string
+    TailoredNotificationVO:
+      required:
+        - body
+        - type
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - HEALTH_CONNECTION_REMINDER
+            - PROFILE_COMPLETION_REMINDER
+            - REWARD_REDEMPTION_REMINDER
+            - REVIEW_REMINDER
+        body:
+          type: string
+    QuestionSearchDTO:
+      required:
+        - searchTerm
+      type: object
+      properties:
+        searchTerm:
+          type: string
+    PushNotificationDTO:
+      required:
+        - body
+        - notificationType
+        - title
+      type: object
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        notificationType:
+          type: string
+          enum:
+            - NEW_GUIDEBOOK
+            - NEW_REWARD
+            - NEW_PRODUCT
+            - NEW_FAQ
+            - READ_FAQ
+            - UNLOCK_POINTS
+            - REFER_FRIENDS
+        deeplinkId:
+          type: string
+    ProductSearchDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        providerId:
+          type: string
+        categoryId:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        filterTags:
+          type: array
+          items:
+            type: string
+        answers:
+          type: array
+          items:
+            $ref: "#/components/schemas/QnA"
+    QnA:
+      type: object
+      properties:
+        question:
+          type: string
+        answer:
+          type: string
+    GuidebookSearchDTO:
+      type: object
+      properties:
+        authorId:
+          type: string
+        name:
+          type: string
+    GuidebookSummaryDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        iconUrl:
+          type: string
+    FaqSearchDTO:
+      type: object
+      properties:
+        authorId:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+    AssetlDTO:
+      type: object
+      properties:
+        url:
+          type: string
+    EntityReferenceDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        id:
+          type: string
+        label:
+          type: string
+        published:
+          type: boolean
+    ProductCategorySummaryDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        iconUrl:
+          type: string
+    ExpertSummaryDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        iconUrl:
+          type: string
+        categoryIds:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    daleel_cms:
+      type: http
+      scheme: bearer

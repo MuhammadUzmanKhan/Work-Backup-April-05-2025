@@ -1,0 +1,257 @@
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.blur-background {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.hubspot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px 200px 0px 200px;
+  height: 90vh;
+}
+
+.top-img {
+  margin: 50px 0px;
+}
+
+.map-button {
+  margin-top: 50px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.map-button:hover {
+  background-color: #555;
+  color: white;
+}
+
+.map-button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.pipeline-container, .stage-container {
+  width: 50%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hubspot-details {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 20px;
+  width: 350px;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .detail-top {
+    display: flex;
+    margin-bottom: 20px;
+
+    h2 {
+      margin: 0px auto;
+      color: #ff7a59 !important;
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
+
+  .detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+
+    .label {
+      color: #666;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .value {
+      color: #333;
+    font-size: 12px;
+    }
+  }
+
+  .detail-button-hubspot {
+    display: flex;
+    justify-content: center;
+    margin-top: 72px;
+
+    button {
+      padding: 5px 10px;
+      border: 1px solid #555;
+      color: #555;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 12px;
+      &:hover {
+        background-color:  #ff7a59;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.hubspot-step-1{
+  margin-top: 30px;
+  padding: 20px;
+  max-height: 70vh;
+  overflow: scroll;
+
+  .logos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+}
+
+.hub-next-item {
+  border-width: 0;
+  width: 200px;
+  color: white;
+
+  > span {
+    position: relative;
+    color: white;
+  }
+
+  &::before {
+    content: '';
+    background: linear-gradient(135deg, #6253E1, #04BEFE);
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+    transition: all 0.3s;
+    border-radius: inherit;
+  }
+
+  &:hover {
+    color: white;
+
+    &::before {
+      opacity: 1;
+      background: linear-gradient(135deg, #04BEFE, #6253E1);
+    }
+  }
+}
+
+.step-3-div{
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.integration-container-hubspot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.integration-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.integration-img {
+  width: 30px;
+  height: 30px;
+}
+
+.integration-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+.integration-list li {
+  margin: 5px 0;
+}
+
+.integration-list b {
+  font-weight: 600;
+  color: #0073e6;
+}
+
+.step-navigation {
+  display: flex;
+  border-bottom: 2px solid #e8e8e8;
+  margin-bottom: 20px;
+}
+
+.step-navigation button {
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0%;
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.step-navigation .active {
+  border-color: #1890ff;
+  color: #1890ff;
+  font-weight: bold;
+}
+

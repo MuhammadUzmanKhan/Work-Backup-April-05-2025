@@ -1,0 +1,26 @@
+.property-title{
+  padding: 20px 10px;
+  background-color: #484b6a; 
+  color: #FFF !important;
+  border-radius: 10px;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: 10px;
+
+  .field{
+    flex: 1;
+    padding: 0px 15px;
+
+    i{
+      color: #666;
+    }
+  }
+  .field-title {
+    font-weight: bold;
+  }
+
+}

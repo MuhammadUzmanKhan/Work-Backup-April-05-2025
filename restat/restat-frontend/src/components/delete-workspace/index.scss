@@ -1,0 +1,35 @@
+.time-segment {
+  display: flex;
+  align-items: center;
+}
+
+.time-value {
+  position: relative;
+  display: inline-block;
+  background-color: #fff;
+  color: red;
+  padding: 10px 15px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin: 0 8px;
+  overflow: hidden;
+  perspective: 1000px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ccc;
+  }
+}
+
+.separator {
+  height: 40px;
+  width: 2px;
+  background-color: #ccc;
+}

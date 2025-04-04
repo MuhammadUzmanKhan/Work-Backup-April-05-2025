@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'FF Shamel';
+    src: url('../public/fonts/ff_shamel_family_sans_one_book.woff') format('woff2'),
+        url('../public/fonts/ff_shamel_family_sans_one_book.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+[dir='rtl'] [data-id='caret-right'] {
+  transform: rotateZ(180deg);
+}
+
+[dir="rtl"] input[type=text]
+{
+  font-family: 'FF Shamel' !important;
+}
+
+.Toastify__toast-container--bottom-center {
+  top:50%
+}

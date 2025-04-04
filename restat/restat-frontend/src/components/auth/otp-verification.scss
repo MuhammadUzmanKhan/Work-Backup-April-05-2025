@@ -1,0 +1,134 @@
+.otp-verification {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+
+  &__left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #007bff;
+    color: #ffffff;
+    text-align: center;
+
+    &__logo img {
+      width: 150px;
+      margin-bottom: 1rem;
+    }
+
+    &__description {
+      max-width: 400px;
+
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
+  }
+  
+  .otp-verification_heading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color:gold;
+    padding: 20px;
+  }
+
+  &__right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+
+    .otp_header{
+      position: absolute;
+      top: 50px;
+    }
+
+    .otp-verification__button {
+      width: 50%;
+      background-color: #007bff;
+      border: none;
+      margin: 10px;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &:disabled {
+        background-color: #999;
+      }
+    }
+
+  }
+
+  &__card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem 2rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    h2 {
+      font-size: 1.75rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    &__subtitle {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    .otp-verification__phone {
+      padding: 10px; /* Padding around the text */
+      font-size: 16px; /* Font size */
+      color: #333; /* Text color */
+      background-color: #f9f9f9; /* Light background for contrast */
+      border: 1px solid #ccc; /* Border to define the area */
+      border-radius: 5px; /* Rounded corners */
+      margin: 10px 0; /* Margin above and below the element */
+      display: inline-block; /* Allows padding and margin to apply correctly */
+      text-align: center; /* Center align text */
+    }
+
+    &__input {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      font-size: 1.125rem;
+      text-align: center;
+
+      input {
+        text-align: center;
+      }
+    }
+
+    &__button {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &:disabled {
+        background-color: #999;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

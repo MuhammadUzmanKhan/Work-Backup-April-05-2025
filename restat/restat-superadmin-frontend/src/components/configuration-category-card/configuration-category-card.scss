@@ -1,0 +1,39 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.custom-card {
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .ant-card-body {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .ant-card-meta-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff !important;
+        margin-bottom: 10px;
+    }
+
+    .ant-card-meta-description {
+        font-size: 1rem;
+        color: #ddd;
+    }
+
+}

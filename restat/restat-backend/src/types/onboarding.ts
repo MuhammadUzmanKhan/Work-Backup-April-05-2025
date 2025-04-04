@@ -1,0 +1,15 @@
+export enum IOnboardingStepType {
+    addYourTeam = "addYourTeam",
+    buildYourPortfolio = "buildYourPortfolio",
+    createCustomTemplates = "createCustomTemplates",
+    connectYourProfiles = "connectYourProfiles",
+    expandYourReach = "expandYourReach",
+    speedUpYourWorkflow = "speedUpYourWorkflow",
+    syncYourBids = "syncYourBids",
+    efficientDealsManagement = "efficientDealsManagement",
+    automateYourWorkflow = "automateYourWorkflow",
+    centralizeContactInformation = "centralizeContactInformation",
+    streamlineYourProspecting = "streamlineYourProspecting",
+    manageBusinessProfileSettings = "manageBusinessProfileSettings",
+    analyzeYourPerformance = "analyzeYourPerformance",
+}

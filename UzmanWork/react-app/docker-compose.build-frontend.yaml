@@ -1,0 +1,24 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+      args:
+        - RUN_AS=production
+        - BACKEND_EXPOSED_PORT=${BACKEND_EXPOSED_PORT:?error}
+        - FRONTEND_PORT=5173
+        - ENVIRONMENT_NAME=${ENVIRONMENT_NAME:?error}
+        - WEB_APP_URL=${WEB_APP_URL:?error}
+        - DOMAIN=${DOMAIN:?error}
+        - AUTH0_DOMAIN=${AUTH0_DOMAIN:?error}
+        - AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID:?error}
+        - AUTH0_CALLBACK_URL=${AUTH0_CALLBACK_URL:?error}
+        - AUTH0_CLIENT_ID_NATIVE=${AUTH0_CLIENT_ID_NATIVE:?error}
+        - AUTH0_CALLBACK_URL_NATIVE=${AUTH0_CALLBACK_URL_NATIVE:?error}
+        - AUTH0_AUDIENCE=coram.ai
+        - SENTRY_APP_DSN=${SENTRY_APP_DSN}
+        - VERSION=${VERSION:?error}
+        - BRIVO_HOST=${BRIVO_HOST:?error}
+        - BRIVO_CLIENT_ID=${BRIVO_CLIENT_ID:?error}
+        - INTERCOM_APP_ID=${INTERCOM_APP_ID:?error}
+        - DEVICES_MANAGERS_EMAILS=${DEVICES_MANAGERS_EMAILS:?error}

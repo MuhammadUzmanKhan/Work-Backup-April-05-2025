@@ -1,0 +1,35 @@
+{
+  "name": "incident",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/incident/src",
+  "projectType": "application",
+  "tags": [],
+  "lint": {
+    "executor": "@nx/eslint:lint",
+    "outputs": ["{options.outputFile}"],
+    "options": {
+      "lintFilePatterns": ["apps/incident/src/modules/incident/**/*.ts"],
+      "eslintConfig": "eslint.config.js"
+    }
+  },
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "inspect": false,
+        "buildTarget": "incident:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "incident:build:development"
+        },
+        "production": {
+          "buildTarget": "incident:build:production"
+        }
+      }
+    }
+  }
+}

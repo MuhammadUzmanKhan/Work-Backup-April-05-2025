@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="./img/ON-Iogo.svg">
+    <!-- <link rel="stylesheet" href="../../css/bootstrap.css"> -->
+    <!-- <link rel="stylesheet" href="../../css/styleguide.css">
+    <link rel="stylesheet" href="../../css/style.css"> -->
+    <!-- <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script> -->
+    <title> Map View </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body style="font-family: 'Roboto', sans-serif; color: #141414;">
+    <div class="mainpage" style="display: flex; flex-direction: column; height: 100vh; justify-content: space-between; background-color: #fff;">
+        <div>
+            <header class="dashboard-header" style="background-color: #0794EC; padding:14px 10px; width: 100%; ">
+                <div style="float: left; width: 30%;display: flex;">
+                    <img src="https://i.postimg.cc/fyLpRNQd/On-Track-Tech-Group-Main-Logo-Dark.png" alt="">
+                </div>
+                <div style="text-align: right; font-size: 12px;">Companies / Sub Companies Records Report</div>
+            </header>
+            <div class="in-content" style="padding: 0 30px; width: 100%; margin: auto;">
+               <p style="font-size: 12px;padding-top: 18px; padding-bottom: 10px;">Companies / Sub Companies: {{totalCompanies}} Records</p>
+               <div>
+                    <p style="font-size:12px; background-color: #F5F6FA;padding: 5px; margin: 0;">Notes Log: {{data.length}} Records</p>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <td style="width: 25%; text-align: center; color: #0794EC; font-size: 12px;background-color: #F5F6FA; padding: 6px; border-bottom: 1px solid #000 !important; border: 1px solid #F5F6FA;">Company</td>
+                                <td style="width: 25%; text-align: center; color: #0794EC; font-size: 12px;background-color: #F5F6FA;padding: 6px; border-bottom: 1px solid #000 !important; border: 1px solid #F5F6FA;">Country</td>
+                                <td style="width: 25%; text-align: center; color: #0794EC; font-size: 12px;background-color: #F5F6FA;padding: 6px; border-bottom: 1px solid #000 !important; border: 1px solid #F5F6FA;">Parnet</td>
+                                <td style="width: 25%; text-align: center; color: #0794EC; font-size: 12px;background-color: #F5F6FA;padding: 6px; border-bottom: 1px solid #000 !important; border: 1px solid #F5F6FA;">Sub Companies</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each data}}
+                            <tr>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">{{company}}</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">{{country}}</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">{{parent}}</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">{{subcompanies}}</td>
+                            </tr>
+                            {{/each}}
+                            {{!-- <tr>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;"> OTG Global</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">India</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">--</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">6</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;"> OTG Global</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">India</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">--</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">6</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;"> OTG Global</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">India</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">--</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">6</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;"> OTG Global</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">India</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">--</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; color: #141414; padding: 6px;">6</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; padding: 6px; color: #141414;"> OTG Global</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; padding: 6px; color: #141414;">India</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; padding: 6px; color: #141414;">--</td>
+                                <td style="text-align: center;border: 1px solid #000; font-size: 10px; padding: 6px; color: #141414;">6</td>
+                            </tr> --}}
+                        </tbody>
+                    </table>
+               </div>
+            </div>
+        </div>
+        
+        <footer style="width: 100%; display: flex; padding: 0 30px 15px 30px;margin:0 auto;">
+            <div class="copyright" style="width: 33.3%; text-align: left;font-size: 10px;"><a href="" style="color: #141414; text-decoration: none;">Strictly Private & Confidential</a> </div>
+            <div class="copyright" style="width: 33.3%;text-align: center; display: flex; align-items: center;justify-content: center;"><img style="width: 86px;" src="https://i.postimg.cc/fyLpRNQd/On-Track-Tech-Group-Main-Logo-Dark.png" alt=""></div>
+            <div class="copyright" style="width: 33.3%; text-align: right;font-size: 10px;">1 of 1</div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        feather.replace()
+    </script>
+</body>
+
+</html>

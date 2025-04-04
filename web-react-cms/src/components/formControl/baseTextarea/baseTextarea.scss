@@ -1,0 +1,35 @@
+.base-textarea {
+  position: relative;
+
+  &--input {
+    border: 1px solid #29173b;
+    box-sizing: border-box;
+    border-radius: 12px;
+    width: 100%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #29173b;
+    padding: 8px 29px 8px 9px;
+    outline: none;
+    margin: 9px 0 0 0;
+
+    &:focus {
+      border-color: #29173b;
+    }
+  }
+
+  &.error {
+    .base-textarea--input {
+      border-color: #c86b6d;
+    }
+  }
+
+  &--error-text {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}

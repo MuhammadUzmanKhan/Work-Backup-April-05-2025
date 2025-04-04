@@ -1,0 +1,53 @@
+x-common-config: &common-config
+  restart: always
+  logging:
+    driver: journald
+
+services:
+  backend:
+    image: ghcr.io/orcamobility/orca.logistics-app.backend:${GIT_SHA}
+    <<: *common-config
+    volumes:
+      - ./backend/secrets.env:/app/backend/secrets.env:ro
+    deploy:
+      mode: replicated
+      replicas: ${BACKEND_APP_REPLICAS:?error}
+      resources:
+        limits:
+          cpus: "${BACKEND_APP_CPU_PER_REPLICA:?error}"
+  backend_edge:
+    image: ghcr.io/orcamobility/orca.logistics-app.backend_edge:${GIT_SHA}
+    <<: *common-config
+    volumes:
+      - ./backend/secrets.env:/app/backend/secrets.env:ro
+    deploy:
+      mode: replicated
+      replicas: ${BACKEND_EDGE_REPLICAS:?error}
+      resources:
+        limits:
+          cpus: "${BACKEND_EDGE_CPU_PER_REPLICA:?error}"
+
+  frontend:
+    image: ghcr.io/orcamobility/orca.logistics-app.frontend:${ENVIRONMENT_NAME}-${GIT_SHA}
+    <<: *common-config
+  task_worker:
+    image: ghcr.io/orcamobility/orca.logistics-app.task_worker:${GIT_SHA}
+    <<: *common-config
+    volumes:
+      - ./backend/secrets.env:/app/backend/secrets.env:ro
+  task_scheduler:
+    image: ghcr.io/orcamobility/orca.logistics-app.task_worker:${GIT_SHA}
+    <<: *common-config
+    volumes:
+      - ./backend/secrets.env:/app/backend/secrets.env:ro
+  task_monitor:
+    image: ghcr.io/orcamobility/orca.logistics-app.task_worker:${GIT_SHA}
+    <<: *common-config
+    volumes:
+      - ./backend/secrets.env:/app/backend/secrets.env:ro
+  nginx:
+    <<: *common-config
+  telegraf:
+    <<: *common-config
+  message_queue:
+    <<: *common-config
